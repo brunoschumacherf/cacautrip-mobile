@@ -1,10 +1,12 @@
-import axios from 'axios';
+import { create } from 'axios';
 
-const api = axios.create({
-  baseURL: 'http://localhost:3000', // Altere para o IP da sua máquina se testar no celular físico
+const api = create({
+  baseURL: process.env.EXPO_PUBLIC_API_URL || 'http://localhost:3000',
+  timeout: 20000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export default api;
+
