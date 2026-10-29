@@ -1,3 +1,4 @@
+import ProfilePhotoEditor from './ProfilePhotoEditor';
 import { useLanguage } from '../../i18n';
 import React from 'react';
 import { router } from 'expo-router';
@@ -20,7 +21,7 @@ export default function ProfileScreen() {
     <Page title="Minha conta." subtitle="Seus dados, seus perfis e suas preferências.">
       <Notice>{notice}</Notice>
       <Card>
-        <Title translate={false}>{user.name}</Title><Muted>{user.email}</Muted>
+        <ProfilePhotoEditor /><Title translate={false}>{user.name}</Title><Muted>{user.email}</Muted>
         {user.google_connected ? <Badge>Google vinculado</Badge> : <GoogleButton linking disabled={busy} />}
         <Badge>{user.gov_verified ? 'Gov.br autenticado' : 'Identidade não autenticada'}</Badge>
         {!user.gov_verified && <><Button title="Verificar com Gov.br" disabled={busy} onPress={() => run(async () => { const response = await api.post('/me/verify_gov'); await refreshUser(); setNotice(response.data.message); })} /><Muted>Verifique sua conta para liberar o cadastro de guia e motorista.</Muted></>}

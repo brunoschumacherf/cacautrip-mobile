@@ -1,3 +1,4 @@
+import UserAvatar from './UserAvatar';
 import React from 'react';
 import { LocalizedText as Text } from '../i18n';
 import { ActivityIndicator, Image, RefreshControl, ScrollView, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
@@ -53,7 +54,7 @@ export function Shortcut({ title, subtitle, icon, href, disabled = false }) {
 }
 const touristNav = [ ['/', 'Explorar', 'compass-outline'], ['/roteiros', 'Roteiros', 'map-outline'], ['/sustentabilidade', 'Eco', 'leaf-outline'], ['/reservas', 'Reservas', 'calendar-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
 const professionalNav = [ ['/profissional', 'Painel', 'grid-outline'], ['/agenda', 'Agenda', 'calendar-outline'], ['/carteira', 'Carteira', 'wallet-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
-export function Page({ title, subtitle, children, loading = false, error, onRefresh, refreshing = false }) {
+export function Page({ title, subtitle, children, loading = false, error, onRefresh, refreshing = false, scrollRef }) {
   const { user } = useSession();
   const { t } = useLanguage();
   const path = usePathname();
@@ -67,7 +68,7 @@ export function Page({ title, subtitle, children, loading = false, error, onRefr
         <View style={s.row}>
           <LanguageSelector compact />
           <TouchableOpacity accessibilityLabel={t('Notificações')} style={s.iconButton} onPress={() => router.push('/notificacoes')}><Ionicons name="notifications-outline" size={22} color={colors.orange} /></TouchableOpacity>
-          <TouchableOpacity accessibilityLabel={t('Minha conta')} style={s.iconButton} onPress={() => router.push('/perfil')}><Ionicons name="person-circle-outline" size={26} color={colors.orange} /></TouchableOpacity>
+          <TouchableOpacity accessibilityLabel={t('Minha conta')} style={s.iconButton} onPress={() => router.push('/perfil')}><UserAvatar user={user} size={34} /></TouchableOpacity>
         </View>
       </View>
       {path !== '/emergencia' && (
@@ -77,7 +78,7 @@ export function Page({ title, subtitle, children, loading = false, error, onRefr
           <Ionicons name="chevron-forward" size={18} color={colors.danger} />
         </TouchableOpacity>
       )}
-      <ScrollView contentContainerStyle={s.body} keyboardShouldPersistTaps="handled" refreshControl={onRefresh ? <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.orange} /> : undefined}>
+      <ScrollView ref={scrollRef} contentContainerStyle={s.body} keyboardShouldPersistTaps="handled" refreshControl={onRefresh ? <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.orange} /> : undefined}>
         {!isMain && <TouchableOpacity onPress={() => router.canGoBack() ? router.back() : router.replace('/')} style={s.back}><Ionicons name="arrow-back" size={18} color={colors.orange} /><Text style={s.account}>Voltar</Text></TouchableOpacity>}
         <Text style={s.eyebrow}>{user?.active_role === 'tourist' ? 'COSTA DO CACAU · BAHIA' : `ÁREA ${statusLabel(user?.active_role).toUpperCase()}`}</Text>
         <Text style={s.heading}>{title}</Text>{Boolean(subtitle) && <Muted>{subtitle}</Muted>}

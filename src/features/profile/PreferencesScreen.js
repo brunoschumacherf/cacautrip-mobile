@@ -1,3 +1,4 @@
+import ProfilePhotoEditor from './ProfilePhotoEditor';
 import { useLanguage } from '../../i18n';
 import React, { useState } from 'react';
 import { Button, Card, Field, Notice, Page, Title, Toggle } from '../../components/ui';
@@ -16,7 +17,7 @@ export default function PreferencesScreen() {
     await api.patch('/me', { name, email, preferences }); await refreshUser(); setNotice('Dados atualizados.');
   });
   return <Page title="Dados e preferências."><Notice>{notice}</Notice><Card>
-    <LanguageSelector /><Title>Seus dados</Title><Field label="Nome completo" value={form.name} onChangeText={update('name')} />
+    <LanguageSelector /><ProfilePhotoEditor /><Title>Seus dados</Title><Field label="Nome completo" value={form.name} onChangeText={update('name')} />
     <Field label="E-mail" value={form.email} onChangeText={update('email')} autoCapitalize="none" keyboardType="email-address" />
     <Title>Sua viagem</Title><Field label="Região de preferência" value={form.region} onChangeText={update('region')} />
     <Field label="Interesses" hint="Ex.: praias, trilhas, chocolate, gastronomia" value={form.interests} onChangeText={update('interests')} />

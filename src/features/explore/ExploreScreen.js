@@ -1,10 +1,11 @@
 import { useLanguage } from '../../i18n';
-import React, { useDeferredValue, useState } from 'react';
+import React, { useDeferredValue, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import * as Location from 'expo-location';
 import { Badge, Button, Card, Empty, Field, Muted, Notice, Page, Photo, Section, Shortcut, Title, money, s } from '../../components/ui';
 import ServiceMap from '../../components/ServiceMap';
+import DestinationBanners from './DestinationBanners';
 import { useAction, useResource } from '../../hooks/useResource';
 import { useSession } from '../../context/SessionContext';
 import { ecoDiscount } from '../sustainability/EcoRewards';
@@ -13,6 +14,11 @@ export default function ExploreScreen() {
   useLanguage();
   const { user } = useSession();
   const params = useLocalSearchParams();
+  const pageScroll = useRef(null), explorePosition = useRef(0);
+  const explore = (category = '') => {
+    setFilters(current => ({ ...current, query: '', category, page: 1 }));
+    pageScroll.current?.scrollTo({ y: Math.max(0, explorePosition.current - 16), animated: true });
+  };
   const [filters, setFilters] = useState({ query: '', category: '', coords: null, page: 1 });
   const { query, category } = filters;
   const stable = useDeferredValue(filters);
@@ -30,8 +36,9 @@ export default function ExploreScreen() {
     const result = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
     updateFilter('coords', result.coords); setShowMap(true);
   });
-  return <Page title={`Olá, ${user.name.split(' ')[0]}.`} subtitle="Descubra seu próximo lugar na Costa do Cacau." loading={loading} refreshing={refreshing} error={error} onRefresh={reload}>
+  return <Page scrollRef={pageScroll} title={`Olá, ${user.name.split(' ')[0]}.`} subtitle="Descubra seu próximo lugar na Costa do Cacau." loading={loading} refreshing={refreshing} error={error} onRefresh={reload}>
     <Notice>{notice}</Notice>
+    <DestinationBanners onExploreRegion={() => explore()} />
     <Button title="Explorar trilhas e passeios dos guias" icon="trail-sign-outline" onPress={() => router.push('/trilhas')} />
     <View style={s.row}><Shortcut title="Planejar viagem" subtitle="Monte seu roteiro" icon="map-outline" href="/roteiros" /><Shortcut title="Guias e transporte" subtitle="Encontre profissionais locais" icon="people-outline" href="/profissionais" /></View>
     <Card style={{ backgroundColor: '#E1EFE3', borderColor: '#C6DAC9', marginTop: 18 }}>
@@ -42,7 +49,7 @@ export default function ExploreScreen() {
       {eco.rewards.slice(0, 2).map(reward => <View key={reward.id} style={{ borderTopWidth: 1, borderColor: '#C6DAC9', marginTop: 14, paddingTop: 12 }}><Title translate={false}>{reward.title}</Title><Muted>{ecoDiscount(reward)} · {reward.points_cost} pontos</Muted></View>)}
     </Card>
     <Button secondary icon="sparkles-outline" title="Ajude-me a escolher um passeio" onPress={() => router.push('/assistente')} />
-    <Section title="Explore a região">
+    <View onLayout={event => { explorePosition.current = event.nativeEvent.layout.y; }}><Section title="Explore a região">
       <Field label="Destino, cidade ou experiência" placeholder="O que deseja conhecer?" value={query} onChangeText={value => updateFilter('query', value)} />
       <View style={s.row}>{['', 'praia', 'trilha', 'restaurante', 'pousada', 'atração', 'passeio'].map(item => <Button secondary key={item} title={`${item === category ? '✓ ' : ''}${item || 'Todos'}`} onPress={() => updateFilter('category', item)} />)}</View>
       <View style={s.row}><Button secondary title="Perto de mim" icon="location-outline" onPress={locate} disabled={busy} /><Button secondary title={showMap ? 'Ocultar mapa' : 'Ver mapa'} icon="map-outline" onPress={() => setShowMap(!showMap)} /></View>
@@ -59,7 +66,7 @@ export default function ExploreScreen() {
         <Muted>Página {pagination.page} de {pagination.total_pages}</Muted>
         <Button secondary title="Próxima" disabled={changingPage || !pagination.has_next} onPress={() => setFilters(current => ({ ...current, page: pagination.page + 1 }))} />
       </View>}
-    </Section>
+    </Section></View>
     {data.alerts.length > 0 && <Section title="Antes de sair">{data.alerts.slice(0, 3).map(alert => <Card key={alert.id}><Title translate={false}>{alert.title}</Title><Muted>{alert.body}</Muted></Card>)}</Section>}
   </Page>;
 }

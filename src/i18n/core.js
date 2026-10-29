@@ -4,6 +4,7 @@ let currentLanguage = 'pt-BR';
 export const locale = () => ({ 'pt-BR': 'pt-BR', en: 'en-US', es: 'es-ES' }[currentLanguage]);
 export function activateLanguage(language) { currentLanguage = languages.some(item => item.code === language) ? language : 'pt-BR'; }
 const patterns = [
+  [/^Ligar (.+)$/, 'Call {0}', 'Llamar {0}'],
   [/^Pagamento da reserva #(\d+)$/, 'Payment for booking #{0}', 'Pago de la reserva #{0}'],
   [/^Pagamento Pix · Referência #(\d+)$/, 'Pix payment · Reference #{0}', 'Pago Pix · Referencia #{0}'],
   [/^(\d+) avaliações$/, '{0} reviews', '{0} valoraciones'],
