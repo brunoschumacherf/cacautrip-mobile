@@ -31,7 +31,7 @@ export function SessionProvider({ children }) {
       const result = await api.get('/me'); if (mounted) setUser(normalizeUser(result.data));
     }).catch(() => { delete api.defaults.headers.common.Authorization; }).finally(() => { if (mounted) setReady(true); });
     const interceptor = api.interceptors.response.use(response => response, error => {
-      if (error.response?.status === 401 && !['/login', '/signup'].includes(error.config?.url)) logout().catch(() => {});
+      if (error.response?.status === 401 && !['/login', '/signup', '/auth/google/finish'].includes(error.config?.url)) logout().catch(() => {});
       return Promise.reject(error);
     });
     return () => { mounted = false; api.interceptors.response.eject(interceptor); };
@@ -42,7 +42,13 @@ export function SessionProvider({ children }) {
     try { await storage.set(result.data.token); await refreshUser(); }
     catch (error) { await logout(); throw error; }
   }, [refreshUser, logout]);
-  const value = useMemo(() => ({ user, ready, login, logout, refreshUser }), [user, ready, login, logout, refreshUser]);
+  const finishGoogle = useCallback(async credentials => {
+    const result = await api.post('/auth/google/finish', credentials);
+    api.defaults.headers.common.Authorization = `Bearer ${result.data.token}`;
+    try { await storage.set(result.data.token); return await refreshUser(); }
+    catch (error) { await logout(); throw error; }
+  }, [refreshUser, logout]);
+  const value = useMemo(() => ({ user, ready, login, finishGoogle, logout, refreshUser }), [user, ready, login, finishGoogle, logout, refreshUser]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 export function useSession() {

@@ -5,6 +5,7 @@ import { Badge, Button, Card, Muted, Notice, Page, Section, Shortcut, Title, s }
 import { useSession } from '../../context/SessionContext';
 import { useAction } from '../../hooks/useResource';
 import api from '../../services/api';
+import GoogleButton from '../../components/GoogleButton';
 
 export default function ProfileScreen() {
   const { user, refreshUser, logout } = useSession();
@@ -18,6 +19,7 @@ export default function ProfileScreen() {
       <Notice>{notice}</Notice>
       <Card>
         <Title>{user.name}</Title><Muted>{user.email}</Muted>
+        {user.google_connected ? <Badge>Google vinculado</Badge> : <GoogleButton linking disabled={busy} />}
         <Badge>{user.gov_verified ? 'Gov.br autenticado' : 'Identidade não autenticada'}</Badge>
         {!user.gov_verified && <><Button title="Verificar com Gov.br" disabled={busy} onPress={() => run(async () => { const response = await api.post('/me/verify_gov'); await refreshUser(); setNotice(response.data.message); })} /><Muted>Verifique sua conta para liberar o cadastro de guia e motorista.</Muted></>}
         <Button secondary title="Editar dados e preferências" icon="settings-outline" onPress={() => router.push('/preferencias')} />
@@ -43,5 +45,6 @@ export default function ProfileScreen() {
     </Page>
   );
 }
+
 
 
