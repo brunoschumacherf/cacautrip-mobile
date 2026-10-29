@@ -63,3 +63,4 @@ export default function TrailEditor() {
   const params = useLocalSearchParams();
   return params.id ? <Existing id={params.id} /> : <Editor initial={null} />;
 }
+

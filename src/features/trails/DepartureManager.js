@@ -1,3 +1,4 @@
+import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
 import { router } from 'expo-router';
 import { Text } from 'react-native';
@@ -36,7 +37,7 @@ export default function DepartureManager({ trailId, defaultMeeting }) {
       <Field label="Orientações para a saída" value={form.notes} onChangeText={update('notes')} multiline />
       <Button title="Abrir datas e vagas" disabled={busy} onPress={create} />
     </Card>
-    {asArray(data.departures).map(item => <Card key={item.id}><Badge>{{ scheduled: 'Programada', cancelled: 'Cancelada', finished: 'Finalizada' }[item.status]}</Badge><Title>{departureDate(item.starts_at)}</Title><Text>{item.capacity - item.available_seats} vagas reservadas · {item.available_seats} livres</Text><Muted>{item.meeting_point} · {money(item.unit_price)}</Muted><Muted>{item.notes}</Muted>
+    {asArray(data.departures).map(item => <Card key={item.id}><Badge>{{ scheduled: 'Programada', cancelled: 'Cancelada', finished: 'Finalizada' }[item.status]}</Badge><Title>{departureDate(item.starts_at)}</Title><Text style={ct.text}>{item.capacity - item.available_seats} vagas reservadas · {item.available_seats} livres</Text><Muted>{item.meeting_point} · {money(item.unit_price)}</Muted><Muted>{item.notes}</Muted>
       <Button secondary title="Ver participantes" disabled={busy} onPress={() => run(async () => { const result = await api.get(`/trail_departures/${item.id}/participants`); setRoster(result.data); })} />
       {item.status === 'scheduled' && <><Button secondary title="Alterar capacidade e orientações" onPress={() => setEditing({ ...item, price_override: item.price_override ?? '' })} />
         <Button secondary title="Cancelar esta saída" onPress={() => setConfirmCancel(item.id)} />
@@ -47,4 +48,5 @@ export default function DepartureManager({ trailId, defaultMeeting }) {
     {roster && <Card><Title>Participantes · {departureDate(roster.departure.starts_at)}</Title>{asArray(roster.participants).map(item => <Card key={item.booking_id}><Title>{item.name} · {item.people} pessoa(s)</Title><Muted>{statusLabel(item.status)} · {statusLabel(item.payment_status)}</Muted><Button secondary title="Abrir reserva" onPress={() => router.push({ pathname: '/reserva/[id]', params: { id: item.booking_id } })} /></Card>)}{!roster.participants.length && <Muted>Nenhuma reserva ativa nesta saída.</Muted>}<Button secondary title="Fechar participantes" onPress={() => setRoster(null)} /></Card>}
   </Section>;
 }
+
 

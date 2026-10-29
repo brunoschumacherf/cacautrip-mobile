@@ -1,3 +1,4 @@
+import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
 import { Linking, Text } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -31,9 +32,9 @@ export default function BookingDetails() {
     await api.post('/reviews', { booking_id: booking.id, rating: Number(rating), comment }); await reload(); setNotice('Avaliação publicada. Obrigado!');
   });
   return <Page title={`Reserva ${booking.id ? `#${booking.id}` : ''}.`} subtitle={professional ? 'Detalhes do atendimento' : 'Tudo sobre sua experiência'} loading={loading} error={error} onRefresh={reload} refreshing={refreshing}>
-    <Notice>{notice}</Notice>{booking.id && <>
+    <Notice>{notice}</Notice>{Boolean(booking.id) && <>
       <Badge>{statusLabel(booking.status)}</Badge>
-      <Card><Title>{professional ? booking.tourist_name : booking.professional?.name || booking.service_type}</Title><Muted>{booking.service_type}</Muted><Text>{booking.date} · {booking.people} pessoa(s)</Text><Muted>Encontro: {booking.meeting_point}</Muted>{booking.dropoff_point && <Muted>Desembarque: {booking.dropoff_point}</Muted>}{booking.conditions && <Muted>Condições: {booking.conditions}</Muted>}<Title>{money(booking.total_amount)}</Title><Muted>Pagamento: {statusLabel(booking.payment_status)}</Muted></Card>
+      <Card><Title>{professional ? booking.tourist_name : booking.professional?.name || booking.service_type}</Title><Muted>{booking.service_type}</Muted><Text style={ct.text}>{booking.date} · {booking.people} pessoa(s)</Text><Muted>Encontro: {booking.meeting_point}</Muted>{Boolean(booking.dropoff_point) && <Muted>Desembarque: {booking.dropoff_point}</Muted>}{Boolean(booking.conditions) && <Muted>Condições: {booking.conditions}</Muted>}<Title>{money(booking.total_amount)}</Title><Muted>Pagamento: {statusLabel(booking.payment_status)}</Muted></Card>
       <Section title="Próximo passo">
         {negotiating && <Card><Title>{canRespond ? 'Você recebeu uma proposta' : 'Aguardando a outra parte'}</Title><Title>{money(booking.total_amount)}</Title>
           {canRespond && <><Button title="Aceitar este valor" disabled={busy} onPress={() => run(async () => { await api.patch(`/bookings/${booking.id}/accept_offer`); await reload(); })} />
@@ -60,5 +61,7 @@ export default function BookingDetails() {
     </>}
   </Page>;
 }
+
+
 
 

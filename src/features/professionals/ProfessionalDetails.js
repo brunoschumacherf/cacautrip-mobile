@@ -1,3 +1,4 @@
+import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
 import { Text } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -28,7 +29,7 @@ export default function ProfessionalDetails({ kind }) {
     <Notice>{notice}</Notice>
     {profile.id && <>
       <Photo uri={profile.image_url} /><Badge>{type} · ★ {Number(profile.rating).toFixed(1)} ({profile.reviews_count} avaliações)</Badge>
-      <Card><Title>Conheça {profile.name}</Title><Text>{profile.description}</Text><Muted>{profile.services}</Muted><Muted>{kind === 'guide' ? `${profile.specialization} · ${profile.languages}` : `${profile.vehicle_model} · ${profile.capacity} passageiros`}</Muted>
+      <Card><Title>Conheça {profile.name}</Title><Text style={ct.text}>{profile.description}</Text><Muted>{profile.services}</Muted><Muted>{kind === 'guide' ? `${profile.specialization} · ${profile.languages}` : `${profile.vehicle_model} · ${profile.capacity} passageiros`}</Muted>
         <Muted>Gov.br autenticado{profile.documents_verified ? ' · Documentação profissional aprovada' : ''}</Muted>
         <Muted>{profile.accessible ? 'Atendimento acessível informado' : 'Combine as necessidades de acessibilidade pelo chat'}</Muted>
       </Card>
@@ -38,7 +39,7 @@ export default function ProfessionalDetails({ kind }) {
       </Section>
       <Section title="Região e roteiros atendidos"><PlaceMap points={catalog.destinations.filter(place => profile.region && place.city && profile.region.toLowerCase().includes(place.city.toLowerCase()))} /></Section>
       <Section title="Avaliações de viagens realizadas">
-        {asArray(profile.reviews).map(review => <Card key={review.id}><Title>★ {review.rating} · {review.author}</Title><Text>{review.comment}</Text><Button secondary title="Denunciar comentário" disabled={busy} onPress={() => report('Review', review.id, 'Solicito análise deste comentário por possível conteúdo inadequado.')} /></Card>)}
+        {asArray(profile.reviews).map(review => <Card key={review.id}><Title>★ {review.rating} · {review.author}</Title><Text style={ct.text}>{review.comment}</Text><Button secondary title="Denunciar comentário" disabled={busy} onPress={() => report('Review', review.id, 'Solicito análise deste comentário por possível conteúdo inadequado.')} /></Card>)}
         {!asArray(profile.reviews).length && <Muted>Este profissional ainda não recebeu avaliações.</Muted>}
       </Section>
       <Section title="Relatar um problema"><Field label="O que aconteceu?" value={reason} onChangeText={setReason} multiline maxLength={4000} /><Button secondary title="Enviar para moderação" disabled={busy || !reason.trim()} onPress={() => report('User', profile.user_id, reason)} /></Section>
@@ -46,6 +47,7 @@ export default function ProfessionalDetails({ kind }) {
     </>}
   </Page>;
 }
+
 
 
 

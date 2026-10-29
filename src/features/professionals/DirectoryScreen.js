@@ -13,7 +13,7 @@ export default function DirectoryScreen() {
   const { data, loading, error, refreshing, reload } = useResource(`/professional_profiles/${kind === 'guide' ? 'guides' : 'drivers'}?${query}`, []);
   const update = key => value => setFilters(current => ({ ...current, [key]: value }));
   return <Page title="Guias e transporte." subtitle="Escolha com quem deseja viajar." loading={loading} refreshing={refreshing} error={error} onRefresh={reload}>
-    {params.routeId && <Badge>Selecionando serviços para o roteiro #{params.routeId}</Badge>}
+    {Boolean(params.routeId) && <Badge>Selecionando serviços para o roteiro #{params.routeId}</Badge>}
     <View style={s.row}><Button secondary title={`${kind === 'guide' ? '✓ ' : ''}Guias locais`} onPress={() => setKind('guide')} /><Button secondary title={`${kind === 'driver' ? '✓ ' : ''}Motoristas`} onPress={() => setKind('driver')} /></View>
     <Field label="Nome, cidade ou especialidade" value={filters.q} onChangeText={update('q')} />
     <Button secondary title={advanced ? 'Ocultar filtros' : 'Filtrar resultados'} onPress={() => setAdvanced(!advanced)} />
@@ -22,6 +22,8 @@ export default function DirectoryScreen() {
     {!loading && !data.length && <Empty>Não encontramos profissionais com esses filtros.</Empty>}
   </Page>;
 }
+
+
 
 
 

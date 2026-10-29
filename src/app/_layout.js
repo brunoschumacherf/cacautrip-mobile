@@ -4,14 +4,16 @@ import { Stack, Redirect, useSegments } from 'expo-router';
 import { SessionProvider, useSession } from '../context/SessionContext';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ScreenBoundary from '../components/ScreenBoundary';
+import VisualStyles from '../theme/VisualStyles';
 
 function Guard() {
   const { ready, user } = useSession();
   const segments = useSegments();
-  if (!ready) return <ActivityIndicator style={{ flex: 1 }} color="#285b42" />;
+  if (!ready) return <ActivityIndicator style={{ flex: 1 }} color="#E96108" />;
   if (!user && !['login', 'compartilhar'].includes(segments[0])) return <Redirect href="/login" />;
   if (user && segments[0] === 'login') return <Redirect href={user.active_role === 'tourist' ? '/' : '/profissional'} />;
   return <Stack screenOptions={{ headerShown: false }} />;
 }
-export default function Layout() { return <SafeAreaProvider><SessionProvider><ScreenBoundary><Guard /></ScreenBoundary></SessionProvider></SafeAreaProvider>; }
+export default function Layout() { return <SafeAreaProvider><VisualStyles /><SessionProvider><ScreenBoundary><Guard /></ScreenBoundary></SessionProvider></SafeAreaProvider>; }
+
 

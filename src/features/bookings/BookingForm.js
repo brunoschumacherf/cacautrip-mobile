@@ -16,7 +16,7 @@ export default function BookingForm({ service, onClose }) {
     const response = await api.post('/bookings', { booking: { ...form, service_id: service.id, service_type: service.type, people: Number(form.people), total_amount: driver ? Number(form.total_amount.replace(',', '.')) : service.price, route_id: form.route_id || null } });
     onClose(); router.push({ pathname: '/reserva/[id]', params: { id: response.data.booking.id } });
   });
-  return <Modal transparent visible animationType="slide" onRequestClose={onClose}><View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#0008', padding: 20 }}><ScrollView style={{ maxHeight: '90%', width: '100%', maxWidth: 550, alignSelf: 'center', backgroundColor: '#fff', borderRadius: 18 }} contentContainerStyle={{ padding: 24 }} keyboardShouldPersistTaps="handled">
+  return <Modal transparent visible animationType="slide" onRequestClose={onClose}><View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#391E1680', padding: 20 }}><ScrollView style={{ maxHeight: '90%', width: '100%', maxWidth: 550, alignSelf: 'center', backgroundColor: '#FFFCF8', borderRadius: 24 }} contentContainerStyle={{ padding: 24 }} keyboardShouldPersistTaps="handled">
     <Title>{driver ? 'Proponha sua corrida' : 'Reserve seu passeio'}</Title><Muted>{service.name} · {driver ? 'O motorista poderá aceitar ou enviar outro valor.' : `Preço do guia: ${money(service.price)}`}</Muted><Notice>{notice}</Notice>
     <Field label="Data e horário (AAAA-MM-DD HH:MM)" value={form.date} onChangeText={update('date')} placeholder="2026-11-05 09:00" />
     {asArray(service.availability).map(date => <Button secondary key={date} title={`${form.date === date ? '✓ ' : ''}${date}`} onPress={() => update('date')(date)} />)}
@@ -29,4 +29,5 @@ export default function BookingForm({ service, onClose }) {
     <Button title={driver ? 'Enviar proposta ao motorista' : 'Solicitar reserva'} disabled={busy || !form.date || !form.meeting_point || (driver && !form.dropoff_point)} onPress={submit} /><Button secondary title="Voltar" onPress={onClose} disabled={busy} />
   </ScrollView></View></Modal>;
 }
+
 

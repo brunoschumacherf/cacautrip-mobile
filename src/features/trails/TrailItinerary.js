@@ -1,3 +1,4 @@
+import { ct } from '../../theme/tokens';
 import React from 'react';
 import { Linking, Text, View } from 'react-native';
 import { Badge, Button, Card, Muted, Title } from '../../components/ui';
@@ -23,7 +24,7 @@ export default function TrailItinerary({ stops = [], mode = 'ordered' }) {
     {coordinates.length > 0 && <PlaceMap points={items} ordered={mode === 'ordered'} />}
     {items.map((stop, index) => <Card key={stop.id || index}>
       <Title>{mode === 'ordered' ? `${index + 1}. ` : ''}{stop.name}</Title><Badge>{{ meeting: 'Encontro', visit: 'Visita', break: 'Pausa', finish: 'Encerramento' }[stop.kind] || 'Ponto de passagem'}{stop.optional ? ' · Opcional' : ''}</Badge>
-      <Text>{stop.address}</Text>{stop.description && <Muted>{stop.description}</Muted>}
+      <Text style={ct.text}>{stop.address}</Text>{Boolean(stop.description) && <Muted>{stop.description}</Muted>}
       <Muted>{stop.duration_minutes || 0} minutos previstos neste ponto</Muted>
       <Button secondary title="Ver este ponto no mapa" onPress={() => Linking.openURL(pointUrl(stop))} />
     </Card>)}
@@ -31,3 +32,5 @@ export default function TrailItinerary({ stops = [], mode = 'ordered' }) {
     {!!segments.length && <Muted>Os mapas mostram os pontos informados. O caminho da trilha e os acessos devem ser orientados pelo guia.</Muted>}
   </View>;
 }
+
+

@@ -30,3 +30,4 @@ export default function TrailsScreen() {
     {!loading && !data.length && <Empty>Nenhuma trilha encontrada com esses filtros.</Empty>}
   </Page>;
 }
+

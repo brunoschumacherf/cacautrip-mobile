@@ -5,3 +5,4 @@ export default function PlaceMap({ points = [], ordered = false }) {
 }
 
 
+

@@ -1,3 +1,4 @@
+import { ct } from '../../theme/tokens';
 import React, { useRef, useState } from 'react';
 import { Text } from 'react-native';
 import { Button, Card, Field, Muted, Notice, Page, Title, Toggle, money } from '../../components/ui';
@@ -12,7 +13,7 @@ export default function WithdrawalScreen() {
   const update = key => value => setForm(current => ({ ...current, [key]: value }));
   const withdraw = () => run(async () => { const result = await api.post('/wallet/payout', { ...form, reference: reference.current }); setReceipt(result.data.entry); await reload(); });
   return <Page title="Sacar." subtitle="Escolha onde deseja receber." loading={loading} error={error}><Notice>{notice}</Notice>
-    {receipt ? <Card><Title>✓ Saque solicitado</Title><Text>{money(Math.abs(receipt.amount))}</Text><Muted>{receipt.metadata?.destination?.label}</Muted><Muted>Comprovante: {receipt.reference}</Muted><Muted>Solicitado em {new Date(receipt.created_at).toLocaleString('pt-BR')}</Muted></Card> : <Card>
+    {receipt ? <Card><Title>✓ Saque solicitado</Title><Text style={ct.text}>{money(Math.abs(receipt.amount))}</Text><Muted>{receipt.metadata?.destination?.label}</Muted><Muted>Comprovante: {receipt.reference}</Muted><Muted>Solicitado em {new Date(receipt.created_at).toLocaleString('pt-BR')}</Muted></Card> : <Card>
       <Title>Disponível: {money(data.available)}</Title><Field label="Valor do saque (R$)" hint="Deixe em branco para sacar o saldo disponível." value={form.amount} onChangeText={update('amount')} keyboardType="decimal-pad" />
       <Button secondary title={`${form.destination_type === 'gov_cpf' ? '✓ ' : ''}Receber pelo CPF do Gov.br`} onPress={() => update('destination_type')('gov_cpf')} />
       <Button secondary title={`${form.destination_type === 'pix_key' ? '✓ ' : ''}Usar outra chave Pix`} onPress={() => update('destination_type')('pix_key')} />
@@ -26,4 +27,5 @@ export default function WithdrawalScreen() {
     </Card>}
   </Page>;
 }
+
 

@@ -1,3 +1,4 @@
+import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
 import { Text } from 'react-native';
 import { router } from 'expo-router';
@@ -23,8 +24,9 @@ export default function AssistantScreen() {
       <Field label="Cidade ou região" value={form.destination} onChangeText={update('destination')} /><Field label="Orçamento (R$)" value={form.budget} onChangeText={update('budget')} keyboardType="decimal-pad" /><Field label="Tempo disponível (minutos)" value={form.minutes} onChangeText={update('minutes')} keyboardType="number-pad" /><Field label="Pessoas" value={form.people} onChangeText={update('people')} keyboardType="number-pad" />
       <Toggle label="Experiências acessíveis" value={form.accessible} onChange={update('accessible')} /><Toggle label="Incluir estimativa de guia" value={form.include_guide} onChange={update('include_guide')} /><Toggle label="Incluir estimativa de transporte" value={form.include_driver} onChange={update('include_driver')} /><Button title="Encontrar alternativas" onPress={recommend} disabled={busy} />
     </Card>
-    {answer && <Section title="Sua sugestão"><Badge>Recomendação baseada no catálogo</Badge><Muted>{answer.reply}</Muted><PlaceMap points={asArray(answer.plan?.destinations)} />{asArray(answer.plan?.destinations).map(place => <Card key={place.id}><Title>{place.name}</Title><Text>{place.description}</Text><Muted>{money(place.estimated_cost)} · {place.duration_minutes} minutos</Muted><Button secondary title="Ver detalhes" onPress={() => router.push({ pathname: '/destinos/[id]', params: { id: place.id } })} /></Card>)}<Card><Title>Estimativa total: {money(answer.plan?.costs?.total)}</Title><Muted>Locais: {money(answer.plan?.costs?.places)} · Guia: {money(answer.plan?.costs?.guide)} · Transporte: {money(answer.plan?.costs?.driver)}</Muted>{asArray(answer.plan?.warnings).map(warning => <Muted key={warning}>{warning}</Muted>)}<Button title="Salvar e personalizar este roteiro" onPress={save} disabled={busy || !answer.plan?.destination_ids?.length} /></Card></Section>}
+    {answer && <Section title="Sua sugestão"><Badge>Recomendação baseada no catálogo</Badge><Muted>{answer.reply}</Muted><PlaceMap points={asArray(answer.plan?.destinations)} />{asArray(answer.plan?.destinations).map(place => <Card key={place.id}><Title>{place.name}</Title><Text style={ct.text}>{place.description}</Text><Muted>{money(place.estimated_cost)} · {place.duration_minutes} minutos</Muted><Button secondary title="Ver detalhes" onPress={() => router.push({ pathname: '/destinos/[id]', params: { id: place.id } })} /></Card>)}<Card><Title>Estimativa total: {money(answer.plan?.costs?.total)}</Title><Muted>Locais: {money(answer.plan?.costs?.places)} · Guia: {money(answer.plan?.costs?.guide)} · Transporte: {money(answer.plan?.costs?.driver)}</Muted>{asArray(answer.plan?.warnings).map(warning => <Muted key={warning}>{warning}</Muted>)}<Button title="Salvar e personalizar este roteiro" onPress={save} disabled={busy || !answer.plan?.destination_ids?.length} /></Card></Section>}
     <Button secondary title="Preciso de ajuda com uma reserva" onPress={() => router.push('/suporte')} />
   </Page>;
 }
+
 

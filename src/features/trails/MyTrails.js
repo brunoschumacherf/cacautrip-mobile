@@ -25,3 +25,4 @@ export default function MyTrails() {
     {!loading && !shown.length && <Empty>{history ? 'Nenhuma trilha arquivada.' : 'Comece criando sua primeira trilha. Depois, abra as datas para o grupo reservar.'}</Empty>}
   </Page>;
 }
+

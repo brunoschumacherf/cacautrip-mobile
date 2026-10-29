@@ -1,3 +1,4 @@
+import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
 import { Platform, Share, Text, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -38,7 +39,7 @@ export default function TripsScreen() {
     else if (typeof navigator !== 'undefined' && navigator.clipboard) { await navigator.clipboard.writeText(url); setNotice('Link copiado. O acesso pode ser revogado a qualquer momento.'); }
   });
   return <Page title="Meus roteiros." subtitle="Planeje primeiro. Depois combine os serviços para sua viagem." loading={loading} refreshing={refreshing} error={error} onRefresh={reload}>
-    <Notice>{notice}</Notice>{shared && <Card><Muted>Link público do roteiro:</Muted><Text selectable>{shared}</Text></Card>}
+    <Notice>{notice}</Notice>{Boolean(shared) && <Card><Muted>Link público do roteiro:</Muted><Text selectable style={ct.text}>{shared}</Text></Card>}
     {!form && <Button title="Criar nova rota" icon="add-outline" onPress={() => { setForm(fresh()); setPlan(null); }} />}
     {form && <Card>
       <Badge>{form.id ? 'Editar roteiro' : 'Planejar uma viagem'}</Badge>
@@ -64,7 +65,7 @@ export default function TripsScreen() {
     {trips.map(trip => <Card key={trip.id}>
       <Title>{trip.title}</Title><Muted>{trip.destination} · Orçamento {money(trip.budget)} · Estimativa {money(trip.total_estimated_cost)}</Muted>
       <PlaceMap points={asArray(trip.preferences?.itinerary).length ? trip.preferences.itinerary : catalog.destinations.filter(place => asArray(trip.preferences?.destination_ids).includes(place.id))} />
-      {asArray(trip.preferences?.itinerary).map((stop, index) => <View key={stop.id}><Text>{index + 1}. {stop.name}</Text><Muted>{stop.duration_minutes} min · {stop.opening_hours} · {stop.best_time}</Muted></View>)}
+      {asArray(trip.preferences?.itinerary).map((stop, index) => <View key={stop.id}><Text style={ct.text}>{index + 1}. {stop.name}</Text><Muted>{stop.duration_minutes} min · {stop.opening_hours} · {stop.best_time}</Muted></View>)}
       {trip.preferences?.costs && <Muted>Locais: {money(trip.preferences.costs.places)} · Guia: {money(trip.preferences.costs.guide)} · Transporte: {money(trip.preferences.costs.driver)}</Muted>}
       <Button title="Reservar guia ou transporte" onPress={() => router.push({ pathname: '/profissionais', params: { routeId: trip.id, region: trip.destination } })} />
       <Button secondary title="Reservar experiências do catálogo" onPress={() => router.push({ pathname: '/', params: { routeId: trip.id } })} />
@@ -75,4 +76,5 @@ export default function TripsScreen() {
     {!trips.length && !form && <Empty>Comece escolhendo o destino e o tempo disponível. Seu roteiro ficará salvo aqui.</Empty>}
   </Page>;
 }
+
 

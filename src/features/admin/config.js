@@ -9,3 +9,4 @@ export const numbers = ['latitude', 'longitude', 'price', 'duration_minutes', 'p
 
 
 
+
