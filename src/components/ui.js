@@ -1,3 +1,4 @@
+import BrandLogo from './BrandLogo';
 import UserAvatar from './UserAvatar';
 import React from 'react';
 import { LocalizedText as Text } from '../i18n';
@@ -64,7 +65,7 @@ export function Page({ title, subtitle, children, loading = false, error, onRefr
   return (
     <View style={s.page}>
       <View style={[s.top, { paddingTop: Math.max(insets.top, 16) }]}>
-        <TouchableOpacity onPress={() => router.replace(user?.active_role === 'tourist' ? '/' : '/profissional')}><View style={s.brandLockup}><View style={s.logo}><Ionicons name="leaf-outline" size={23} color={colors.white} /></View><Text style={s.brand}>CACAU TRIP</Text></View></TouchableOpacity>
+        <TouchableOpacity onPress={() => router.replace(user?.active_role === 'tourist' ? '/' : '/profissional')}><View style={s.brandLockup}><BrandLogo /><Text style={s.brand}>CACAU TRIP</Text></View></TouchableOpacity>
         <View style={s.row}>
           <LanguageSelector compact />
           <TouchableOpacity accessibilityLabel={t('Notificações')} style={s.iconButton} onPress={() => router.push('/notificacoes')}><Ionicons name="notifications-outline" size={22} color={colors.orange} /></TouchableOpacity>
