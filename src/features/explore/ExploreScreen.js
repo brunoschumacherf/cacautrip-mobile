@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import * as Location from 'expo-location';
 import { Badge, Button, Card, Empty, Field, Muted, Notice, Page, Photo, Section, Shortcut, Title, money, s } from '../../components/ui';
-import PlaceMap from '../../components/PlaceMap';
+import ServiceMap from '../../components/ServiceMap';
 import { useAction, useResource } from '../../hooks/useResource';
 import { useSession } from '../../context/SessionContext';
 import { ecoDiscount } from '../sustainability/EcoRewards';
@@ -44,7 +44,7 @@ export default function ExploreScreen() {
       <Field label="Destino, cidade ou experiência" placeholder="O que deseja conhecer?" value={query} onChangeText={value => updateFilter('query', value)} />
       <View style={s.row}>{['', 'praia', 'trilha', 'restaurante', 'pousada', 'atração', 'passeio'].map(item => <Button secondary key={item} title={`${item === category ? '✓ ' : ''}${item || 'Todos'}`} onPress={() => updateFilter('category', item)} />)}</View>
       <View style={s.row}><Button secondary title="Perto de mim" icon="location-outline" onPress={locate} disabled={busy} /><Button secondary title={showMap ? 'Ocultar mapa' : 'Ver mapa'} icon="map-outline" onPress={() => setShowMap(!showMap)} /></View>
-      {showMap && <PlaceMap points={data.destinations} />}
+      {showMap && <ServiceMap query={stable.query} />}
       {!loading && pagination.total > 0 && <Muted>Mostrando {(pagination.page - 1) * pagination.per_page + 1}–{Math.min(pagination.page * pagination.per_page, pagination.total)} de {pagination.total} lugares</Muted>}
       {data.destinations.map(item => <Card key={item.id}>
         <Photo uri={item.image_url} /><Badge>{item.category} · {item.city}</Badge><Title>{item.name}</Title>
@@ -61,5 +61,6 @@ export default function ExploreScreen() {
     {data.alerts.length > 0 && <Section title="Antes de sair">{data.alerts.slice(0, 3).map(alert => <Card key={alert.id}><Title>{alert.title}</Title><Muted>{alert.body}</Muted></Card>)}</Section>}
   </Page>;
 }
+
 
 

@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Badge, Button, Card, Empty, Field, Muted, Notice, Page, Photo, Section, Title, s } from '../../components/ui';
-import PlaceMap from '../../components/PlaceMap';
+import ServiceMap from '../../components/ServiceMap';
 import { useAction, useResource } from '../../hooks/useResource';
 import { useSession } from '../../context/SessionContext';
 import { ct } from '../../theme/tokens';
@@ -44,7 +44,7 @@ export default function SustainabilityScreen() {
       </Card></Section>
       <Section title="Encontre um ponto de coleta"><View style={s.row}><Button secondary title={!city ? '✓ Todas as cidades' : 'Todas as cidades'} onPress={() => setCity('')} />{data.cities.map(item => <Button key={item} secondary title={`${city === item ? '✓ ' : ''}${item}`} onPress={() => setCity(item)} />)}</View>
         <Button secondary title={map ? 'Ocultar mapa' : 'Ver pontos no mapa'} icon="map-outline" onPress={() => setMap(!map)} />
-        {map && <PlaceMap points={data.collection_points.filter(point => point.latitude != null && point.longitude != null)} />}
+        {map && <ServiceMap query={city} kinds={['collection']} filters={false} />}
         {data.collection_points.map(point => <Card key={point.id}>{Boolean(point.image_url) && <Photo uri={point.image_url} />}<Badge>{point.city}</Badge><Title>{point.name}</Title><Text style={ct.text}>{point.address}</Text><Muted>{point.description}</Muted>{Boolean(point.materials) && <Muted>Materiais aceitos: {point.materials}</Muted>}{Boolean(point.opening_hours) && <Muted>Atendimento: {point.opening_hours}</Muted>}</Card>)}
         {!loading && !data.collection_points.length && <Empty>Os pontos de coleta desta região serão publicados aqui. Confira os benefícios e acompanhe as novidades.</Empty>}
       </Section>
@@ -67,3 +67,4 @@ export default function SustainabilityScreen() {
     <RewardRedeemModal reward={reward} balance={data.balance} busy={busy} notice={notice} onClose={() => setReward(null)} onConfirm={confirm} />
   </Page>;
 }
+
