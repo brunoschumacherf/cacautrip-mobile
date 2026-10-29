@@ -47,7 +47,7 @@ export function Photo({ uri }) {
 export function Shortcut({ title, subtitle, icon, href, disabled = false }) {
   return <TouchableOpacity accessibilityRole="button" accessibilityState={{ disabled }} disabled={disabled} onPress={() => router.push(href)} style={[s.shortcut, disabled && s.disabled]}><View style={s.shortcutIcon}><Ionicons name={icon} size={24} color={colors.orange} /></View><Text style={[s.title, { fontSize: 17, lineHeight: 23 }]}>{title}</Text>{Boolean(subtitle) && <Muted>{subtitle}</Muted>}<Ionicons name="arrow-forward" size={18} color={colors.orange} /></TouchableOpacity>;
 }
-const touristNav = [ ['/', 'Explorar', 'compass-outline'], ['/roteiros', 'Roteiros', 'map-outline'], ['/reservas', 'Reservas', 'calendar-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
+const touristNav = [ ['/', 'Explorar', 'compass-outline'], ['/roteiros', 'Roteiros', 'map-outline'], ['/sustentabilidade', 'Eco', 'leaf-outline'], ['/reservas', 'Reservas', 'calendar-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
 const professionalNav = [ ['/profissional', 'Painel', 'grid-outline'], ['/agenda', 'Agenda', 'calendar-outline'], ['/carteira', 'Carteira', 'wallet-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
 export function Page({ title, subtitle, children, loading = false, error, onRefresh, refreshing = false }) {
   const { user } = useSession();

@@ -6,6 +6,7 @@ import { Badge, Button, Card, Empty, Field, Muted, Notice, Page, Photo, Section,
 import PlaceMap from '../../components/PlaceMap';
 import { useAction, useResource } from '../../hooks/useResource';
 import { useSession } from '../../context/SessionContext';
+import { ecoDiscount } from '../sustainability/EcoRewards';
 
 export default function ExploreScreen() {
   const { user } = useSession();
@@ -19,6 +20,7 @@ export default function ExploreScreen() {
   const path = `/catalog?page=${stable.page}&per_page=6&q=${encodeURIComponent(stable.query)}&category=${encodeURIComponent(stable.category)}${user.preferences.accessible ? '&accessible=true' : ''}${stable.coords ? `&latitude=${stable.coords.latitude}&longitude=${stable.coords.longitude}` : ''}`;
   const { data, error, loading, refreshing, reload } = useResource(path, { destinations: [], alerts: [], emergency_points: [], pagination: { page: 1, total_pages: 1, total: 0, per_page: 6 } });
   const pagination = data.pagination;
+  const { data: eco } = useResource('/sustainability/overview', { balance: 0, rewards: [], collection_points_count: 0 });
   const changingPage = loading || refreshing || filters !== stable;
   const locate = () => run(async () => {
     const permission = await Location.requestForegroundPermissionsAsync();
@@ -30,6 +32,13 @@ export default function ExploreScreen() {
     <Notice>{notice}</Notice>
     <Button title="Explorar trilhas e passeios dos guias" icon="trail-sign-outline" onPress={() => router.push('/trilhas')} />
     <View style={s.row}><Shortcut title="Planejar viagem" subtitle="Monte seu roteiro" icon="map-outline" href="/roteiros" /><Shortcut title="Guias e transporte" subtitle="Encontre profissionais locais" icon="people-outline" href="/profissionais" /></View>
+    <Card style={{ backgroundColor: '#E1EFE3', borderColor: '#C6DAC9', marginTop: 18 }}>
+      <Badge>SUSTENTABILIDADE · {eco.balance} pontos verdes</Badge><Title>Cuide de onde você ama viajar.</Title>
+      <Muted>Transforme suas entregas nos pontos de coleta em benefícios para aproveitar a Costa do Cacau.</Muted>
+      <View style={s.row}><Button title="Conhecer o programa" icon="leaf-outline" onPress={() => router.push('/sustentabilidade')} /><Button secondary title="Já tenho um código" icon="gift-outline" onPress={() => router.push('/sustentabilidade')} /></View>
+      {eco.collection_points_count > 0 && <Muted>{eco.collection_points_count} pontos de coleta para começar.</Muted>}
+      {eco.rewards.slice(0, 2).map(reward => <View key={reward.id} style={{ borderTopWidth: 1, borderColor: '#C6DAC9', marginTop: 14, paddingTop: 12 }}><Title>{reward.title}</Title><Muted>{ecoDiscount(reward)} · {reward.points_cost} pontos</Muted></View>)}
+    </Card>
     <Button secondary icon="sparkles-outline" title="Ajude-me a escolher um passeio" onPress={() => router.push('/assistente')} />
     <Section title="Explore a região">
       <Field label="Destino, cidade ou experiência" placeholder="O que deseja conhecer?" value={query} onChangeText={value => updateFilter('query', value)} />

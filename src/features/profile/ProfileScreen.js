@@ -35,6 +35,7 @@ export default function ProfileScreen() {
         </View>
       </Section>
       <Section title="Conta e atendimento">
+        <Button secondary title="Pontos verdes e benefícios" icon="leaf-outline" onPress={() => router.push('/sustentabilidade')} />
         <Button secondary title="Carteira e pagamentos" icon="wallet-outline" onPress={() => router.push('/carteira')} />
         <Button secondary title="Notificações" icon="notifications-outline" onPress={() => router.push('/notificacoes')} />
         <Button secondary title="Suporte e atendimento humano" icon="help-circle-outline" onPress={() => router.push('/suporte')} />
