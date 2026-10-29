@@ -5,6 +5,7 @@ import { SessionProvider, useSession } from '../context/SessionContext';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ScreenBoundary from '../components/ScreenBoundary';
 import VisualStyles from '../theme/VisualStyles';
+import { LanguageProvider } from '../i18n';
 
 function Guard() {
   const { ready, user } = useSession();
@@ -14,6 +15,7 @@ function Guard() {
   if (user && segments[0] === 'login') return <Redirect href={user.active_role === 'tourist' ? '/' : '/profissional'} />;
   return <Stack screenOptions={{ headerShown: false }} />;
 }
-export default function Layout() { return <SafeAreaProvider><VisualStyles /><SessionProvider><ScreenBoundary><Guard /></ScreenBoundary></SessionProvider></SafeAreaProvider>; }
+export default function Layout() { return <SafeAreaProvider><LanguageProvider><VisualStyles /><SessionProvider><ScreenBoundary><Guard /></ScreenBoundary></SessionProvider></LanguageProvider></SafeAreaProvider>; }
+
 
 

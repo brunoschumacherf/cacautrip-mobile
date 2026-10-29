@@ -1,6 +1,8 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
-import { Modal, ScrollView, Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { Modal, ScrollView, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Badge, Button, Card, Field, Muted, Notice, Page, Photo, Section, Title, Toggle, money } from '../../components/ui';
 import { useAction, useResource } from '../../hooks/useResource';
@@ -19,7 +21,7 @@ function Reserve({ trail, departure, onClose }) {
     onClose(); router.push({ pathname: '/reserva/[id]', params: { id: response.data.booking.id } });
   });
   return <Modal visible transparent onRequestClose={onClose} animationType="slide"><View style={{ flex: 1, backgroundColor: '#391E1680', padding: 20, justifyContent: 'center' }}><ScrollView style={{ maxHeight: '90%', width: '100%', maxWidth: 530, backgroundColor: '#FFFCF8', borderRadius: 24, alignSelf: 'center' }} contentContainerStyle={{ padding: 24 }} keyboardShouldPersistTaps="handled">
-    <Title>{trail.title}</Title><Muted>{departureDate(departure.starts_at)} · Horário da Bahia</Muted><Text style={ct.text}>Encontro: {departure.meeting_point}</Text><Muted>{departure.available_seats} vagas disponíveis</Muted><Notice>{notice}</Notice>
+    <Title translate={false}>{trail.title}</Title><Muted>{departureDate(departure.starts_at)} · Horário da Bahia</Muted><Text style={ct.text}>Encontro: {departure.meeting_point}</Text><Muted>{departure.available_seats} vagas disponíveis</Muted><Notice>{notice}</Notice>
     <Field label="Quantas pessoas vão participar?" value={people} onChangeText={setPeople} keyboardType="number-pad" /><Title>Total: {money(total)}</Title>
     <Muted>Idade mínima: {trail.minimum_age} anos. {trail.cancellation_policy}</Muted>
     <Toggle label="Li o roteiro e as condições, e os participantes atendem aos requisitos de idade e preparo." value={accepted} onChange={setAccepted} />
@@ -29,6 +31,7 @@ function Reserve({ trail, departure, onClose }) {
   </ScrollView></View></Modal>;
 }
 export default function TrailDetails() {
+  useLanguage();
   const { id } = useLocalSearchParams();
   const { user } = useSession();
   const { data: trail, loading, error, reload, refreshing } = useResource(`/trails/${Number(id)}`, { stops: [], departures: [], reviews: [] });
@@ -54,5 +57,6 @@ export default function TrailDetails() {
     </>}
   </Page>;
 }
+
 
 

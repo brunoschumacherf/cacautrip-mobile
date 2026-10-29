@@ -1,3 +1,4 @@
+import { translate } from '../i18n/core';
 import { mapIcons, iconSvg, mapPointIcon } from './mapHtml';
 import { mapDirections } from './mapActions';
 import { mapTiles } from './mapTiles';
@@ -49,18 +50,18 @@ export function mountLeaflet(L, container, { onDetails, onTileError }) {
   const popup = point => {
     const box = document.createElement('div'); box.className = 'popup-item';
     const title = document.createElement('strong'); title.textContent = point.name || point.title || 'Local'; box.appendChild(title);
-    [mapIcons[mapPointIcon(point)][0], point.address || point.city, String(point.description || '').slice(0, 220), point.phone ? `Contato: ${point.phone}` : ''].filter(Boolean).forEach(text => {
+    [translate(mapIcons[mapPointIcon(point)][0]), point.address || point.city, String(point.description || '').slice(0, 220), point.phone ? `Contato: ${point.phone}` : ''].filter(Boolean).forEach(text => {
       const line = document.createElement('p'); line.textContent = text; box.appendChild(line);
     });
     if (point.note || point.approximate || point.geocoding_approximate) {
-      const note = document.createElement('small'); note.textContent = point.note || 'Localização aproximada; confira o endereço.'; box.appendChild(note);
+      const note = document.createElement('small'); note.textContent = point.note || translate('Localização aproximada; confira o endereço.'); box.appendChild(note);
     }
     const actions = document.createElement('div'); actions.className = 'popup-actions';
     const route = mapDirections(point, userPosition);
     if (route) {
       const link = document.createElement('a'); link.href = route.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = route.label; link.dataset.directions = mapDirections(point).url; actions.appendChild(link);
     }
-    const details = document.createElement('button'); details.type = 'button'; details.textContent = 'Mais detalhes'; details.onclick = () => onDetails(point); actions.appendChild(details);
+    const details = document.createElement('button'); details.type = 'button'; details.textContent = translate('Mais detalhes'); details.onclick = () => onDetails(point); actions.appendChild(details);
     box.appendChild(actions); return box;
   };
   const icon = (key, number = null, count = 0) => L.divIcon({ className: 'map-marker',
@@ -98,9 +99,9 @@ export function mountLeaflet(L, container, { onDetails, onTileError }) {
         legend = L.control({ position: 'bottomleft' });
         legend.onAdd = () => {
           const box = document.createElement('div'); box.className = 'legend';
-          if (ordered) { box.textContent = 'Sequência dos pontos informados'; return box; }
-          const details = document.createElement('details'), summary = document.createElement('summary'); summary.textContent = 'Legenda do mapa'; details.appendChild(summary);
-          [...new Set(points.map(mapPointIcon))].forEach(key => { const row = document.createElement('div'); row.className = 'legend-row'; const glyph = document.createElement('span'); glyph.style.color = mapIcons[key][1]; glyph.innerHTML = iconSvg(key, 16); const label = document.createElement('span'); label.textContent = mapIcons[key][0].split(' · ')[0]; row.append(glyph, label); details.appendChild(row); });
+          if (ordered) { box.textContent = translate('Sequência dos pontos informados'); return box; }
+          const details = document.createElement('details'), summary = document.createElement('summary'); summary.textContent = translate('Legenda do mapa'); details.appendChild(summary);
+          [...new Set(points.map(mapPointIcon))].forEach(key => { const row = document.createElement('div'); row.className = 'legend-row'; const glyph = document.createElement('span'); glyph.style.color = mapIcons[key][1]; glyph.innerHTML = iconSvg(key, 16); const label = document.createElement('span'); label.textContent = translate(mapIcons[key][0].split(' · ')[0]); row.append(glyph, label); details.appendChild(row); });
           box.appendChild(details); L.DomEvent.disableClickPropagation(box); return box;
         }; legend.addTo(map);
       }
@@ -109,12 +110,13 @@ export function mountLeaflet(L, container, { onDetails, onTileError }) {
       userPosition = position; userLayer.clearLayers();
       const coordinates = [position.latitude, position.longitude];
       if (position.accuracy > 0) L.circle(coordinates, { radius: position.accuracy, color: '#2563eb', fillOpacity: 0.08, weight: 1, interactive: false }).addTo(userLayer);
-      L.circleMarker(coordinates, { radius: 8, color: '#ffffff', weight: 3, fillColor: '#2563eb', fillOpacity: 1 }).addTo(userLayer).bindPopup('Você está aqui');
+      L.circleMarker(coordinates, { radius: 8, color: '#ffffff', weight: 3, fillColor: '#2563eb', fillOpacity: 1 }).addTo(userLayer).bindPopup(translate('Você está aqui'));
       container.querySelectorAll('a[data-directions]').forEach(link => { if (link.dataset.directions.includes('/maps/dir/')) link.href = link.dataset.directions + '&origin=' + encodeURIComponent(coordinates.join(',')); });
       map.setView(coordinates, 15);
     },
     destroy() { resize?.disconnect(); map.remove(); }
   };
 }
+
 
 

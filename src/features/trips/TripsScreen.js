@@ -1,6 +1,8 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
-import { Platform, Share, Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { Platform, Share, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import * as Linking from 'expo-linking';
 import { Badge, Button, Card, Empty, Field, Muted, Notice, Page, Section, Title, Toggle, money, s } from '../../components/ui';
@@ -11,6 +13,7 @@ import api from '../../services/api';
 
 const fresh = () => ({ title: '', destination: '', budget: '', preferences: { destination_ids: [], people: '1', minutes: '480', interests: '', accessible: false, include_guide: false, include_driver: false } });
 export default function TripsScreen() {
+  useLanguage();
   const params = useLocalSearchParams();
   const { data: trips, loading, error, reload, refreshing } = useResource('/routes', []);
   const { data: catalog } = useResource('/catalog', { destinations: [] });
@@ -63,7 +66,7 @@ export default function TripsScreen() {
       <Button secondary title="Cancelar edição" onPress={() => { setForm(null); setPlan(null); }} disabled={busy} />
     </Card>}
     {trips.map(trip => <Card key={trip.id}>
-      <Title>{trip.title}</Title><Muted>{trip.destination} · Orçamento {money(trip.budget)} · Estimativa {money(trip.total_estimated_cost)}</Muted>
+      <Title translate={false}>{trip.title}</Title><Muted>{trip.destination} · Orçamento {money(trip.budget)} · Estimativa {money(trip.total_estimated_cost)}</Muted>
       <PlaceMap points={asArray(trip.preferences?.itinerary).length ? trip.preferences.itinerary : catalog.destinations.filter(place => asArray(trip.preferences?.destination_ids).includes(place.id))} />
       {asArray(trip.preferences?.itinerary).map((stop, index) => <View key={stop.id}><Text style={ct.text}>{index + 1}. {stop.name}</Text><Muted>{stop.duration_minutes} min · {stop.opening_hours} · {stop.best_time}</Muted></View>)}
       {trip.preferences?.costs && <Muted>Locais: {money(trip.preferences.costs.places)} · Guia: {money(trip.preferences.costs.guide)} · Transporte: {money(trip.preferences.costs.driver)}</Muted>}
@@ -76,5 +79,6 @@ export default function TripsScreen() {
     {!trips.length && !form && <Empty>Comece escolhendo o destino e o tempo disponível. Seu roteiro ficará salvo aqui.</Empty>}
   </Page>;
 }
+
 
 

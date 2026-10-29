@@ -1,3 +1,4 @@
+import { useLanguage } from '../i18n';
 import React, { useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { loadLeaflet, mountLeaflet } from './leafletWeb';
@@ -6,6 +7,7 @@ import { Button, Muted, Notice } from './ui';
 import useMapLocation from '../hooks/useMapLocation';
 
 export default function PlaceMap({ points = [], ordered = false }) {
+  const { language, t } = useLanguage();
   const location = useMapLocation();
   const container = useRef(null), controller = useRef(null);
   const current = useRef({ points, ordered }); current.current = { points, ordered, position: location.position };
@@ -21,14 +23,15 @@ export default function PlaceMap({ points = [], ordered = false }) {
     }).catch(failure => { if (active) setError(failure.message || 'Não foi possível carregar o mapa.'); });
     return () => { active = false; controller.current?.destroy(); controller.current = null; };
   }, []);
-  useEffect(() => { controller.current?.update(points, ordered); }, [points, ordered]);
+  useEffect(() => { controller.current?.update(points, ordered); }, [points, ordered, language]);
   useEffect(() => { if (location.position) controller.current?.setLocation(location.position); }, [location.position]);
   return <View>
     <Button secondary icon="locate-outline" title={location.busy ? 'Localizando…' : 'Minha localização'} disabled={location.busy} onPress={location.locate} />
     <Notice>{location.error || error}</Notice>
-    {React.createElement('div', { ref: container, className: 'ct-leaflet-map', role: 'region', 'aria-label': 'Mapa interativo — toque nos ícones para detalhes e rota', style: { width: '100%', height: 360, borderRadius: 16, marginTop: 16, marginBottom: 10, position: 'relative', zIndex: 0 } })}
+    {React.createElement('div', { ref: container, className: 'ct-leaflet-map', role: 'region', 'aria-label': t('Mapa interativo — toque nos ícones para detalhes e rota'), style: { width: '100%', height: 360, borderRadius: 16, marginTop: 16, marginBottom: 10, position: 'relative', zIndex: 0 } })}
     <Muted>Toque em um ícone para ver os detalhes e traçar a rota. Ícones agrupados se expandem no próprio mapa.</Muted>
     <MapPointDetails origin={location.position} point={selected} onClose={() => setSelected(null)} />
   </View>;
 }
+
 

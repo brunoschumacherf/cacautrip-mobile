@@ -1,5 +1,8 @@
+import { useLanguage } from '../../i18n';
+import { locale } from '../../i18n/core';
 import React, { useCallback, useRef, useState } from 'react';
-import { Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { View } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { Badge, Button, Card, Empty, Field, Muted, Notice, Page, Title } from '../../components/ui';
 import { useAction, useResource } from '../../hooks/useResource';
@@ -76,8 +79,8 @@ function Conversation({ id, onBack, onChanged }) {
     {older && <Button secondary title="Carregar mensagens anteriores" disabled={busy} onPress={() => refresh(true)} />}
     {messages.map(message => <View key={message.id} style={{ alignSelf: message.role === 'user' ? 'flex-end' : 'flex-start', width: message.role === 'system' ? '100%' : '92%', borderRadius: 18, padding: 16, marginVertical: 5, borderWidth: 1, borderColor: colors.line, backgroundColor: message.role === 'user' ? '#FFF0DC' : message.role === 'staff' ? '#E1EFE3' : '#FFFCF8' }}>
       <Text style={[ct.text, { fontWeight: '700', marginBottom: 7 }]}>{message.role === 'user' ? 'Você' : message.role === 'staff' ? `${message.sender_name || 'Equipe'} · Suporte` : message.role === 'assistant' ? 'Assistente virtual' : 'Atendimento'}</Text>
-      <Text style={[ct.text, { lineHeight: 23 }]}>{message.content}</Text>
-      <Muted>{new Date(message.created_at).toLocaleString('pt-BR')}</Muted>
+      <Text translate={false} style={[ct.text, { lineHeight: 23 }]}>{message.content}</Text>
+      <Muted>{new Date(message.created_at).toLocaleString(locale())}</Muted>
     </View>)}
     {ticket?.ai_responding && <Muted>O assistente está preparando sua resposta…</Muted>}
     {ticket && ticket.status !== 'closed' && <Card>
@@ -91,6 +94,7 @@ function Conversation({ id, onBack, onChanged }) {
 }
 
 export default function SupportScreen() {
+  useLanguage();
   const { data, error, reload, loading, refreshing } = useResource('/support', []);
   const { run, busy, notice } = useAction();
   const [message, setMessage] = useState('');
@@ -109,7 +113,8 @@ export default function SupportScreen() {
       <Button title={busy ? 'O assistente está respondendo…' : 'Iniciar conversa'} onPress={start} disabled={busy || !message.trim()} />
     </Card>
     <Title>Meus atendimentos</Title>
-    {data.map(ticket => <Card key={ticket.id}><Badge>{labels[ticket.status] || ticket.status}</Badge><Title>Atendimento #{ticket.id}</Title><Muted>{ticket.subject}</Muted><Muted>{new Date(ticket.updated_at).toLocaleString('pt-BR')}</Muted><Button secondary title={ticket.status === 'closed' ? 'Ver histórico' : 'Continuar conversa'} onPress={() => setSelectedId(ticket.id)} /></Card>)}
+    {data.map(ticket => <Card key={ticket.id}><Badge>{labels[ticket.status] || ticket.status}</Badge><Title>Atendimento #{ticket.id}</Title><Muted>{ticket.subject}</Muted><Muted>{new Date(ticket.updated_at).toLocaleString(locale())}</Muted><Button secondary title={ticket.status === 'closed' ? 'Ver histórico' : 'Continuar conversa'} onPress={() => setSelectedId(ticket.id)} /></Card>)}
     {!loading && !data.length && <Empty>Suas conversas com o suporte aparecerão aqui.</Empty>}
   </Page>;
 }
+

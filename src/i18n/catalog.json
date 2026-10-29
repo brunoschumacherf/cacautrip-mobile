@@ -1,0 +1,2706 @@
+{
+  "Idioma": [
+    "Language",
+    "Idioma"
+  ],
+  "Explorar": [
+    "Explore",
+    "Explorar"
+  ],
+  "Roteiros": [
+    "Itineraries",
+    "Itinerarios"
+  ],
+  "Reservas": [
+    "Bookings",
+    "Reservas"
+  ],
+  "Mensagens": [
+    "Messages",
+    "Mensajes"
+  ],
+  "Conta": [
+    "Account",
+    "Cuenta"
+  ],
+  "Painel": [
+    "Dashboard",
+    "Panel"
+  ],
+  "Agenda": [
+    "Schedule",
+    "Agenda"
+  ],
+  "Carteira": [
+    "Wallet",
+    "Cartera"
+  ],
+  "Guias": [
+    "Guides",
+    "Guías"
+  ],
+  "Motoristas": [
+    "Drivers",
+    "Conductores"
+  ],
+  "Guia": [
+    "Guide",
+    "Guía"
+  ],
+  "Motorista": [
+    "Driver",
+    "Conductor"
+  ],
+  "Turista": [
+    "Traveler",
+    "Turista"
+  ],
+  "Minha conta": [
+    "My account",
+    "Mi cuenta"
+  ],
+  "Minha conta.": [
+    "My account.",
+    "Mi cuenta."
+  ],
+  "Notificações": [
+    "Notifications",
+    "Notificaciones"
+  ],
+  "Voltar": [
+    "Back",
+    "Volver"
+  ],
+  "Fechar": [
+    "Close",
+    "Cerrar"
+  ],
+  "Cancelar": [
+    "Cancel",
+    "Cancelar"
+  ],
+  "Confirmar": [
+    "Confirm",
+    "Confirmar"
+  ],
+  "Salvar": [
+    "Save",
+    "Guardar"
+  ],
+  "Editar": [
+    "Edit",
+    "Editar"
+  ],
+  "Excluir": [
+    "Delete",
+    "Eliminar"
+  ],
+  "Remover": [
+    "Remove",
+    "Quitar"
+  ],
+  "Continuar": [
+    "Continue",
+    "Continuar"
+  ],
+  "Próxima": [
+    "Next",
+    "Siguiente"
+  ],
+  "Anterior": [
+    "Previous",
+    "Anterior"
+  ],
+  "Sim": [
+    "Yes",
+    "Sí"
+  ],
+  "Não": [
+    "No",
+    "No"
+  ],
+  "Todos": [
+    "All",
+    "Todos"
+  ],
+  "Todas": [
+    "All",
+    "Todas"
+  ],
+  "Buscar": [
+    "Search",
+    "Buscar"
+  ],
+  "Pesquisar": [
+    "Search",
+    "Buscar"
+  ],
+  "Entrar": [
+    "Sign in",
+    "Iniciar sesión"
+  ],
+  "Criar conta": [
+    "Create account",
+    "Crear cuenta"
+  ],
+  "Crie sua conta": [
+    "Create your account",
+    "Crea tu cuenta"
+  ],
+  "Bem-vindo de volta": [
+    "Welcome back",
+    "Te damos la bienvenida"
+  ],
+  "Já tenho conta": [
+    "I already have an account",
+    "Ya tengo una cuenta"
+  ],
+  "Quero me cadastrar": [
+    "Sign up",
+    "Quiero registrarme"
+  ],
+  "Nome completo": [
+    "Full name",
+    "Nombre completo"
+  ],
+  "E-mail": [
+    "Email",
+    "Correo electrónico"
+  ],
+  "Senha": [
+    "Password",
+    "Contraseña"
+  ],
+  "Aguarde…": [
+    "Please wait…",
+    "Espera…"
+  ],
+  "A Bahia espera por você.": [
+    "Bahia is waiting for you.",
+    "Bahía te espera."
+  ],
+  "Descubra lugares e viaje com quem conhece a Costa do Cacau.": [
+    "Discover places and travel with people who know the Costa do Cacau.",
+    "Descubre lugares y viaja con quienes conocen la Costa do Cacau."
+  ],
+  "Continuar com Google": [
+    "Continue with Google",
+    "Continuar con Google"
+  ],
+  "Vincular conta Google": [
+    "Link Google account",
+    "Vincular cuenta de Google"
+  ],
+  "Abrindo Google…": [
+    "Opening Google…",
+    "Abriendo Google…"
+  ],
+  "Use sua conta Google para entrar ou se cadastrar.": [
+    "Use your Google account to sign in or sign up.",
+    "Usa tu cuenta de Google para entrar o registrarte."
+  ],
+  "Google vinculado": [
+    "Google linked",
+    "Google vinculado"
+  ],
+  "Seus dados, seus perfis e suas preferências.": [
+    "Your details, profiles and preferences.",
+    "Tus datos, perfiles y preferencias."
+  ],
+  "Seus dados": [
+    "Your details",
+    "Tus datos"
+  ],
+  "Dados da sua conta": [
+    "Your account details",
+    "Datos de tu cuenta"
+  ],
+  "Editar dados e preferências": [
+    "Edit details and preferences",
+    "Editar datos y preferencias"
+  ],
+  "Dados e preferências.": [
+    "Details and preferences.",
+    "Datos y preferencias."
+  ],
+  "Sua viagem": [
+    "Your trip",
+    "Tu viaje"
+  ],
+  "Região de preferência": [
+    "Preferred region",
+    "Región preferida"
+  ],
+  "Interesses": [
+    "Interests",
+    "Intereses"
+  ],
+  "Ex.: praias, trilhas, chocolate, gastronomia": [
+    "E.g. beaches, trails, chocolate, food",
+    "Ej.: playas, senderos, chocolate, gastronomía"
+  ],
+  "Priorizar experiências acessíveis": [
+    "Prioritize accessible experiences",
+    "Priorizar experiencias accesibles"
+  ],
+  "Avisos e recomendações opcionais": [
+    "Optional alerts and recommendations",
+    "Avisos y recomendaciones opcionales"
+  ],
+  "Salvar alterações": [
+    "Save changes",
+    "Guardar cambios"
+  ],
+  "Dados atualizados.": [
+    "Details updated.",
+    "Datos actualizados."
+  ],
+  "Sair da conta": [
+    "Sign out",
+    "Cerrar sesión"
+  ],
+  "Verificar com Gov.br": [
+    "Verify with Gov.br",
+    "Verificar con Gov.br"
+  ],
+  "Verificar conta Gov.br": [
+    "Verify Gov.br account",
+    "Verificar cuenta Gov.br"
+  ],
+  "Verificar minha conta": [
+    "Verify my account",
+    "Verificar mi cuenta"
+  ],
+  "Conta verificada": [
+    "Verified account",
+    "Cuenta verificada"
+  ],
+  "Conta não verificada": [
+    "Unverified account",
+    "Cuenta sin verificar"
+  ],
+  "Verificado": [
+    "Verified",
+    "Verificado"
+  ],
+  "Não verificado": [
+    "Unverified",
+    "Sin verificar"
+  ],
+  "Meus dados e privacidade": [
+    "My data and privacy",
+    "Mis datos y privacidad"
+  ],
+  "Seus dados e privacidade.": [
+    "Your data and privacy.",
+    "Tus datos y privacidad."
+  ],
+  "Consultar meus dados": [
+    "View my data",
+    "Consultar mis datos"
+  ],
+  "Solicitar exclusão dos meus dados": [
+    "Request deletion of my data",
+    "Solicitar la eliminación de mis datos"
+  ],
+  "Conta e atendimento": [
+    "Account and support",
+    "Cuenta y atención"
+  ],
+  "Suporte e atendimento humano": [
+    "Support and live assistance",
+    "Soporte y atención humana"
+  ],
+  "Como deseja usar o Cacautrip?": [
+    "How would you like to use Cacautrip?",
+    "¿Cómo quieres usar Cacautrip?"
+  ],
+  "Trabalhe na Costa do Cacau": [
+    "Work in the Costa do Cacau",
+    "Trabaja en la Costa do Cacau"
+  ],
+  "Cadastre seu perfil de guia": [
+    "Register your guide profile",
+    "Registra tu perfil de guía"
+  ],
+  "Cadastrar guia": [
+    "Register as a guide",
+    "Registrarse como guía"
+  ],
+  "Cadastrar motorista": [
+    "Register as a driver",
+    "Registrarse como conductor"
+  ],
+  "Começar cadastro": [
+    "Start registration",
+    "Comenzar registro"
+  ],
+  "Comece seu cadastro": [
+    "Start your registration",
+    "Comienza tu registro"
+  ],
+  "O cadastro de guia ou motorista exige uma conta verificada pelo Gov.br.": [
+    "Registering as a guide or driver requires a Gov.br-verified account.",
+    "Para registrarse como guía o conductor se necesita una cuenta verificada con Gov.br."
+  ],
+  "Autentique sua conta, informe seus serviços e envie seus dados para aprovação.": [
+    "Verify your account, describe your services and submit your details for approval.",
+    "Verifica tu cuenta, informa tus servicios y envía tus datos para aprobación."
+  ],
+  "Apresente seu trabalho": [
+    "Introduce your services",
+    "Presenta tu trabajo"
+  ],
+  "Descrição profissional": [
+    "Professional description",
+    "Descripción profesional"
+  ],
+  "Idiomas": [
+    "Languages",
+    "Idiomas"
+  ],
+  "Especialidades": [
+    "Specialties",
+    "Especialidades"
+  ],
+  "Serviços oferecidos": [
+    "Services offered",
+    "Servicios ofrecidos"
+  ],
+  "Regiões e cidades atendidas": [
+    "Areas and cities served",
+    "Regiones y ciudades atendidas"
+  ],
+  "Região e roteiros atendidos": [
+    "Area and itineraries served",
+    "Región e itinerarios atendidos"
+  ],
+  "Dados profissionais": [
+    "Professional details",
+    "Datos profesionales"
+  ],
+  "Modelo do veículo": [
+    "Vehicle model",
+    "Modelo del vehículo"
+  ],
+  "Placa": [
+    "License plate",
+    "Matrícula"
+  ],
+  "Capacidade de passageiros": [
+    "Passenger capacity",
+    "Capacidad de pasajeros"
+  ],
+  "Atendimento acessível": [
+    "Accessible service",
+    "Servicio accesible"
+  ],
+  "Salvar cadastro": [
+    "Save registration",
+    "Guardar registro"
+  ],
+  "Seu perfil pode ser editado a qualquer momento.": [
+    "You can edit your profile at any time.",
+    "Puedes editar tu perfil en cualquier momento."
+  ],
+  "Após o envio, acompanhe a aprovação e o desempenho no painel profissional.": [
+    "After submitting, track approval and performance in your professional dashboard.",
+    "Tras el envío, consulta la aprobación y el desempeño en el panel profesional."
+  ],
+  "Explore a região": [
+    "Explore the region",
+    "Explora la región"
+  ],
+  "Descubra seu próximo lugar na Costa do Cacau.": [
+    "Discover your next destination in the Costa do Cacau.",
+    "Descubre tu próximo destino en la Costa do Cacau."
+  ],
+  "Planejar viagem": [
+    "Plan a trip",
+    "Planear un viaje"
+  ],
+  "Monte seu roteiro": [
+    "Build your itinerary",
+    "Crea tu itinerario"
+  ],
+  "Guias e transporte": [
+    "Guides and transport",
+    "Guías y transporte"
+  ],
+  "Guias e transporte.": [
+    "Guides and transport.",
+    "Guías y transporte."
+  ],
+  "Encontre profissionais locais": [
+    "Find local professionals",
+    "Encuentra profesionales locales"
+  ],
+  "Explorar trilhas e passeios dos guias": [
+    "Explore guided trails and tours",
+    "Explorar senderos y paseos de los guías"
+  ],
+  "Destino, cidade ou experiência": [
+    "Destination, city or experience",
+    "Destino, ciudad o experiencia"
+  ],
+  "Praias, trilhas, gastronomia…": [
+    "Beaches, trails, food…",
+    "Playas, senderos, gastronomía…"
+  ],
+  "Perto de mim": [
+    "Near me",
+    "Cerca de mí"
+  ],
+  "Mostrar mapa": [
+    "Show map",
+    "Mostrar mapa"
+  ],
+  "Ocultar mapa": [
+    "Hide map",
+    "Ocultar mapa"
+  ],
+  "Ver no mapa": [
+    "View on map",
+    "Ver en el mapa"
+  ],
+  "Mapa": [
+    "Map",
+    "Mapa"
+  ],
+  "Destinos": [
+    "Destinations",
+    "Destinos"
+  ],
+  "Trilhas": [
+    "Trails",
+    "Senderos"
+  ],
+  "Coleta": [
+    "Collection",
+    "Recolección"
+  ],
+  "Parceiros": [
+    "Partners",
+    "Socios"
+  ],
+  "Saúde": [
+    "Health",
+    "Salud"
+  ],
+  "Delegacias": [
+    "Police stations",
+    "Comisarías"
+  ],
+  "Todo apoio": [
+    "All assistance",
+    "Toda la asistencia"
+  ],
+  "Minha localização": [
+    "My location",
+    "Mi ubicación"
+  ],
+  "Localizando…": [
+    "Finding your location…",
+    "Buscando tu ubicación…"
+  ],
+  "Você está aqui": [
+    "You are here",
+    "Estás aquí"
+  ],
+  "Legenda do mapa": [
+    "Map legend",
+    "Leyenda del mapa"
+  ],
+  "Atualizar mapa": [
+    "Refresh map",
+    "Actualizar mapa"
+  ],
+  "Atualizando…": [
+    "Refreshing…",
+    "Actualizando…"
+  ],
+  "Mais detalhes": [
+    "More details",
+    "Más detalles"
+  ],
+  "Detalhes do local": [
+    "Place details",
+    "Detalles del lugar"
+  ],
+  "Traçar rota no Google Maps": [
+    "Get directions in Google Maps",
+    "Ver ruta en Google Maps"
+  ],
+  "Ver área no Google Maps": [
+    "View area in Google Maps",
+    "Ver zona en Google Maps"
+  ],
+  "Abrir localização": [
+    "Open location",
+    "Abrir ubicación"
+  ],
+  "Como chegar": [
+    "Get directions",
+    "Cómo llegar"
+  ],
+  "Sequência dos pontos informados": [
+    "Order of the selected stops",
+    "Orden de los puntos indicados"
+  ],
+  "Toque em um ícone para ver os detalhes e traçar a rota. Ícones agrupados se expandem no próprio mapa.": [
+    "Tap an icon for details and directions. Grouped icons expand on the map.",
+    "Toca un icono para ver detalles y trazar la ruta. Los iconos agrupados se expanden en el mapa."
+  ],
+  "O mapa inclui os serviços da região, independentemente da página da lista. Guias e motoristas indicam a área de atendimento, sem posição em tempo real.": [
+    "The map includes services across the region, regardless of the list page. Guides and drivers show their service area, not a live location.",
+    "El mapa incluye los servicios de la región, independientemente de la página de la lista. Guías y conductores indican su zona de atención, sin ubicación en tiempo real."
+  ],
+  "Nenhum ponto localizado neste filtro. Confira o endereço na listagem ou atualize o mapa em instantes.": [
+    "No mapped places match this filter. Check the listed address or refresh the map shortly.",
+    "No hay puntos ubicados con este filtro. Consulta la dirección en la lista o actualiza el mapa en unos instantes."
+  ],
+  "Localização aproximada; confira o endereço.": [
+    "Approximate location; check the address.",
+    "Ubicación aproximada; comprueba la dirección."
+  ],
+  "Localização aproximada: confira o endereço antes de iniciar o deslocamento.": [
+    "Approximate location: check the address before setting off.",
+    "Ubicación aproximada: comprueba la dirección antes de salir."
+  ],
+  "Emergência e pontos de apoio": [
+    "Emergency and assistance points",
+    "Emergencias y puntos de ayuda"
+  ],
+  "Abrir Emergência e pontos de apoio": [
+    "Open emergency and assistance points",
+    "Abrir emergencias y puntos de ayuda"
+  ],
+  "Pontos de apoio.": [
+    "Assistance points.",
+    "Puntos de ayuda."
+  ],
+  "Contatos e unidades cadastrados pela administração.": [
+    "Contacts and facilities registered by the administration.",
+    "Contactos y centros registrados por la administración."
+  ],
+  "Não há unidades de apoio cadastradas nesta região.": [
+    "There are no assistance facilities registered in this region.",
+    "No hay centros de ayuda registrados en esta región."
+  ],
+  "Contato": [
+    "Contact",
+    "Contacto"
+  ],
+  "Endereço": [
+    "Address",
+    "Dirección"
+  ],
+  "Cidade ou região": [
+    "City or region",
+    "Ciudad o región"
+  ],
+  "Cidade / região": [
+    "City / region",
+    "Ciudad / región"
+  ],
+  "Horário informado": [
+    "Listed hours",
+    "Horario indicado"
+  ],
+  "Materiais aceitos": [
+    "Accepted materials",
+    "Materiales aceptados"
+  ],
+  "Ver perfil e contratar": [
+    "View profile and book",
+    "Ver perfil y contratar"
+  ],
+  "Ver página completa": [
+    "View full page",
+    "Ver página completa"
+  ],
+  "Locais e serviços neste mapa": [
+    "Places and services on this map",
+    "Lugares y servicios en este mapa"
+  ],
+  "Escolha um local para ver detalhes e abrir a rota.": [
+    "Choose a place to see details and get directions.",
+    "Elige un lugar para ver detalles y abrir la ruta."
+  ],
+  "Praia": [
+    "Beach",
+    "Playa"
+  ],
+  "Restaurante": [
+    "Restaurant",
+    "Restaurante"
+  ],
+  "Hospedagem": [
+    "Accommodation",
+    "Alojamiento"
+  ],
+  "Trilha guiada": [
+    "Guided trail",
+    "Sendero guiado"
+  ],
+  "Ponto de coleta": [
+    "Collection point",
+    "Punto de recolección"
+  ],
+  "Estabelecimento parceiro": [
+    "Partner business",
+    "Establecimiento asociado"
+  ],
+  "Hospital e unidade de saúde": [
+    "Hospital and health facility",
+    "Hospital y centro de salud"
+  ],
+  "Delegacia e polícia": [
+    "Police station",
+    "Comisaría y policía"
+  ],
+  "Corpo de Bombeiros": [
+    "Fire department",
+    "Bomberos"
+  ],
+  "Ponto de apoio": [
+    "Assistance point",
+    "Punto de ayuda"
+  ],
+  "Serviços neste local": [
+    "Services at this location",
+    "Servicios en este lugar"
+  ],
+  "Nenhum destino encontrado. Experimente outra cidade ou categoria.": [
+    "No destinations found. Try another city or category.",
+    "No se encontraron destinos. Prueba otra ciudad o categoría."
+  ],
+  "Conhecer este lugar": [
+    "Explore this place",
+    "Conocer este lugar"
+  ],
+  "Planeje sua visita": [
+    "Plan your visit",
+    "Planea tu visita"
+  ],
+  "Antes de sair": [
+    "Before you leave",
+    "Antes de salir"
+  ],
+  "Avisos": [
+    "Alerts",
+    "Avisos"
+  ],
+  "Nenhum aviso no momento.": [
+    "No alerts at the moment.",
+    "No hay avisos por el momento."
+  ],
+  "Fique por dentro.": [
+    "Stay informed.",
+    "Mantente al día."
+  ],
+  "Experiências acessíveis": [
+    "Accessible experiences",
+    "Experiencias accesibles"
+  ],
+  "Escolha com quem deseja viajar.": [
+    "Choose who to travel with.",
+    "Elige con quién quieres viajar."
+  ],
+  "Nome, cidade ou especialidade": [
+    "Name, city or specialty",
+    "Nombre, ciudad o especialidad"
+  ],
+  "Preço máximo (R$)": [
+    "Maximum price (R$)",
+    "Precio máximo (R$)"
+  ],
+  "Nota mínima": [
+    "Minimum rating",
+    "Valoración mínima"
+  ],
+  "Somente disponíveis": [
+    "Available only",
+    "Solo disponibles"
+  ],
+  "Acessibilidade disponível": [
+    "Accessibility available",
+    "Accesibilidad disponible"
+  ],
+  "Não encontramos profissionais com esses filtros.": [
+    "No professionals match these filters.",
+    "No encontramos profesionales con estos filtros."
+  ],
+  "Patrocinado": [
+    "Sponsored",
+    "Patrocinado"
+  ],
+  "Conversar antes de reservar": [
+    "Chat before booking",
+    "Conversar antes de reservar"
+  ],
+  "Conversar com o guia": [
+    "Chat with the guide",
+    "Conversar con el guía"
+  ],
+  "Encontrar guia ou transporte": [
+    "Find a guide or transport",
+    "Encontrar guía o transporte"
+  ],
+  "Encontrar guias e motoristas": [
+    "Find guides and drivers",
+    "Encontrar guías y conductores"
+  ],
+  "Reservar guia ou transporte": [
+    "Book a guide or transport",
+    "Reservar guía o transporte"
+  ],
+  "Este profissional ainda não recebeu avaliações.": [
+    "This professional has no reviews yet.",
+    "Este profesional aún no tiene valoraciones."
+  ],
+  "Avaliações de viagens realizadas": [
+    "Reviews from completed trips",
+    "Valoraciones de viajes realizados"
+  ],
+  "Avaliações": [
+    "Reviews",
+    "Valoraciones"
+  ],
+  "Quem já foi": [
+    "Traveler reviews",
+    "Quienes ya fueron"
+  ],
+  "Meus roteiros.": [
+    "My itineraries.",
+    "Mis itinerarios."
+  ],
+  "Planeje primeiro. Depois combine os serviços para sua viagem.": [
+    "Plan first, then arrange the services for your trip.",
+    "Primero planea. Después organiza los servicios de tu viaje."
+  ],
+  "Criar nova rota": [
+    "Create a new route",
+    "Crear una nueva ruta"
+  ],
+  "Comece escolhendo o destino e o tempo disponível. Seu roteiro ficará salvo aqui.": [
+    "Start by choosing your destination and available time. Your itinerary will be saved here.",
+    "Comienza eligiendo el destino y el tiempo disponible. Tu itinerario se guardará aquí."
+  ],
+  "Qual é o seu destino?": [
+    "Where are you going?",
+    "¿Cuál es tu destino?"
+  ],
+  "Orçamento total (R$)": [
+    "Total budget (R$)",
+    "Presupuesto total (R$)"
+  ],
+  "Tempo disponível (minutos)": [
+    "Available time (minutes)",
+    "Tiempo disponible (minutos)"
+  ],
+  "Sugerir roteiro com meus filtros": [
+    "Suggest an itinerary using my filters",
+    "Sugerir itinerario con mis filtros"
+  ],
+  "Incluir estimativa de guia": [
+    "Include guide estimate",
+    "Incluir estimación de guía"
+  ],
+  "Incluir estimativa de transporte": [
+    "Include transport estimate",
+    "Incluir estimación de transporte"
+  ],
+  "Estimar guia": [
+    "Estimate guide cost",
+    "Estimar guía"
+  ],
+  "Estimar transporte": [
+    "Estimate transport cost",
+    "Estimar transporte"
+  ],
+  "Escolha os lugares": [
+    "Choose places",
+    "Elige los lugares"
+  ],
+  "A sugestão é editável. Marque somente o que deseja visitar.": [
+    "You can edit this suggestion. Select only the places you want to visit.",
+    "Puedes editar la sugerencia. Selecciona solo lo que quieres visitar."
+  ],
+  "Nome do roteiro": [
+    "Itinerary name",
+    "Nombre del itinerario"
+  ],
+  "Salvar roteiro": [
+    "Save itinerary",
+    "Guardar itinerario"
+  ],
+  "Excluir roteiro": [
+    "Delete itinerary",
+    "Eliminar itinerario"
+  ],
+  "Compartilhar": [
+    "Share",
+    "Compartir"
+  ],
+  "Link público do roteiro:": [
+    "Public itinerary link:",
+    "Enlace público del itinerario:"
+  ],
+  "Revogar link público": [
+    "Revoke public link",
+    "Revocar enlace público"
+  ],
+  "Adicionar a um novo roteiro": [
+    "Add to a new itinerary",
+    "Añadir a un nuevo itinerario"
+  ],
+  "Resumo dos serviços": [
+    "Service summary",
+    "Resumen de servicios"
+  ],
+  "Salvar e personalizar este roteiro": [
+    "Save and customize this itinerary",
+    "Guardar y personalizar este itinerario"
+  ],
+  "Recomendação baseada no catálogo": [
+    "Recommendation based on the catalog",
+    "Recomendación basada en el catálogo"
+  ],
+  "Como você imagina seu passeio?": [
+    "What kind of trip do you have in mind?",
+    "¿Cómo imaginas tu paseo?"
+  ],
+  "Conte seus interesses e descubra alternativas do catálogo que cabem na viagem.": [
+    "Tell us your interests and discover options from the catalog that fit your trip.",
+    "Cuéntanos tus intereses y descubre opciones del catálogo para tu viaje."
+  ],
+  "Sua sugestão": [
+    "Your request",
+    "Tu sugerencia"
+  ],
+  "Encontrar alternativas": [
+    "Find alternatives",
+    "Encontrar alternativas"
+  ],
+  "O que deseja conhecer?": [
+    "What would you like to explore?",
+    "¿Qué quieres conocer?"
+  ],
+  "Meu trabalho.": [
+    "My work.",
+    "Mi trabajo."
+  ],
+  "Sua operação organizada, do primeiro contato ao recebimento.": [
+    "Your business organized, from the first conversation to payment.",
+    "Tu trabajo organizado, desde el primer contacto hasta el cobro."
+  ],
+  "Minhas trilhas.": [
+    "My trails.",
+    "Mis senderos."
+  ],
+  "Minhas trilhas, percursos e saídas": [
+    "My trails, routes and departures",
+    "Mis senderos, recorridos y salidas"
+  ],
+  "Cada percurso é uma oferta sua, com pontos de passagem, preço e calendário próprios.": [
+    "Each route is your own offer, with its own stops, price and schedule.",
+    "Cada recorrido es una oferta tuya, con sus propias paradas, precio y calendario."
+  ],
+  "Criar uma trilha": [
+    "Create a trail",
+    "Crear un sendero"
+  ],
+  "Editar trilha e saídas": [
+    "Edit trail and departures",
+    "Editar sendero y salidas"
+  ],
+  "Meus anúncios": [
+    "My listings",
+    "Mis anuncios"
+  ],
+  "Ocultar anúncio": [
+    "Hide listing",
+    "Ocultar anuncio"
+  ],
+  "Arquivar anúncio": [
+    "Archive listing",
+    "Archivar anuncio"
+  ],
+  "Ocultar trilha": [
+    "Hide trail",
+    "Ocultar sendero"
+  ],
+  "Restaurar como rascunho": [
+    "Restore as draft",
+    "Restaurar como borrador"
+  ],
+  "Criar cópia desta trilha": [
+    "Duplicate this trail",
+    "Crear copia de este sendero"
+  ],
+  "Nenhuma trilha encontrada com esses filtros.": [
+    "No trails match these filters.",
+    "No se encontraron senderos con estos filtros."
+  ],
+  "Percursos criados por guias locais, com cada parada planejada.": [
+    "Routes created by local guides, with every stop planned.",
+    "Recorridos creados por guías locales, con cada parada planificada."
+  ],
+  "Nome da trilha ou passeio": [
+    "Trail or tour name",
+    "Nombre del sendero o paseo"
+  ],
+  "Descrição da experiência": [
+    "Experience description",
+    "Descripción de la experiencia"
+  ],
+  "Sobre a experiência": [
+    "About the experience",
+    "Sobre la experiencia"
+  ],
+  "Sobre a trilha": [
+    "About the trail",
+    "Sobre el sendero"
+  ],
+  "O que vamos fazer?": [
+    "What will we do?",
+    "¿Qué vamos a hacer?"
+  ],
+  "Onde vamos passar?": [
+    "Where will we go?",
+    "¿Por dónde pasaremos?"
+  ],
+  "Por onde vamos passar": [
+    "Where we will go",
+    "Por dónde pasaremos"
+  ],
+  "Ponto de encontro": [
+    "Meeting point",
+    "Punto de encuentro"
+  ],
+  "Ponto exato de encontro": [
+    "Exact meeting point",
+    "Punto exacto de encuentro"
+  ],
+  "Endereço ou descrição precisa do acesso": [
+    "Address or precise access instructions",
+    "Dirección o descripción precisa del acceso"
+  ],
+  "Preço fixo (R$)": [
+    "Fixed price (R$)",
+    "Precio fijo (R$)"
+  ],
+  "Referência de preço (R$)": [
+    "Reference price (R$)",
+    "Precio de referencia (R$)"
+  ],
+  "Dificuldade": [
+    "Difficulty",
+    "Dificultad"
+  ],
+  "Duração total estimada (minutos)": [
+    "Estimated total duration (minutes)",
+    "Duración total estimada (minutos)"
+  ],
+  "Distância aproximada (km, opcional)": [
+    "Approximate distance (km, optional)",
+    "Distancia aproximada (km, opcional)"
+  ],
+  "Idade mínima": [
+    "Minimum age",
+    "Edad mínima"
+  ],
+  "Requisitos e acessibilidade": [
+    "Requirements and accessibility",
+    "Requisitos y accesibilidad"
+  ],
+  "Condições e preparação": [
+    "Conditions and preparation",
+    "Condiciones y preparación"
+  ],
+  "Prepare-se para o passeio": [
+    "Prepare for the tour",
+    "Prepárate para el paseo"
+  ],
+  "Orientações": [
+    "Instructions",
+    "Indicaciones"
+  ],
+  "Observações": [
+    "Notes",
+    "Observaciones"
+  ],
+  "Capacidade": [
+    "Capacity",
+    "Capacidad"
+  ],
+  "Capacidade por saída": [
+    "Capacity per departure",
+    "Capacidad por salida"
+  ],
+  "Datas e vagas": [
+    "Dates and availability",
+    "Fechas y plazas"
+  ],
+  "Datas e horários disponíveis": [
+    "Available dates and times",
+    "Fechas y horarios disponibles"
+  ],
+  "Datas e horários definidos pelo guia. Horário da Bahia.": [
+    "Dates and times set by the guide. Bahia local time.",
+    "Fechas y horarios definidos por el guía. Hora de Bahía."
+  ],
+  "Abrir datas e vagas": [
+    "View dates and availability",
+    "Ver fechas y plazas"
+  ],
+  "Abrir novas saídas": [
+    "Add new departures",
+    "Abrir nuevas salidas"
+  ],
+  "Editar saída": [
+    "Edit departure",
+    "Editar salida"
+  ],
+  "Cancelar esta saída": [
+    "Cancel this departure",
+    "Cancelar esta salida"
+  ],
+  "Confirmar cancelamento da saída": [
+    "Confirm departure cancellation",
+    "Confirmar cancelación de la salida"
+  ],
+  "Manter saída": [
+    "Keep departure",
+    "Mantener salida"
+  ],
+  "Data da saída (AAAA-MM-DD)": [
+    "Departure date (YYYY-MM-DD)",
+    "Fecha de salida (AAAA-MM-DD)"
+  ],
+  "Data e horário (AAAA-MM-DD HH:MM)": [
+    "Date and time (YYYY-MM-DD HH:MM)",
+    "Fecha y hora (AAAA-MM-DD HH:MM)"
+  ],
+  "Repetir a primeira data semanalmente": [
+    "Repeat the first date weekly",
+    "Repetir la primera fecha semanalmente"
+  ],
+  "Quantidade de semanas (até 12)": [
+    "Number of weeks (up to 12)",
+    "Cantidad de semanas (hasta 12)"
+  ],
+  "Preço especial desta saída (opcional)": [
+    "Special departure price (optional)",
+    "Precio especial de esta salida (opcional)"
+  ],
+  "Em branco, usa o preço fixo da trilha.": [
+    "Leave blank to use the trail's fixed price.",
+    "En blanco, se usa el precio fijo del sendero."
+  ],
+  "Horários da Bahia. As datas pertencem a esta trilha, não ao seu perfil inteiro.": [
+    "Bahia local time. These dates apply to this trail, not your entire profile.",
+    "Hora de Bahía. Las fechas pertenecen a este sendero, no a todo tu perfil."
+  ],
+  "Orientações para a saída": [
+    "Departure instructions",
+    "Indicaciones para la salida"
+  ],
+  "Alterar capacidade e orientações": [
+    "Change capacity and instructions",
+    "Cambiar capacidad e indicaciones"
+  ],
+  "Adicionar ponto de passagem": [
+    "Add a stop",
+    "Añadir punto de paso"
+  ],
+  "Remover ponto": [
+    "Remove stop",
+    "Eliminar punto"
+  ],
+  "Nome do ponto": [
+    "Stop name",
+    "Nombre del punto"
+  ],
+  "O que acontece neste ponto?": [
+    "What happens at this stop?",
+    "¿Qué se hace en este punto?"
+  ],
+  "Tempo previsto neste ponto (minutos)": [
+    "Estimated time at this stop (minutes)",
+    "Tiempo previsto en este punto (minutos)"
+  ],
+  "Informar coordenadas dos pontos": [
+    "Enter stop coordinates",
+    "Indicar coordenadas de los puntos"
+  ],
+  "Latitude": [
+    "Latitude",
+    "Latitud"
+  ],
+  "Longitude": [
+    "Longitude",
+    "Longitud"
+  ],
+  "↑ Subir": [
+    "↑ Move up",
+    "↑ Subir"
+  ],
+  "↓ Descer": [
+    "↓ Move down",
+    "↓ Bajar"
+  ],
+  "Salvar como rascunho": [
+    "Save as draft",
+    "Guardar como borrador"
+  ],
+  "Salvar e publicar trilha": [
+    "Save and publish trail",
+    "Guardar y publicar sendero"
+  ],
+  "Cancelar edição": [
+    "Cancel editing",
+    "Cancelar edición"
+  ],
+  "Editar informações": [
+    "Edit information",
+    "Editar información"
+  ],
+  "Salvar registro": [
+    "Save record",
+    "Guardar registro"
+  ],
+  "É preciso ter um perfil de guia para criar trilhas.": [
+    "You need a guide profile to create trails.",
+    "Necesitas un perfil de guía para crear senderos."
+  ],
+  "Depois de salvar o perfil, crie suas trilhas no painel. Cada trilha terá preço, percurso e calendário próprios.": [
+    "After saving your profile, create trails in your dashboard. Each trail has its own price, route and schedule.",
+    "Después de guardar el perfil, crea tus senderos en el panel. Cada sendero tendrá su propio precio, recorrido y calendario."
+  ],
+  "Salve a trilha como rascunho primeiro. Depois você poderá adicionar uma ou várias datas, definir vagas e acompanhar participantes.": [
+    "Save the trail as a draft first. Then add one or more dates, set availability and manage participants.",
+    "Primero guarda el sendero como borrador. Después podrás añadir fechas, definir plazas y consultar participantes."
+  ],
+  "Alterações no percurso não substituem o roteiro que já foi contratado pelos turistas.": [
+    "Route changes do not replace the itinerary already booked by travelers.",
+    "Los cambios de recorrido no sustituyen el itinerario ya contratado por los turistas."
+  ],
+  "O guia define a ordem das visitas de acordo com o grupo e as condições do passeio.": [
+    "The guide sets the order of visits according to the group and tour conditions.",
+    "El guía define el orden de las visitas según el grupo y las condiciones del paseo."
+  ],
+  "Os mapas mostram os pontos informados. O caminho da trilha e os acessos devem ser orientados pelo guia.": [
+    "Maps show the listed stops. Follow the guide's instructions for the trail and access routes.",
+    "Los mapas muestran los puntos indicados. El guía debe orientar el camino del sendero y sus accesos."
+  ],
+  "Esta trilha ainda não recebeu avaliações.": [
+    "This trail has no reviews yet.",
+    "Este sendero aún no tiene valoraciones."
+  ],
+  "O guia ainda não abriu novas datas. Converse com ele para saber mais.": [
+    "The guide has not added new dates yet. Chat with them to find out more.",
+    "El guía aún no ha abierto nuevas fechas. Conversa con él para saber más."
+  ],
+  "Carregando trilha…": [
+    "Loading trail…",
+    "Cargando sendero…"
+  ],
+  "Escolha sua saída": [
+    "Choose your departure",
+    "Elige tu salida"
+  ],
+  "Pessoas": [
+    "People",
+    "Personas"
+  ],
+  "Passageiros": [
+    "Passengers",
+    "Pasajeros"
+  ],
+  "Quantas pessoas vão participar?": [
+    "How many people will take part?",
+    "¿Cuántas personas participarán?"
+  ],
+  "Li o roteiro e as condições, e os participantes atendem aos requisitos de idade e preparo.": [
+    "I have read the itinerary and conditions, and participants meet the age and fitness requirements.",
+    "He leído el itinerario y las condiciones, y los participantes cumplen los requisitos de edad y preparación."
+  ],
+  "Reservar vagas e continuar": [
+    "Reserve spots and continue",
+    "Reservar plazas y continuar"
+  ],
+  "Reservar experiência": [
+    "Book experience",
+    "Reservar experiencia"
+  ],
+  "Solicitar reserva": [
+    "Request booking",
+    "Solicitar reserva"
+  ],
+  "Reservar experiências do catálogo": [
+    "Book catalog experiences",
+    "Reservar experiencias del catálogo"
+  ],
+  "Estas são as condições e os pontos registrados na sua reserva.": [
+    "These are the conditions and stops recorded in your booking.",
+    "Estas son las condiciones y los puntos registrados en tu reserva."
+  ],
+  "Roteiro contratado": [
+    "Booked itinerary",
+    "Itinerario contratado"
+  ],
+  "As vagas ficam reservadas por 30 minutos para você concluir o pagamento.": [
+    "Your spots are held for 30 minutes while you complete payment.",
+    "Las plazas se reservan durante 30 minutos para que completes el pago."
+  ],
+  "O prazo desta reserva expirou. Feche esta tela e selecione uma nova saída.": [
+    "This booking has expired. Close this screen and choose a new departure.",
+    "Esta reserva ha caducado. Cierra esta pantalla y elige una nueva salida."
+  ],
+  "O prazo para pagar esta reserva expirou. Escolha uma nova saída para consultar as vagas disponíveis.": [
+    "The payment deadline has passed. Choose a new departure to check availability.",
+    "El plazo para pagar esta reserva ha caducado. Elige otra salida para consultar las plazas disponibles."
+  ],
+  "Nenhuma reserva nesta seção.": [
+    "No bookings in this section.",
+    "No hay reservas en esta sección."
+  ],
+  "Nenhuma reserva ativa nesta saída.": [
+    "No active bookings for this departure.",
+    "No hay reservas activas en esta salida."
+  ],
+  "Abrir reserva": [
+    "Open booking",
+    "Abrir reserva"
+  ],
+  "Cancelar esta reserva": [
+    "Cancel this booking",
+    "Cancelar esta reserva"
+  ],
+  "Precisa alterar seus planos?": [
+    "Need to change your plans?",
+    "¿Necesitas cambiar tus planes?"
+  ],
+  "Reserva confirmada. Combine os detalhes pelo chat antes do passeio.": [
+    "Booking confirmed. Arrange the details in chat before the tour.",
+    "Reserva confirmada. Coordina los detalles por el chat antes del paseo."
+  ],
+  "Sua reserva está confirmada. Boa viagem!": [
+    "Your booking is confirmed. Enjoy your trip!",
+    "Tu reserva está confirmada. ¡Buen viaje!"
+  ],
+  "Combine a data diretamente com o profissional.": [
+    "Arrange the date directly with the professional.",
+    "Acuerda la fecha directamente con el profesional."
+  ],
+  "Conversa desta reserva": [
+    "Booking conversation",
+    "Conversación de esta reserva"
+  ],
+  "Fechar participantes": [
+    "Close participants",
+    "Cerrar participantes"
+  ],
+  "As reservas serão canceladas e os participantes serão avisados. Pagamentos aprovados receberão estorno.": [
+    "Bookings will be cancelled and participants notified. Approved payments will be refunded.",
+    "Las reservas se cancelarán y se avisará a los participantes. Los pagos aprobados se reembolsarán."
+  ],
+  "Quanto você oferece pela corrida? (R$)": [
+    "How much are you offering for the ride? (R$)",
+    "¿Cuánto ofreces por el viaje? (R$)"
+  ],
+  "Sua contraproposta (R$)": [
+    "Your counteroffer (R$)",
+    "Tu contraoferta (R$)"
+  ],
+  "Enviar contraproposta": [
+    "Send counteroffer",
+    "Enviar contraoferta"
+  ],
+  "Aceitar este valor": [
+    "Accept this amount",
+    "Aceptar este importe"
+  ],
+  "Receber novas propostas": [
+    "Receive new offers",
+    "Recibir nuevas propuestas"
+  ],
+  "Histórico da negociação": [
+    "Negotiation history",
+    "Historial de negociación"
+  ],
+  "Proposta aceita. Aguardando o pagamento do viajante.": [
+    "Offer accepted. Waiting for the traveler's payment.",
+    "Propuesta aceptada. Esperando el pago del viajero."
+  ],
+  "Disponibilidade e valor": [
+    "Availability and price",
+    "Disponibilidad y precio"
+  ],
+  "Recusar": [
+    "Decline",
+    "Rechazar"
+  ],
+  "Comissão da plataforma": [
+    "Platform commission",
+    "Comisión de la plataforma"
+  ],
+  "Recebimento com sua contraproposta": [
+    "Your earnings with this counteroffer",
+    "Tu ingreso con esta contraoferta"
+  ],
+  "Consultando a comissão da plataforma…": [
+    "Checking platform commission…",
+    "Consultando la comisión de la plataforma…"
+  ],
+  "Não foi possível consultar a taxa. Atualize a tela para conferir seu recebimento antes de confirmar.": [
+    "Could not retrieve the fee. Refresh to check your earnings before confirming.",
+    "No se pudo consultar la comisión. Actualiza para comprobar tu ingreso antes de confirmar."
+  ],
+  "Minha carteira.": [
+    "My wallet.",
+    "Mi cartera."
+  ],
+  "Seus recebimentos e pagamentos.": [
+    "Your earnings and payments.",
+    "Tus ingresos y pagos."
+  ],
+  "Disponível para saque": [
+    "Available to withdraw",
+    "Disponible para retirar"
+  ],
+  "Saldo e recebimentos": [
+    "Balance and earnings",
+    "Saldo e ingresos"
+  ],
+  "Saldo disponível": [
+    "Available balance",
+    "Saldo disponible"
+  ],
+  "Saldo pendente": [
+    "Pending balance",
+    "Saldo pendiente"
+  ],
+  "Movimentações": [
+    "Transactions",
+    "Movimientos"
+  ],
+  "Nenhuma movimentação.": [
+    "No transactions yet.",
+    "Aún no hay movimientos."
+  ],
+  "Meus pagamentos": [
+    "My payments",
+    "Mis pagos"
+  ],
+  "Carteira e pagamentos": [
+    "Wallet and payments",
+    "Cartera y pagos"
+  ],
+  "Sacar": [
+    "Withdraw",
+    "Retirar"
+  ],
+  "Sacar.": [
+    "Withdraw.",
+    "Retirar."
+  ],
+  "Confirmar saque": [
+    "Confirm withdrawal",
+    "Confirmar retiro"
+  ],
+  "Escolha onde deseja receber.": [
+    "Choose where to receive your money.",
+    "Elige dónde recibir tu dinero."
+  ],
+  "Banco": [
+    "Bank",
+    "Banco"
+  ],
+  "Agência": [
+    "Branch",
+    "Sucursal"
+  ],
+  "Conta e dígito": [
+    "Account and check digit",
+    "Cuenta y dígito"
+  ],
+  "Chave Pix": [
+    "Pix key",
+    "Clave Pix"
+  ],
+  "Receber pelo CPF": [
+    "Receive using CPF",
+    "Recibir con CPF"
+  ],
+  "Outra chave Pix": [
+    "Another Pix key",
+    "Otra clave Pix"
+  ],
+  "Transferência bancária": [
+    "Bank transfer",
+    "Transferencia bancaria"
+  ],
+  "Valor do saque (R$)": [
+    "Withdrawal amount (R$)",
+    "Importe del retiro (R$)"
+  ],
+  "Deixe em branco para sacar o saldo disponível.": [
+    "Leave blank to withdraw your available balance.",
+    "Deja en blanco para retirar el saldo disponible."
+  ],
+  "O destino está em meu nome, conforme o Gov.br": [
+    "The recipient account is in my name, matching Gov.br",
+    "La cuenta de destino está a mi nombre, conforme a Gov.br"
+  ],
+  "A chave Pix ou conta bancária deve pertencer ao mesmo titular do CPF cadastrado no Gov.br.": [
+    "The Pix key or bank account must belong to the CPF holder registered with Gov.br.",
+    "La clave Pix o cuenta bancaria debe pertenecer al titular del CPF registrado en Gov.br."
+  ],
+  "✓ Saque solicitado": [
+    "✓ Withdrawal requested",
+    "✓ Retiro solicitado"
+  ],
+  "Resumo do pagamento": [
+    "Payment summary",
+    "Resumen del pago"
+  ],
+  "Confira o total e escolha a forma de pagamento.": [
+    "Check the total and choose a payment method.",
+    "Comprueba el total y elige la forma de pago."
+  ],
+  "Cartão de crédito": [
+    "Credit card",
+    "Tarjeta de crédito"
+  ],
+  "Número do cartão": [
+    "Card number",
+    "Número de tarjeta"
+  ],
+  "Nome no cartão": [
+    "Cardholder name",
+    "Nombre en la tarjeta"
+  ],
+  "Validade": [
+    "Expiry date",
+    "Vencimiento"
+  ],
+  "Total": [
+    "Total",
+    "Total"
+  ],
+  "Subtotal": [
+    "Subtotal",
+    "Subtotal"
+  ],
+  "Taxas": [
+    "Fees",
+    "Comisiones"
+  ],
+  "Desconto": [
+    "Discount",
+    "Descuento"
+  ],
+  "Pagar": [
+    "Pay",
+    "Pagar"
+  ],
+  "Finalizar pagamento": [
+    "Complete payment",
+    "Finalizar pago"
+  ],
+  "✓ Pagamento aprovado": [
+    "✓ Payment approved",
+    "✓ Pago aprobado"
+  ],
+  "Aguardando confirmação do pagamento…": [
+    "Waiting for payment confirmation…",
+    "Esperando confirmación del pago…"
+  ],
+  "Aguardando confirmação do Pix…": [
+    "Waiting for Pix confirmation…",
+    "Esperando confirmación del Pix…"
+  ],
+  "Acompanhar Pix": [
+    "Track Pix payment",
+    "Consultar Pix"
+  ],
+  "Copiar código Pix": [
+    "Copy Pix code",
+    "Copiar código Pix"
+  ],
+  "Se fechar a tela, volte em Reservas → Acompanhar Pix para continuar.": [
+    "If you close this screen, go to Bookings → Track Pix payment to continue.",
+    "Si cierras esta pantalla, vuelve a Reservas → Consultar Pix para continuar."
+  ],
+  "Planos e destaque.": [
+    "Plans and promotion.",
+    "Planes y promoción."
+  ],
+  "Mais visibilidade para seu trabalho na Costa do Cacau.": [
+    "More visibility for your work in the Costa do Cacau.",
+    "Más visibilidad para tu trabajo en la Costa do Cacau."
+  ],
+  "Escolher plano": [
+    "Choose plan",
+    "Elegir plan"
+  ],
+  "Minhas assinaturas": [
+    "My subscriptions",
+    "Mis suscripciones"
+  ],
+  "Conhecer planos e destaque": [
+    "View plans and promotion",
+    "Conocer planes y promoción"
+  ],
+  "Cancelar assinatura": [
+    "Cancel subscription",
+    "Cancelar suscripción"
+  ],
+  "Cancelar plano": [
+    "Cancel plan",
+    "Cancelar plan"
+  ],
+  "Renovação mensal": [
+    "Monthly renewal",
+    "Renovación mensual"
+  ],
+  "Renovar meu plano mensalmente": [
+    "Renew my plan monthly",
+    "Renovar mi plan mensualmente"
+  ],
+  "Pagamento do plano": [
+    "Plan payment",
+    "Pago del plan"
+  ],
+  "✓ Plano ativado": [
+    "✓ Plan activated",
+    "✓ Plan activado"
+  ],
+  "Gratuito": [
+    "Free",
+    "Gratis"
+  ],
+  "Básico": [
+    "Basic",
+    "Básico"
+  ],
+  "Destaque": [
+    "Featured",
+    "Destacado"
+  ],
+  "Pendente": [
+    "Pending",
+    "Pendiente"
+  ],
+  "Nova proposta": [
+    "New offer",
+    "Nueva propuesta"
+  ],
+  "Aguardando aceite": [
+    "Awaiting acceptance",
+    "Esperando aceptación"
+  ],
+  "Aguardando pagamento": [
+    "Awaiting payment",
+    "Esperando pago"
+  ],
+  "Confirmado": [
+    "Confirmed",
+    "Confirmado"
+  ],
+  "Concluído": [
+    "Completed",
+    "Completado"
+  ],
+  "Cancelado": [
+    "Cancelled",
+    "Cancelado"
+  ],
+  "Recusado": [
+    "Declined",
+    "Rechazado"
+  ],
+  "Aprovado": [
+    "Approved",
+    "Aprobado"
+  ],
+  "Estornado": [
+    "Refunded",
+    "Reembolsado"
+  ],
+  "Disponível": [
+    "Available",
+    "Disponible"
+  ],
+  "Publicado": [
+    "Published",
+    "Publicado"
+  ],
+  "Rascunho": [
+    "Draft",
+    "Borrador"
+  ],
+  "Oculto": [
+    "Hidden",
+    "Oculto"
+  ],
+  "Pago": [
+    "Paid",
+    "Pagado"
+  ],
+  "Ativo": [
+    "Active",
+    "Activo"
+  ],
+  "Respondido": [
+    "Answered",
+    "Respondido"
+  ],
+  "Aberto": [
+    "Open",
+    "Abierto"
+  ],
+  "Encerrado": [
+    "Closed",
+    "Cerrado"
+  ],
+  "Resolvido": [
+    "Resolved",
+    "Resuelto"
+  ],
+  "Arquivado": [
+    "Archived",
+    "Archivado"
+  ],
+  "Não informado": [
+    "Not provided",
+    "No indicado"
+  ],
+  "Mensagens.": [
+    "Messages.",
+    "Mensajes."
+  ],
+  "Converse com guias, motoristas e clientes.": [
+    "Chat with guides, drivers and customers.",
+    "Conversa con guías, conductores y clientes."
+  ],
+  "Abra o perfil de um profissional e toque em Conversar.": [
+    "Open a professional's profile and tap Chat.",
+    "Abre el perfil de un profesional y toca Conversar."
+  ],
+  "Converse e combine os detalhes antes de reservar.": [
+    "Chat and arrange the details before booking.",
+    "Conversa y acuerda los detalles antes de reservar."
+  ],
+  "Mensagem": [
+    "Message",
+    "Mensaje"
+  ],
+  "Enviar": [
+    "Send",
+    "Enviar"
+  ],
+  "Conectado": [
+    "Connected",
+    "Conectado"
+  ],
+  "Reconectando…": [
+    "Reconnecting…",
+    "Reconectando…"
+  ],
+  "Para sua segurança, mantenha o contato e o pagamento dentro do aplicativo.": [
+    "For your safety, keep conversations and payments within the app.",
+    "Por tu seguridad, mantén el contacto y los pagos dentro de la aplicación."
+  ],
+  "Denunciar": [
+    "Report",
+    "Denunciar"
+  ],
+  "Denúncia recebida.": [
+    "Report received.",
+    "Denuncia recibida."
+  ],
+  "Denunciar comentário": [
+    "Report review",
+    "Denunciar comentario"
+  ],
+  "Fale com o suporte.": [
+    "Contact support.",
+    "Contacta con soporte."
+  ],
+  "Comece com o assistente virtual e, se precisar, solicite nossa equipe na mesma conversa.": [
+    "Start with the virtual assistant and request our team in the same conversation if needed.",
+    "Comienza con el asistente virtual y, si lo necesitas, solicita a nuestro equipo en la misma conversación."
+  ],
+  "Como podemos ajudar?": [
+    "How can we help?",
+    "¿Cómo podemos ayudarte?"
+  ],
+  "Conte sua dúvida sobre reservas, pagamentos, cadastro ou sua viagem.": [
+    "Tell us your question about bookings, payments, registration or your trip.",
+    "Cuéntanos tu duda sobre reservas, pagos, registro o tu viaje."
+  ],
+  "Sua primeira mensagem": [
+    "Your first message",
+    "Tu primer mensaje"
+  ],
+  "Iniciar conversa": [
+    "Start conversation",
+    "Iniciar conversación"
+  ],
+  "Continuar conversa": [
+    "Continue conversation",
+    "Continuar conversación"
+  ],
+  "Enviar mensagem": [
+    "Send message",
+    "Enviar mensaje"
+  ],
+  "Solicitar atendimento humano": [
+    "Request human support",
+    "Solicitar atención humana"
+  ],
+  "O assistente está respondendo…": [
+    "The assistant is replying…",
+    "El asistente está respondiendo…"
+  ],
+  "O assistente está preparando sua resposta…": [
+    "The assistant is preparing your answer…",
+    "El asistente está preparando tu respuesta…"
+  ],
+  "Meus atendimentos": [
+    "My support requests",
+    "Mis solicitudes de soporte"
+  ],
+  "Voltar para meus atendimentos": [
+    "Back to my support requests",
+    "Volver a mis solicitudes de soporte"
+  ],
+  "Carregar mensagens anteriores": [
+    "Load earlier messages",
+    "Cargar mensajes anteriores"
+  ],
+  "Seu histórico e as respostas ficam nesta conversa.": [
+    "Your history and replies stay in this conversation.",
+    "Tu historial y las respuestas quedan en esta conversación."
+  ],
+  "Atendimento encerrado": [
+    "Support request closed",
+    "Solicitud de soporte cerrada"
+  ],
+  "Seu histórico continua disponível. Para outra dúvida, inicie uma nova conversa.": [
+    "Your history remains available. Start a new conversation for another question.",
+    "Tu historial sigue disponible. Inicia otra conversación para una nueva consulta."
+  ],
+  "Voltar e iniciar outra conversa": [
+    "Go back and start another conversation",
+    "Volver e iniciar otra conversación"
+  ],
+  "A equipe recebeu sua solicitação. A resposta aparecerá aqui e nas notificações.": [
+    "Our team received your request. The reply will appear here and in notifications.",
+    "El equipo recibió tu solicitud. La respuesta aparecerá aquí y en las notificaciones."
+  ],
+  "Suas conversas com o suporte aparecerão aqui.": [
+    "Your support conversations will appear here.",
+    "Tus conversaciones con soporte aparecerán aquí."
+  ],
+  "Você": [
+    "You",
+    "Tú"
+  ],
+  "Equipe": [
+    "Team",
+    "Equipo"
+  ],
+  "Suporte": [
+    "Support",
+    "Soporte"
+  ],
+  "Assistente virtual": [
+    "Virtual assistant",
+    "Asistente virtual"
+  ],
+  "Atendimento": [
+    "Support",
+    "Atención"
+  ],
+  "Ver histórico": [
+    "View history",
+    "Ver historial"
+  ],
+  "Como foi sua experiência?": [
+    "How was your experience?",
+    "¿Cómo fue tu experiencia?"
+  ],
+  "Nota de 1 a 5": [
+    "Rating from 1 to 5",
+    "Valoración de 1 a 5"
+  ],
+  "Seu comentário": [
+    "Your review",
+    "Tu comentario"
+  ],
+  "Publicar avaliação": [
+    "Post review",
+    "Publicar valoración"
+  ],
+  "O que aconteceu?": [
+    "What happened?",
+    "¿Qué ocurrió?"
+  ],
+  "Relatar um problema": [
+    "Report a problem",
+    "Informar de un problema"
+  ],
+  "Desempenho e reputação": [
+    "Performance and reputation",
+    "Desempeño y reputación"
+  ],
+  "Seu desempenho aparecerá após o cadastro profissional.": [
+    "Your performance will appear after professional registration.",
+    "Tu desempeño aparecerá después del registro profesional."
+  ],
+  "Aceites e próximos serviços": [
+    "Offers and upcoming services",
+    "Aceptaciones y próximos servicios"
+  ],
+  "Editar serviços e disponibilidade": [
+    "Edit services and availability",
+    "Editar servicios y disponibilidad"
+  ],
+  "Converse com seus clientes": [
+    "Chat with your customers",
+    "Conversa con tus clientes"
+  ],
+  "Pontos verdes e benefícios": [
+    "Green points and rewards",
+    "Puntos verdes y beneficios"
+  ],
+  "Cuide de onde você ama viajar.": [
+    "Care for the places you love to visit.",
+    "Cuida los lugares que amas visitar."
+  ],
+  "Transforme suas entregas nos pontos de coleta em benefícios para aproveitar a Costa do Cacau.": [
+    "Turn your drop-offs at collection points into rewards to enjoy the Costa do Cacau.",
+    "Convierte tus entregas en puntos de recolección en beneficios para disfrutar la Costa do Cacau."
+  ],
+  "Conhecer o programa": [
+    "Explore the program",
+    "Conocer el programa"
+  ],
+  "Já tenho um código": [
+    "I have a code",
+    "Ya tengo un código"
+  ],
+  "Sua entrega vale pontos": [
+    "Your recycling earns points",
+    "Tu entrega vale puntos"
+  ],
+  "Entregue materiais em um ponto de coleta, receba um código e troque seus pontos por descontos.": [
+    "Drop off materials at a collection point, receive a code and redeem your points for discounts.",
+    "Entrega materiales en un punto de recolección, recibe un código y canjea tus puntos por descuentos."
+  ],
+  "Pequenas atitudes na Costa do Cacau viram benefícios para sua próxima experiência.": [
+    "Small actions in the Costa do Cacau turn into rewards for your next experience.",
+    "Pequeñas acciones en la Costa do Cacau se convierten en beneficios para tu próxima experiencia."
+  ],
+  "SEUS PONTOS VERDES": [
+    "YOUR GREEN POINTS",
+    "TUS PUNTOS VERDES"
+  ],
+  "Cada entrega faz parte da história": [
+    "Every drop-off makes a difference",
+    "Cada entrega forma parte de la historia"
+  ],
+  "Encontre um ponto de coleta": [
+    "Find a collection point",
+    "Encuentra un punto de recolección"
+  ],
+  "1. Separe os materiais aceitos e leve até o ponto.": [
+    "1. Sort accepted materials and take them to the collection point.",
+    "1. Separa los materiales aceptados y llévalos al punto."
+  ],
+  "2. A equipe registra sua entrega e informa o código.": [
+    "2. The team registers your drop-off and gives you a code.",
+    "2. El equipo registra tu entrega y te da el código."
+  ],
+  "3. Digite o código abaixo para receber seus pontos.": [
+    "3. Enter the code below to receive your points.",
+    "3. Introduce el código abajo para recibir tus puntos."
+  ],
+  "Código recebido no ponto de coleta": [
+    "Code from the collection point",
+    "Código del punto de recolección"
+  ],
+  "Receber meus pontos": [
+    "Claim my points",
+    "Recibir mis puntos"
+  ],
+  "Escolha como usar seus pontos": [
+    "Choose how to use your points",
+    "Elige cómo usar tus puntos"
+  ],
+  "Descontos em parceiros locais, trilhas e transporte. Confira as condições antes de trocar.": [
+    "Discounts at local partners, on trails and transport. Check the terms before redeeming.",
+    "Descuentos en socios locales, senderos y transporte. Consulta las condiciones antes de canjear."
+  ],
+  "Trocar pontos": [
+    "Redeem points",
+    "Canjear puntos"
+  ],
+  "Resgatar": [
+    "Redeem",
+    "Canjear"
+  ],
+  "Seus benefícios resgatados": [
+    "Your redeemed rewards",
+    "Tus beneficios canjeados"
+  ],
+  "Seus benefícios já estão disponíveis.": [
+    "Your rewards are now available.",
+    "Tus beneficios ya están disponibles."
+  ],
+  "Depois de trocar seus pontos, os cupons aparecerão aqui.": [
+    "Your coupons will appear here after you redeem your points.",
+    "Tus cupones aparecerán aquí después de canjear tus puntos."
+  ],
+  "Quando você trocar pontos por descontos de trilhas ou transporte, eles aparecerão aqui.": [
+    "Trail or transport discounts redeemed with points will appear here.",
+    "Los descuentos de senderos o transporte canjeados con puntos aparecerán aquí."
+  ],
+  "Seu extrato começa na primeira entrega. Os pontos verdes não são dinheiro e servem para trocar por benefícios.": [
+    "Your statement starts with your first drop-off. Green points are not money and can be redeemed for rewards.",
+    "Tu historial comienza con la primera entrega. Los puntos verdes no son dinero y sirven para canjear beneficios."
+  ],
+  "Novos benefícios serão publicados aqui. Continue acumulando pontos nas suas entregas.": [
+    "New rewards will appear here. Keep earning points with your drop-offs.",
+    "Aquí se publicarán nuevos beneficios. Sigue acumulando puntos con tus entregas."
+  ],
+  "Os pontos de coleta desta região serão publicados aqui. Confira os benefícios e acompanhe as novidades.": [
+    "Collection points in this region will appear here. Explore rewards and check back for updates.",
+    "Aquí se publicarán los puntos de recolección de la región. Consulta los beneficios y las novedades."
+  ],
+  "Buscando seus benefícios…": [
+    "Loading your rewards…",
+    "Buscando tus beneficios…"
+  ],
+  "Nenhum registro por aqui ainda.": [
+    "Nothing here yet.",
+    "Aún no hay registros aquí."
+  ],
+  "Nenhum registro nesta seção.": [
+    "No records in this section.",
+    "No hay registros en esta sección."
+  ],
+  "Não foi possível abrir esta tela.": [
+    "Could not open this screen.",
+    "No se pudo abrir esta pantalla."
+  ],
+  "Seus dados continuam salvos. Tente abrir novamente.": [
+    "Your data is still saved. Try opening it again.",
+    "Tus datos siguen guardados. Intenta abrirla de nuevo."
+  ],
+  "Tentar novamente": [
+    "Try again",
+    "Intentar de nuevo"
+  ],
+  "O idioma mudou, mas não foi possível salvar a preferência neste dispositivo.": [
+    "Language changed, but your preference could not be saved on this device.",
+    "El idioma cambió, pero no se pudo guardar la preferencia en este dispositivo."
+  ],
+  "Permita o acesso à localização nas configurações do navegador.": [
+    "Allow location access in your browser settings.",
+    "Permite el acceso a la ubicación en los ajustes del navegador."
+  ],
+  "Permita o acesso à localização nas configurações do aplicativo.": [
+    "Allow location access in your app settings.",
+    "Permite el acceso a la ubicación en los ajustes de la aplicación."
+  ],
+  "Para usar sua localização, abra o site com HTTPS ou localhost.": [
+    "To use your location, open the site with HTTPS or localhost.",
+    "Para usar tu ubicación, abre el sitio con HTTPS o localhost."
+  ],
+  "Seu navegador não oferece localização.": [
+    "Your browser does not support geolocation.",
+    "Tu navegador no ofrece geolocalización."
+  ],
+  "Não foi possível localizar a tempo. Tente novamente.": [
+    "Location request timed out. Try again.",
+    "Se agotó el tiempo para obtener tu ubicación. Inténtalo de nuevo."
+  ],
+  "Sua localização está indisponível. Confira se o GPS está ligado.": [
+    "Your location is unavailable. Check that GPS is enabled.",
+    "Tu ubicación no está disponible. Comprueba que el GPS esté activado."
+  ],
+  "Ative a localização do aparelho e tente novamente.": [
+    "Enable device location and try again.",
+    "Activa la ubicación del dispositivo e inténtalo de nuevo."
+  ],
+  "Não foi possível obter sua localização.": [
+    "Could not get your location.",
+    "No se pudo obtener tu ubicación."
+  ],
+  "Não foi possível carregar o mapa. Confira sua conexão.": [
+    "Could not load the map. Check your connection.",
+    "No se pudo cargar el mapa. Comprueba tu conexión."
+  ],
+  "Não foi possível carregar o mapa.": [
+    "Could not load the map.",
+    "No se pudo cargar el mapa."
+  ],
+  "Não foi possível abrir o Maps. Use o botão nos detalhes.": [
+    "Could not open Maps. Use the button in the details.",
+    "No se pudo abrir Maps. Usa el botón en los detalles."
+  ],
+  "Administração.": [
+    "Administration.",
+    "Administración."
+  ],
+  "Administração da plataforma": [
+    "Platform administration",
+    "Administración de la plataforma"
+  ],
+  "Conteúdo, profissionais e operação da plataforma.": [
+    "Platform content, professionals and operations.",
+    "Contenido, profesionales y operación de la plataforma."
+  ],
+  "Acesso restrito": [
+    "Restricted access",
+    "Acceso restringido"
+  ],
+  "Esta área é destinada à administração.": [
+    "This area is for administrators.",
+    "Esta área está destinada a la administración."
+  ],
+  "Aprovar perfil e documentos": [
+    "Approve profile and documents",
+    "Aprobar perfil y documentos"
+  ],
+  "Recusar cadastro": [
+    "Reject registration",
+    "Rechazar registro"
+  ],
+  "Cadastrar novo registro": [
+    "Create a new record",
+    "Crear nuevo registro"
+  ],
+  "Resposta ao usuário": [
+    "Reply to the user",
+    "Respuesta al usuario"
+  ],
+  "Enviar resposta": [
+    "Send reply",
+    "Enviar respuesta"
+  ],
+  "Enviar para moderação": [
+    "Submit for moderation",
+    "Enviar a moderación"
+  ],
+  "Moderar conteúdo e resolver": [
+    "Moderate content and resolve",
+    "Moderar contenido y resolver"
+  ],
+  "Arquivar sem ação": [
+    "Archive without action",
+    "Archivar sin acción"
+  ],
+  "Salvar comissão (%)": [
+    "Save commission (%)",
+    "Guardar comisión (%)"
+  ],
+  "Fluxo agregado por destino:": [
+    "Aggregated traffic by destination:",
+    "Flujo agregado por destino:"
+  ],
+  "Gov.br autenticado": [
+    "Gov.br verified",
+    "Gov.br verificado"
+  ],
+  "Identidade não autenticada": [
+    "Identity not verified",
+    "Identidad sin verificar"
+  ],
+  "Verifique sua conta para liberar o cadastro de guia e motorista.": [
+    "Verify your account to register as a guide or driver.",
+    "Verifica tu cuenta para registrarte como guía o conductor."
+  ],
+  "Troque de perfil sem criar outra conta.": [
+    "Switch profiles without creating another account.",
+    "Cambia de perfil sin crear otra cuenta."
+  ],
+  "Viajar como turista": [
+    "Travel as a tourist",
+    "Viajar como turista"
+  ],
+  "Trabalhar como guia": [
+    "Work as a guide",
+    "Trabajar como guía"
+  ],
+  "Trabalhar como motorista": [
+    "Work as a driver",
+    "Trabajar como conductor"
+  ],
+  "Gerenciar meu cadastro": [
+    "Manage my profile",
+    "Gestionar mi registro"
+  ],
+  "Ofereça experiências locais": [
+    "Offer local experiences",
+    "Ofrece experiencias locales"
+  ],
+  "Transporte para os viajantes": [
+    "Transport for travelers",
+    "Transporte para viajeros"
+  ],
+  "Receber pelo CPF do Gov.br": [
+    "Receive using your Gov.br CPF",
+    "Recibir con el CPF de Gov.br"
+  ],
+  "Usar outra chave Pix": [
+    "Use another Pix key",
+    "Usar otra clave Pix"
+  ],
+  "Você não precisa informar uma chave: será utilizado o CPF vinculado à sua conta Gov.br.": [
+    "You do not need to enter a key: the CPF linked to your Gov.br account will be used.",
+    "No necesitas indicar una clave: se usará el CPF vinculado a tu cuenta Gov.br."
+  ],
+  "Serviço": [
+    "Service",
+    "Servicio"
+  ],
+  "Desconto sustentável": [
+    "Sustainability discount",
+    "Descuento sostenible"
+  ],
+  "Nome impresso": [
+    "Name on card",
+    "Nombre impreso"
+  ],
+  "Confirmar reserva com benefício": [
+    "Confirm booking with reward",
+    "Confirmar reserva con beneficio"
+  ],
+  "Pagar com Pix": [
+    "Pay with Pix",
+    "Pagar con Pix"
+  ],
+  "Confirmar pagamento": [
+    "Confirm payment",
+    "Confirmar pago"
+  ],
+  "Mapa interativo — toque nos ícones para detalhes e rota": [
+    "Interactive map — tap icons for details and directions",
+    "Mapa interactivo — toca los iconos para ver detalles y rutas"
+  ],
+  "Nenhuma conversa ainda.": [
+    "No conversations yet.",
+    "Aún no hay conversaciones."
+  ],
+  "Nenhuma reserva ainda.": [
+    "No bookings yet.",
+    "Aún no hay reservas."
+  ],
+  "Meu desempenho": [
+    "My performance",
+    "Mi desempeño"
+  ],
+  "Seu desempenho": [
+    "Your performance",
+    "Tu desempeño"
+  ],
+  "A referência documental fica disponível somente para você e para a administração. Alterações exigem nova análise.": [
+    "Document references are available only to you and the administration. Changes require a new review.",
+    "La referencia documental solo está disponible para ti y la administración. Los cambios requieren otra revisión."
+  ],
+  "O app usa dados de conta, reservas e mensagens para prestar os serviços. A localização é solicitada apenas ao buscar lugares próximos e não é usada para guardar um histórico individual de deslocamentos.": [
+    "The app uses account details, bookings and messages to provide its services. Location is requested only when searching for nearby places and is not used to store an individual movement history.",
+    "La aplicación usa datos de cuenta, reservas y mensajes para prestar sus servicios. La ubicación se solicita solo al buscar lugares cercanos y no se usa para guardar un historial individual de desplazamientos."
+  ],
+  "A solicitação de exclusão passa pelo suporte para análise de pendências e requisitos de retenção.": [
+    "Deletion requests are reviewed by support for outstanding matters and retention requirements.",
+    "Las solicitudes de eliminación pasan por soporte para revisar asuntos pendientes y requisitos de conservación."
+  ],
+  "Ir para Minha conta": [
+    "Go to My account",
+    "Ir a Mi cuenta"
+  ],
+  "Etapa anterior": [
+    "Previous step",
+    "Paso anterior"
+  ],
+  "Próximo passo": [
+    "Next step",
+    "Siguiente paso"
+  ],
+  "Passeios com acessibilidade informada": [
+    "Tours with listed accessibility",
+    "Paseos con accesibilidad indicada"
+  ],
+  "Priorizar acessibilidade": [
+    "Prioritize accessibility",
+    "Priorizar accesibilidad"
+  ],
+  "Orçamento (R$)": [
+    "Budget (R$)",
+    "Presupuesto (R$)"
+  ],
+  "Nenhum benefício disponível.": [
+    "No rewards available.",
+    "No hay beneficios disponibles."
+  ],
+  "ÁREA GUIA": [
+    "GUIDE AREA",
+    "ÁREA DE GUÍA"
+  ],
+  "ÁREA MOTORISTA": [
+    "DRIVER AREA",
+    "ÁREA DE CONDUCTOR"
+  ],
+  "Guia · área de atendimento": [
+    "Guide · service area",
+    "Guía · zona de atención"
+  ],
+  "Motorista · área de atendimento": [
+    "Driver · service area",
+    "Conductor · zona de atención"
+  ],
+  "Nenhum ponto disponível neste mapa.": [
+    "No places available on this map.",
+    "No hay puntos disponibles en este mapa."
+  ],
+  "Aguarde enquanto confirmamos seu acesso.": [
+    "Please wait while we confirm your sign-in.",
+    "Espera mientras confirmamos tu acceso."
+  ],
+  "Ajude-me a escolher um passeio": [
+    "Help me choose a tour",
+    "Ayúdame a elegir un paseo"
+  ],
+  "Cadastre os endereços. As coordenadas são opcionais e permitem mostrar os marcadores no mapa do app.": [
+    "Enter the addresses. Coordinates are optional and allow markers to appear on the app map.",
+    "Registra las direcciones. Las coordenadas son opcionales y permiten mostrar marcadores en el mapa de la aplicación."
+  ],
+  "Ex.: 10": [
+    "E.g. 10",
+    "Ej.: 10"
+  ],
+  "Explorar o Cacautrip": [
+    "Explore Cacautrip",
+    "Explorar Cacautrip"
+  ],
+  "Meu fim de semana na Costa do Cacau": [
+    "My weekend in the Costa do Cacau",
+    "Mi fin de semana en la Costa do Cacau"
+  ],
+  "Preciso de ajuda com uma reserva": [
+    "I need help with a booking",
+    "Necesito ayuda con una reserva"
+  ],
+  "Tenho R$ 700 para hoje e gostaria de conhecer praias e comer bem.": [
+    "I have R$700 for today and would like to visit beaches and enjoy good food.",
+    "Tengo R$700 para hoy y me gustaría visitar playas y comer bien."
+  ],
+  "Trilha, região ou experiência": [
+    "Trail, region or experience",
+    "Sendero, región o experiencia"
+  ],
+  "Trilhas e passeios.": [
+    "Trails and tours.",
+    "Senderos y paseos."
+  ],
+  "Um cupom por compra. Não cumulativo com outros cupons.": [
+    "One coupon per purchase. Cannot be combined with other coupons.",
+    "Un cupón por compra. No acumulable con otros cupones."
+  ],
+  "Um horário por linha, no formato AAAA-MM-DD HH:MM. Deixe vazio para combinar pelo chat.": [
+    "One departure per line, in YYYY-MM-DD HH:MM format. Leave blank to arrange it in chat.",
+    "Un horario por línea, en formato AAAA-MM-DD HH:MM. Deja en blanco para acordarlo por el chat."
+  ],
+  "Uma saída com reservas mantém sua data e o ponto de encontro contratado.": [
+    "A departure with bookings keeps its original date and meeting point.",
+    "Una salida con reservas mantiene su fecha y el punto de encuentro contratado."
+  ],
+  "URL da foto": [
+    "Photo URL",
+    "URL de la foto"
+  ],
+  "URL da imagem de capa": [
+    "Cover image URL",
+    "URL de la imagen de portada"
+  ],
+  "Use o endereço https:// de uma imagem.": [
+    "Enter the https:// URL of an image.",
+    "Usa la dirección https:// de una imagen."
+  ],
+  "Use um desconto sustentável": [
+    "Use a sustainability discount",
+    "Usa un descuento sostenible"
+  ],
+  "Ver como turista": [
+    "View as a traveler",
+    "Ver como turista"
+  ],
+  "Ver datas da trilha": [
+    "View trail dates",
+    "Ver fechas del sendero"
+  ],
+  "Ver detalhes": [
+    "View details",
+    "Ver detalles"
+  ],
+  "Ver este ponto no mapa": [
+    "View this place on the map",
+    "Ver este punto en el mapa"
+  ],
+  "Ver participantes": [
+    "View participants",
+    "Ver participantes"
+  ],
+  "Ver perfil e disponibilidade": [
+    "View profile and availability",
+    "Ver perfil y disponibilidad"
+  ],
+  "Ver reserva": [
+    "View booking",
+    "Ver reserva"
+  ],
+  "Ver roteiro e datas": [
+    "View itinerary and dates",
+    "Ver itinerario y fechas"
+  ],
+  "Ver trajeto de origem a destino": [
+    "View route from start to destination",
+    "Ver ruta de origen a destino"
+  ],
+  "Ver trilhas, percursos e datas deste guia": [
+    "View this guide's trails, routes and dates",
+    "Ver senderos, recorridos y fechas de este guía"
+  ],
+  "Verificação de identidade necessária": [
+    "Identity verification required",
+    "Verificación de identidad necesaria"
+  ],
+  "Verifique sua conta com Gov.br em Minha conta para liberar o cadastro profissional.": [
+    "Verify with Gov.br in My account to enable professional registration.",
+    "Verifica tu cuenta con Gov.br en Mi cuenta para habilitar el registro profesional."
+  ],
+  "Viaje. Cuide. Transforme.": [
+    "Travel. Care. Transform.",
+    "Viaja. Cuida. Transforma."
+  ],
+  "Vincular a um roteiro:": [
+    "Link to an itinerary:",
+    "Vincular a un itinerario:"
+  ],
+  "Visão geral": [
+    "Overview",
+    "Vista general"
+  ],
+  "Visita opcional": [
+    "Optional visit",
+    "Visita opcional"
+  ],
+  "Visualizar trajeto no mapa": [
+    "View route on map",
+    "Ver recorrido en el mapa"
+  ],
+  "Você ainda não recebeu avaliações de serviços concluídos.": [
+    "You have not received any reviews for completed services yet.",
+    "Aún no has recibido valoraciones de servicios completados."
+  ],
+  "Você escolhe o percurso, as condições e os dias de cada passeio.": [
+    "You choose the route, conditions and dates of each tour.",
+    "Tú eliges el recorrido, las condiciones y los días de cada paseo."
+  ],
+  "Você no controle": [
+    "You are in control",
+    "Tú tienes el control"
+  ],
+  "Você pode cancelar antes da conclusão. Se houver pagamento, o estorno será solicitado.": [
+    "You can cancel before completion. If payment was made, a refund will be requested.",
+    "Puedes cancelar antes de la finalización. Si hubo un pago, se solicitará el reembolso."
+  ],
+  "Você pode informar várias saídas, uma por linha.": [
+    "You can enter several departures, one per line.",
+    "Puedes indicar varias salidas, una por línea."
+  ],
+  "Você poderá pagar quando o valor for aceito pela outra parte.": [
+    "You can pay once the other party accepts the amount.",
+    "Podrás pagar cuando la otra parte acepte el importe."
+  ],
+  "Você também pode trocar pontos por um novo desconto:": [
+    "You can also redeem points for a new discount:",
+    "También puedes canjear puntos por un nuevo descuento:"
+  ],
+  "Voltar à lista de locais": [
+    "Back to the list of places",
+    "Volver a la lista de lugares"
+  ],
+  "Histórico": [
+    "History",
+    "Historial"
+  ],
+  "Ativas": [
+    "Active",
+    "Activas"
+  ],
+  "Pendentes": [
+    "Pending",
+    "Pendientes"
+  ],
+  "Concluídas": [
+    "Completed",
+    "Completadas"
+  ],
+  "Canceladas": [
+    "Cancelled",
+    "Canceladas"
+  ],
+  "Pagamento": [
+    "Payment",
+    "Pago"
+  ],
+  "Pagamentos": [
+    "Payments",
+    "Pagos"
+  ],
+  "Avaliação": [
+    "Review",
+    "Valoración"
+  ],
+  "Fácil": [
+    "Easy",
+    "Fácil"
+  ],
+  "Moderada": [
+    "Moderate",
+    "Moderada"
+  ],
+  "Difícil": [
+    "Difficult",
+    "Difícil"
+  ],
+  "Leve": [
+    "Easy",
+    "Leve"
+  ],
+  "Intensa": [
+    "Challenging",
+    "Intensa"
+  ],
+  "Livre": [
+    "Flexible",
+    "Libre"
+  ],
+  "Ordenado": [
+    "Ordered",
+    "Ordenado"
+  ],
+  "Ordem livre": [
+    "Flexible order",
+    "Orden libre"
+  ],
+  "Ordem definida": [
+    "Set order",
+    "Orden definido"
+  ],
+  "Aguardando equipe": [
+    "Awaiting team",
+    "Esperando al equipo"
+  ],
+  "Em atendimento": [
+    "Being handled",
+    "En atención"
+  ],
+  "Sua mensagem para o assistente": [
+    "Your message for the assistant",
+    "Tu mensaje para el asistente"
+  ],
+  "Mensagem para a equipe": [
+    "Message for the team",
+    "Mensaje para el equipo"
+  ],
+  "Guias locais": [
+    "Local guides",
+    "Guías locales"
+  ],
+  "Ocultar filtros": [
+    "Hide filters",
+    "Ocultar filtros"
+  ],
+  "Filtrar resultados": [
+    "Filter results",
+    "Filtrar resultados"
+  ],
+  "Novas trilhas em breve": [
+    "New trails coming soon",
+    "Próximamente nuevos senderos"
+  ],
+  "Referência": [
+    "Reference",
+    "Referencia"
+  ],
+  "Origem / ponto de embarque": [
+    "Origin / pickup point",
+    "Origen / punto de recogida"
+  ],
+  "Destino / desembarque": [
+    "Destination / drop-off point",
+    "Destino / punto de llegada"
+  ],
+  "Destino do passeio": [
+    "Tour destination",
+    "Destino del paseo"
+  ],
+  "Sem roteiro": [
+    "No itinerary",
+    "Sin itinerario"
+  ],
+  "Enviar proposta ao motorista": [
+    "Send offer to driver",
+    "Enviar propuesta al conductor"
+  ],
+  "Proponha sua corrida": [
+    "Propose your ride",
+    "Propón tu viaje"
+  ],
+  "Reserve seu passeio": [
+    "Book your tour",
+    "Reserva tu paseo"
+  ],
+  "O motorista poderá aceitar ou enviar outro valor.": [
+    "The driver can accept or suggest another price.",
+    "El conductor podrá aceptar o proponer otro importe."
+  ],
+  "Preço do guia": [
+    "Guide price",
+    "Precio del guía"
+  ],
+  "Perfil de guia": [
+    "Guide profile",
+    "Perfil de guía"
+  ],
+  "Perfil de motorista": [
+    "Driver profile",
+    "Perfil de conductor"
+  ],
+  "Documentação profissional aprovada": [
+    "Professional documents approved",
+    "Documentación profesional aprobada"
+  ],
+  "Atendimento acessível informado": [
+    "Accessible service listed",
+    "Servicio accesible indicado"
+  ],
+  "Combine as necessidades de acessibilidade pelo chat": [
+    "Discuss accessibility needs in chat",
+    "Acuerda las necesidades de accesibilidad por el chat"
+  ],
+  "Detalhes do atendimento": [
+    "Service details",
+    "Detalles del servicio"
+  ],
+  "Tudo sobre sua experiência": [
+    "Everything about your experience",
+    "Todo sobre tu experiencia"
+  ],
+  "Você recebeu uma proposta": [
+    "You received an offer",
+    "Recibiste una propuesta"
+  ],
+  "Aguardando a outra parte": [
+    "Waiting for the other party",
+    "Esperando a la otra parte"
+  ],
+  "Pagar e confirmar reserva": [
+    "Pay and confirm booking",
+    "Pagar y confirmar reserva"
+  ],
+  "Concluir atendimento e liberar saldo": [
+    "Complete service and release earnings",
+    "Completar servicio y liberar saldo"
+  ],
+  "Marcar experiência como concluída": [
+    "Mark experience as completed",
+    "Marcar experiencia como completada"
+  ],
+  "Outra parte": [
+    "Other party",
+    "Otra parte"
+  ],
+  "Encontro": [
+    "Meeting point",
+    "Encuentro"
+  ],
+  "Desembarque": [
+    "Drop-off",
+    "Llegada"
+  ],
+  "Condições": [
+    "Conditions",
+    "Condiciones"
+  ],
+  "Valor do serviço": [
+    "Service price",
+    "Precio del servicio"
+  ],
+  "Total pago": [
+    "Total paid",
+    "Total pagado"
+  ],
+  "Comissão": [
+    "Commission",
+    "Comisión"
+  ],
+  "Líquido": [
+    "Net earnings",
+    "Importe neto"
+  ],
+  "Cartão": [
+    "Card",
+    "Tarjeta"
+  ],
+  "Usuários": [
+    "Users",
+    "Usuarios"
+  ],
+  "Denúncias": [
+    "Reports",
+    "Denuncias"
+  ],
+  "Chamados": [
+    "Support requests",
+    "Solicitudes de soporte"
+  ],
+  "Editar registro": [
+    "Edit record",
+    "Editar registro"
+  ],
+  "Novo registro": [
+    "New record",
+    "Nuevo registro"
+  ],
+  "Reativar usuário": [
+    "Reactivate user",
+    "Reactivar usuario"
+  ],
+  "Suspender usuário": [
+    "Suspend user",
+    "Suspender usuario"
+  ],
+  "Restaurar avaliação": [
+    "Restore review",
+    "Restaurar valoración"
+  ],
+  "Ocultar avaliação": [
+    "Hide review",
+    "Ocultar valoración"
+  ],
+  "O provedor não carregou o mapa-base. Os locais e os botões de rota continuam disponíveis. Se houver bloqueio do provedor, é necessário regularizar o acesso ou configurar um serviço autorizado.": [
+    "The map provider could not load the base map. Places and directions remain available. If the provider has blocked access, resolve the restriction or configure an authorized service.",
+    "El proveedor no cargó el mapa base. Los lugares y botones de ruta siguen disponibles. Si el proveedor bloqueó el acceso, es necesario regularizarlo o configurar un servicio autorizado."
+  ]
+}

@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React, { useState } from 'react';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Badge, Button, Card, Field, Muted, Notice, Page, Photo, Title, Toggle } from '../../components/ui';
@@ -7,6 +8,7 @@ import { asArray } from '../../lib/data';
 import api from '../../services/api';
 
 export default function ProfessionalEditor() {
+  useLanguage();
   const { kind: requested } = useLocalSearchParams();
   const kind = requested === 'driver' ? 'driver' : 'guide';
   const { user, refreshUser } = useSession();

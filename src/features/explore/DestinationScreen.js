@@ -1,12 +1,15 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
-import { Linking, Text } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { Linking } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Badge, Button, Card, Muted, Page, Photo, Section, Title, money } from '../../components/ui';
 import PlaceMap from '../../components/PlaceMap';
 import BookingForm from '../../components/BookingForm';
 import { useResource } from '../../hooks/useResource';
 export default function DestinationScreen() {
+  useLanguage();
   const { id, routeId } = useLocalSearchParams();
   const { data: place, loading, error } = useResource(`/destinations/${Number(id)}`, {});
   const [booking, setBooking] = useState(false);
@@ -20,6 +23,7 @@ export default function DestinationScreen() {
     </>}
   </Page>;
 }
+
 
 
 

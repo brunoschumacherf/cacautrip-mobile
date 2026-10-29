@@ -1,3 +1,4 @@
+import { translate } from '../i18n/core';
 export function mapDirections(point, origin = null) {
   const area = ['guide', 'driver'].includes(point.kind);
   const address = String(point.address || point.city || '').trim();
@@ -12,7 +13,7 @@ export function mapDirections(point, origin = null) {
   const query = encodeURIComponent(destination.slice(0, 180));
   const start = origin && Number.isFinite(origin.latitude) && Number.isFinite(origin.longitude) ? `&origin=${encodeURIComponent(`${origin.latitude},${origin.longitude}`)}` : '';
   return { url: area ? `https://www.google.com/maps/search/?api=1&query=${query}` : `https://www.google.com/maps/dir/?api=1&destination=${query}${start}`,
-    label: area ? 'Ver área no Google Maps' : 'Traçar rota no Google Maps' };
+    label: translate(area ? 'Ver área no Google Maps' : 'Traçar rota no Google Maps') };
 }
 export function mapDetailRoute(point) {
   const match = String(point.id || '').match(/^(destination|trail|guide|driver):(\d+)$/);
@@ -20,4 +21,5 @@ export function mapDetailRoute(point) {
   const [, kind, id] = match;
   return { destination: `/destinos/${id}`, trail: `/trilhas/${id}`, guide: `/servico/guide/${id}`, driver: `/servico/driver/${id}` }[kind];
 }
+
 

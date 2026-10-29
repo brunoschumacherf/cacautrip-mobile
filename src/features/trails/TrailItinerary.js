@@ -1,11 +1,14 @@
+import { useLanguage } from '../../i18n';
+import { locale } from '../../i18n/core';
 import { ct } from '../../theme/tokens';
 import React from 'react';
-import { Linking, Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { Linking, View } from 'react-native';
 import { Badge, Button, Card, Muted, Title } from '../../components/ui';
 import PlaceMap from '../../components/PlaceMap';
 import { asArray } from '../../lib/data';
 export const difficultyLabel = value => ({ easy: 'Leve', moderate: 'Moderada', hard: 'Difícil' }[value] || value);
-export const departureDate = value => value ? new Date(value).toLocaleString('pt-BR', { timeZone: 'America/Bahia', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '';
+export const departureDate = value => value ? new Date(value).toLocaleString(locale(), { timeZone: 'America/Bahia', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '';
 const stopQuery = stop => stop.latitude != null && stop.longitude != null ? `${stop.latitude},${stop.longitude}` : `${stop.name}, ${stop.address}`;
 const pointUrl = stop => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stopQuery(stop))}`;
 function directions(stops) {
@@ -14,6 +17,7 @@ function directions(stops) {
   return `https://www.google.com/maps/dir/?api=1&${query}${waypoints ? `&waypoints=${encodeURIComponent(waypoints)}` : ''}&travelmode=walking`;
 }
 export default function TrailItinerary({ stops = [], mode = 'ordered' }) {
+  useLanguage();
   const items = asArray(stops).filter(stop => !stop._destroy).slice().sort((a, b) => (a.position || 0) - (b.position || 0));
   const segments = [];
   if (mode === 'ordered') for (let index = 0; index < items.length - 1; index += 3) segments.push(items.slice(index, index + 4));
@@ -24,7 +28,7 @@ export default function TrailItinerary({ stops = [], mode = 'ordered' }) {
     {coordinates.length > 0 && <PlaceMap points={items} ordered={mode === 'ordered'} />}
     {items.map((stop, index) => <Card key={stop.id || index}>
       <Title>{mode === 'ordered' ? `${index + 1}. ` : ''}{stop.name}</Title><Badge>{{ meeting: 'Encontro', visit: 'Visita', break: 'Pausa', finish: 'Encerramento' }[stop.kind] || 'Ponto de passagem'}{stop.optional ? ' · Opcional' : ''}</Badge>
-      <Text style={ct.text}>{stop.address}</Text>{Boolean(stop.description) && <Muted>{stop.description}</Muted>}
+      <Text style={ct.text}>{stop.address}</Text>{Boolean(stop.description) && <Muted translate={false}>{stop.description}</Muted>}
       <Muted>{stop.duration_minutes || 0} minutos previstos neste ponto</Muted>
       <Button secondary title="Ver este ponto no mapa" onPress={() => Linking.openURL(pointUrl(stop))} />
     </Card>)}
@@ -32,5 +36,6 @@ export default function TrailItinerary({ stops = [], mode = 'ordered' }) {
     {!!segments.length && <Muted>Os mapas mostram os pontos informados. O caminho da trilha e os acessos devem ser orientados pelo guia.</Muted>}
   </View>;
 }
+
 
 

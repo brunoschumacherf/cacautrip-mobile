@@ -1,3 +1,5 @@
+import { useLanguage } from '../../i18n';
+import { locale } from '../../i18n/core';
 import React, { useState } from 'react';
 import { Badge, Button, Card, Muted, Notice, Page, Section, Title, Toggle, money, statusLabel } from '../../components/ui';
 import { useAction, useResource } from '../../hooks/useResource';
@@ -5,6 +7,7 @@ import { useSession } from '../../context/SessionContext';
 import api from '../../services/api';
 import PlanCheckout from './PlanCheckout';
 export default function PlansScreen() {
+  useLanguage();
   const { user } = useSession();
   const { data, loading, error, reload } = useResource('/subscriptions', { plans: {}, subscriptions: [] });
   const { busy, notice, run, setNotice } = useAction();
@@ -28,7 +31,7 @@ export default function PlansScreen() {
     <Section title="Minhas assinaturas">
       {data.subscriptions.map(item => <Card key={item.id}>
         <Title>{statusLabel(item.professional_type)} · {statusLabel(item.plan)}</Title>
-        <Muted>{statusLabel(item.status)} · Até {new Date(item.renews_at).toLocaleDateString('pt-BR')}</Muted>
+        <Muted>{statusLabel(item.status)} · Até {new Date(item.renews_at).toLocaleDateString(locale())}</Muted>
         <Toggle label="Renovação mensal" value={item.auto_renew} onChange={value => run(async () => { await api.patch(`/subscriptions/${item.id}`, { auto_renew: value }); await reload(); })} />
         {item.status === 'active' && <Button secondary title="Cancelar plano" disabled={busy} onPress={() => run(async () => { await api.delete(`/subscriptions/${item.id}`); await reload(); })} />}
       </Card>)}

@@ -1,10 +1,12 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React from 'react';
-import { Text } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
 import { Card, Empty, Muted, Title, money, statusLabel } from '../../components/ui';
 import { asArray, professional } from '../../lib/data';
 
 export default function Performance({ profiles = [] }) {
+  useLanguage();
   const items = asArray(profiles).map(professional);
   if (!items.length) return <Empty>Seu desempenho aparecerá após o cadastro profissional.</Empty>;
   return items.map(item => (
@@ -18,5 +20,6 @@ export default function Performance({ profiles = [] }) {
     </Card>
   ));
 }
+
 
 

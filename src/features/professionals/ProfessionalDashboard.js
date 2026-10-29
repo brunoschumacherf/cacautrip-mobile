@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React from 'react';
 import { View } from 'react-native';
 import { router } from 'expo-router';
@@ -7,6 +8,7 @@ import { useResource } from '../../hooks/useResource';
 import Performance from './Performance';
 
 export default function ProfessionalDashboard() {
+  useLanguage();
   const { user } = useSession();
   const { data, loading, error, reload, refreshing } = useResource('/professional_profiles/mine', []);
   return <Page title="Meu trabalho." subtitle="Sua operação organizada, do primeiro contato ao recebimento." loading={loading} error={error} onRefresh={reload} refreshing={refreshing}>

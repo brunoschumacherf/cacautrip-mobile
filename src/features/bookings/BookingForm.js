@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React, { useState } from 'react';
 import { Linking, Modal, ScrollView, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -6,6 +7,7 @@ import { useAction, useResource } from '../../hooks/useResource';
 import { asArray } from '../../lib/data';
 import api from '../../services/api';
 export default function BookingForm({ service, onClose }) {
+  useLanguage();
   const params = useLocalSearchParams();
   const driver = service.type === 'Motorista';
   const { data: routes } = useResource('/routes', []);

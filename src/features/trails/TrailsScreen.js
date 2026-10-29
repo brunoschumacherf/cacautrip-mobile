@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React, { useDeferredValue, useState } from 'react';
 import { View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -6,6 +7,7 @@ import { useResource } from '../../hooks/useResource';
 import { asArray } from '../../lib/data';
 import { departureDate, difficultyLabel } from './TrailItinerary';
 export default function TrailsScreen() {
+  useLanguage();
   const params = useLocalSearchParams();
   const [filters, setFilters] = useState({ q: '', difficulty: '', date: '', accessible: false, max_price: '' });
   const stable = useDeferredValue(filters);
@@ -20,7 +22,7 @@ export default function TrailsScreen() {
     <Toggle label="Passeios com acessibilidade informada" value={filters.accessible} onChange={update('accessible')} />
     {data.map(trail => {
       const departure = asArray(trail.departures).find(item => item.available_seats > 0);
-      return <Card key={trail.id}><Photo uri={trail.image_url} /><Badge>{difficultyLabel(trail.difficulty)} · {trail.region}</Badge><Title>{trail.title}</Title>
+      return <Card key={trail.id}><Photo uri={trail.image_url} /><Badge>{difficultyLabel(trail.difficulty)} · {trail.region}</Badge><Title translate={false}>{trail.title}</Title>
         <Muted>Com {trail.guide?.name} · ★ {Number(trail.rating || 0).toFixed(1)}</Muted><Muted>{trail.duration_minutes} min{trail.distance_km ? ` · ${trail.distance_km} km` : ''} · {asArray(trail.stops).length} pontos</Muted>
         <Title>{money(trail.price)} {trail.price_mode === 'per_person' ? '/ pessoa' : '/ grupo'}</Title>
         <Muted>{departure ? `Próxima saída: ${departureDate(departure.starts_at)} · ${departure.available_seats} vagas` : 'Novas datas em breve'}</Muted>

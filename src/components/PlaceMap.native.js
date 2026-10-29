@@ -1,3 +1,4 @@
+import { useLanguage } from '../i18n';
 import React, { useEffect, useRef, useState } from 'react';
 import { Linking, View } from 'react-native';
 import { WebView } from 'react-native-webview';
@@ -7,6 +8,7 @@ import MapPointDetails from './MapPointDetails';
 import { Button, Muted, Notice } from './ui';
 import useMapLocation from '../hooks/useMapLocation';
 export default function PlaceMap({ points = [], ordered = false }) {
+  useLanguage();
   const location = useMapLocation();
   const webview = useRef(null);
   const sendPosition = () => {

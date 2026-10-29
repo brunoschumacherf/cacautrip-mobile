@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React, { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -13,6 +14,7 @@ const errors = {
 };
 
 export default function GoogleCallbackScreen() {
+  useLanguage();
   const params = useLocalSearchParams();
   const { finishGoogle, user } = useSession();
   const [error, setError] = useState('');

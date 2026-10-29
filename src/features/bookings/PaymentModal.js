@@ -1,6 +1,8 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Modal, ScrollView, Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { ActivityIndicator, Modal, ScrollView, View } from 'react-native';
 import { Button, Field, Muted, Notice, Title, money } from '../../components/ui';
 import { useAction } from '../../hooks/useResource';
 import { errorText } from '../../lib/data';
@@ -8,6 +10,7 @@ import BookingEcoDiscounts from './BookingEcoDiscounts';
 import api from '../../services/api';
 
 export default function PaymentModal({ booking, onClose, onUpdate }) {
+  useLanguage();
   const [payment, setPayment] = useState(booking);
   const [method, setMethod] = useState(booking.payment_method || 'pix');
   const [card, setCard] = useState({ number: '', name: '', expiry: '', cvv: '' });
@@ -47,7 +50,7 @@ export default function PaymentModal({ booking, onClose, onUpdate }) {
   return <Modal visible transparent animationType="slide" onRequestClose={busy || redeeming ? () => {} : onClose}>
     <View style={{ flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#391E1680' }}>
       <ScrollView style={{ maxHeight: '90%', backgroundColor: '#FFFCF8', borderRadius: 24, width: '100%', maxWidth: 500, alignSelf: 'center' }} contentContainerStyle={{ padding: 24 }} keyboardShouldPersistTaps="handled">
-        <Title>Pagamento da reserva #{id}</Title><Muted>{booking.professional?.name}</Muted>
+        <Title>Pagamento da reserva #{id}</Title><Muted translate={false}>{booking.professional?.name}</Muted>
         {discount > 0 && <><Muted>Serviço: {money(payment.total_amount)}</Muted><Muted>Desconto sustentável: −{money(discount)}</Muted></>}
         <Text style={[ct.text, { fontSize: 28, fontWeight: '700' }]}>{money(due)}</Text><Muted>Confira o total e escolha a forma de pagamento.</Muted><Notice>{notice}</Notice>
         {payment.hold_expired ? <Muted>O prazo desta reserva expirou. Feche esta tela e selecione uma nova saída.</Muted>
@@ -65,3 +68,4 @@ export default function PaymentModal({ booking, onClose, onUpdate }) {
     </View>
   </Modal>;
 }
+

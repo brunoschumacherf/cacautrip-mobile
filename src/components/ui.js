@@ -1,13 +1,16 @@
 import React from 'react';
-import { ActivityIndicator, Image, RefreshControl, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { LocalizedText as Text } from '../i18n';
+import { ActivityIndicator, Image, RefreshControl, ScrollView, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { router, usePathname } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSession } from '../context/SessionContext';
 import { colors, fonts } from '../theme/tokens';
+import { useLanguage, locale } from '../i18n';
+import LanguageSelector from '../i18n/LanguageSelector';
 export { errorText } from '../lib/data';
 
-export const money = value => Number(value || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+export const money = value => Number(value || 0).toLocaleString(locale(), { style: 'currency', currency: 'BRL' });
 export const statusLabel = value => ({ pending: 'Pendente', counteroffer: 'Nova proposta', pending_approval: 'Aguardando aceite', approved_waiting_payment: 'Aguardando pagamento', confirmed: 'Confirmado', completed: 'Concluído', cancelled: 'Cancelado', rejected: 'Recusado', approved: 'Aprovado', refunded: 'Estornado', available: 'Disponível', published: 'Publicado', hidden: 'Oculto', paid: 'Pago', active: 'Ativo', answered: 'Respondido', open: 'Aberto', closed: 'Encerrado', resolved: 'Resolvido', dismissed: 'Arquivado', guide: 'Guia', driver: 'Motorista', tourist: 'Turista', basic: 'Básico', featured: 'Destaque', premium: 'Premium' }[value] || value || 'Não informado');
 export function Button({ title, onPress, disabled = false, secondary = false, danger = false, icon }) {
   return (
@@ -18,10 +21,11 @@ export function Button({ title, onPress, disabled = false, secondary = false, da
   );
 }
 export function Field({ label, hint, style, ...props }) {
+  const { t } = useLanguage();
   return (
     <View style={s.field}>
       <Text style={s.label}>{label}</Text>
-      <TextInput accessibilityLabel={label} placeholderTextColor={colors.placeholder} style={[s.input, props.multiline && s.textarea, style]} {...props} />
+      <TextInput accessibilityLabel={t(label)} placeholderTextColor={colors.placeholder} style={[s.input, props.multiline && s.textarea, style]} {...props} placeholder={t(props.placeholder)} />
       {Boolean(hint) && <Muted>{hint}</Muted>}
     </View>
   );
@@ -35,8 +39,8 @@ export function Toggle({ label, value, onChange }) {
   );
 }
 export function Card({ children, style }) { return <View style={[s.card, style]}>{children}</View>; }
-export function Title({ children }) { return <Text style={s.title}>{children}</Text>; }
-export function Muted({ children }) { return <Text style={s.muted}>{children}</Text>; }
+export function Title({ children, translate = true }) { return <Text translate={translate} style={s.title}>{children}</Text>; }
+export function Muted({ children, translate = true }) { return <Text translate={translate} style={s.muted}>{children}</Text>; }
 export function Notice({ children }) { return children ? <Text accessibilityRole="alert" style={s.notice}>{children}</Text> : null; }
 export function Badge({ children }) { return <Text style={s.badge}>{children}</Text>; }
 export function Section({ title, subtitle, children }) { return <View style={s.section}><Title>{title}</Title>{Boolean(subtitle) && <Muted>{subtitle}</Muted>}{children}</View>; }
@@ -51,6 +55,7 @@ const touristNav = [ ['/', 'Explorar', 'compass-outline'], ['/roteiros', 'Roteir
 const professionalNav = [ ['/profissional', 'Painel', 'grid-outline'], ['/agenda', 'Agenda', 'calendar-outline'], ['/carteira', 'Carteira', 'wallet-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
 export function Page({ title, subtitle, children, loading = false, error, onRefresh, refreshing = false }) {
   const { user } = useSession();
+  const { t } = useLanguage();
   const path = usePathname();
   const insets = useSafeAreaInsets();
   const navigation = user?.active_role === 'guide' || user?.active_role === 'driver' ? professionalNav : touristNav;
@@ -60,12 +65,13 @@ export function Page({ title, subtitle, children, loading = false, error, onRefr
       <View style={[s.top, { paddingTop: Math.max(insets.top, 16) }]}>
         <TouchableOpacity onPress={() => router.replace(user?.active_role === 'tourist' ? '/' : '/profissional')}><View style={s.brandLockup}><View style={s.logo}><Ionicons name="leaf-outline" size={23} color={colors.white} /></View><Text style={s.brand}>CACAU TRIP</Text></View></TouchableOpacity>
         <View style={s.row}>
-          <TouchableOpacity accessibilityLabel="Notificações" style={s.iconButton} onPress={() => router.push('/notificacoes')}><Ionicons name="notifications-outline" size={22} color={colors.orange} /></TouchableOpacity>
-          <TouchableOpacity accessibilityLabel="Minha conta" style={s.iconButton} onPress={() => router.push('/perfil')}><Ionicons name="person-circle-outline" size={26} color={colors.orange} /></TouchableOpacity>
+          <LanguageSelector compact />
+          <TouchableOpacity accessibilityLabel={t('Notificações')} style={s.iconButton} onPress={() => router.push('/notificacoes')}><Ionicons name="notifications-outline" size={22} color={colors.orange} /></TouchableOpacity>
+          <TouchableOpacity accessibilityLabel={t('Minha conta')} style={s.iconButton} onPress={() => router.push('/perfil')}><Ionicons name="person-circle-outline" size={26} color={colors.orange} /></TouchableOpacity>
         </View>
       </View>
       {path !== '/emergencia' && (
-        <TouchableOpacity accessibilityRole="button" accessibilityLabel="Abrir Emergência e pontos de apoio" onPress={() => router.push('/emergencia')} style={s.emergencyAccess}>
+        <TouchableOpacity accessibilityRole="button" accessibilityLabel={t('Abrir Emergência e pontos de apoio')} onPress={() => router.push('/emergencia')} style={s.emergencyAccess}>
           <View style={s.emergencyIcon}><Ionicons name="medical-outline" size={20} color={colors.danger} /></View>
           <Text style={s.emergencyLabel}>Emergência e pontos de apoio</Text>
           <Ionicons name="chevron-forward" size={18} color={colors.danger} />
@@ -129,4 +135,8 @@ export const s = StyleSheet.create({
   navActive: { backgroundColor: colors.orange },
   navText: { fontFamily: fonts.body, fontSize: 10, lineHeight: 14, fontWeight: '600', color: colors.secondary },
 });
+
+
+
+
 

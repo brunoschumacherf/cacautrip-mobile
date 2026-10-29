@@ -1,6 +1,9 @@
+import { useLanguage } from '../../i18n';
+import { locale } from '../../i18n/core';
 import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
-import { Linking, Text } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { Linking } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Badge, Button, Card, Field, Muted, Notice, Page, Section, Title, money, statusLabel } from '../../components/ui';
 import { useSession } from '../../context/SessionContext';
@@ -12,6 +15,7 @@ import api from '../../services/api';
 import TrailItinerary from '../trails/TrailItinerary';
 import CommissionBreakdown from '../professionals/CommissionBreakdown';
 export default function BookingDetails() {
+  useLanguage();
   const { id } = useLocalSearchParams();
   const { user } = useSession();
   const { data: booking, loading, error, reload, refreshing } = useResource(`/bookings/${Number(id)}`, {});
@@ -53,9 +57,9 @@ export default function BookingDetails() {
         {['Guia', 'Motorista'].includes(booking.service_type) && <Button secondary title="Conversa desta reserva" icon="chatbubbles-outline" onPress={chat} disabled={busy} />}
       </Section>
       {booking.meeting_point && booking.dropoff_point && <Button secondary title="Ver trajeto de origem a destino" onPress={() => Linking.openURL(`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(booking.meeting_point)}&destination=${encodeURIComponent(booking.dropoff_point)}&travelmode=driving`)} />}
-      {asArray(booking.offer_history).length > 1 && <Card><Title>Histórico da negociação</Title>{booking.offer_history.map((item, index) => <Muted key={index}>{item.user_id === user.id ? 'Você' : 'Outra parte'}: {money(item.amount)} · {new Date(item.at).toLocaleString('pt-BR')}</Muted>)}</Card>}
+      {asArray(booking.offer_history).length > 1 && <Card><Title>Histórico da negociação</Title>{booking.offer_history.map((item, index) => <Muted key={index}>{item.user_id === user.id ? 'Você' : 'Outra parte'}: {money(item.amount)} · {new Date(item.at).toLocaleString(locale())}</Muted>)}</Card>}
       {booking.trail_snapshot?.id ? <Section title={`Roteiro contratado · ${booking.trail_snapshot.title}`}><Muted>Estas são as condições e os pontos registrados na sua reserva.</Muted><TrailItinerary stops={booking.itinerary} mode={booking.trail_snapshot.route_mode} /><Card><Title>Antes de sair</Title><Muted>{booking.trail_snapshot.what_to_bring}</Muted><Muted>{booking.trail_snapshot.safety_notes}</Muted><Muted>{booking.trail_snapshot.cancellation_policy}</Muted></Card></Section> : asArray(booking.itinerary).length > 0 && <Section title="Roteiro contratado"><PlaceMap points={booking.itinerary} />{booking.itinerary.map((stop, index) => <Muted key={stop.id}>{index + 1}. {stop.name}</Muted>)}</Section>}
-      {booking.payment_status === 'approved' && <Card><Title>Resumo do pagamento</Title><Muted>Valor do serviço: {money(booking.total_amount)}</Muted>{Number(booking.discount_amount) > 0 && <><Muted>Desconto sustentável: −{money(booking.discount_amount)}</Muted><Muted>{booking.eco_discount?.title}</Muted></>}<Muted>Total pago: {money(booking.amount_due ?? booking.total_amount)}</Muted><>{professional && <><Muted>Comissão: {money(booking.fee_amount)}</Muted><Muted>Líquido: {money(booking.professional_amount)}</Muted></>}</><Muted>{booking.payment_method === 'pix' ? 'Pix' : 'Cartão'}</Muted></Card>}
+      {booking.payment_status === 'approved' && <Card><Title>Resumo do pagamento</Title><Muted>Valor do serviço: {money(booking.total_amount)}</Muted>{Number(booking.discount_amount) > 0 && <><Muted>Desconto sustentável: −{money(booking.discount_amount)}</Muted><Muted translate={false}>{booking.eco_discount?.title}</Muted></>}<Muted>Total pago: {money(booking.amount_due ?? booking.total_amount)}</Muted><>{professional && <><Muted>Comissão: {money(booking.fee_amount)}</Muted><Muted>Líquido: {money(booking.professional_amount)}</Muted></>}</><Muted>{booking.payment_method === 'pix' ? 'Pix' : 'Cartão'}</Muted></Card>}
       {!professional && booking.status === 'completed' && !booking.review && <Card><Title>Como foi sua experiência?</Title><Field label="Nota de 1 a 5" value={rating} onChangeText={setRating} keyboardType="number-pad" /><Field label="Seu comentário" value={comment} onChangeText={setComment} multiline maxLength={2000} /><Button title="Publicar avaliação" disabled={busy} onPress={review} /></Card>}
       {booking.review && <Card><Title>Avaliação · ★ {booking.review.rating}</Title><Muted>{booking.review.comment}</Muted></Card>}
       {!professional && !['completed', 'cancelled', 'rejected'].includes(booking.status) && <Section title="Precisa alterar seus planos?"><Muted>Você pode cancelar antes da conclusão. Se houver pagamento, o estorno será solicitado.</Muted><Button secondary title="Cancelar esta reserva" disabled={busy} onPress={() => change('cancel')} /></Section>}
@@ -63,6 +67,7 @@ export default function BookingDetails() {
     </>}
   </Page>;
 }
+
 
 
 

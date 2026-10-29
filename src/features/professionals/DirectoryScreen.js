@@ -1,11 +1,14 @@
+import { useLanguage } from '../../i18n';
 import React, { useDeferredValue, useState } from 'react';
-import { Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors, fonts } from '../../theme/tokens';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Badge, Button, Card, Empty, Field, Muted, Page, Photo, Toggle, Title, money, s } from '../../components/ui';
 import { useResource } from '../../hooks/useResource';
 export default function DirectoryScreen() {
+  useLanguage();
   const params = useLocalSearchParams();
   const [kind, setKind] = useState('guide');
   const [advanced, setAdvanced] = useState(false);
@@ -21,7 +24,7 @@ export default function DirectoryScreen() {
     <Button secondary title={advanced ? 'Ocultar filtros' : 'Filtrar resultados'} onPress={() => setAdvanced(!advanced)} />
     {advanced && <Card><Field label="Preço máximo (R$)" value={filters.max_price} onChangeText={update('max_price')} keyboardType="decimal-pad" /><Field label="Nota mínima" value={filters.min_rating} onChangeText={update('min_rating')} keyboardType="decimal-pad" />{kind === 'driver' && <Field label="Passageiros" value={filters.people} onChangeText={update('people')} keyboardType="number-pad" />}<Toggle label="Atendimento acessível" value={filters.accessible} onChange={update('accessible')} /><Toggle label="Somente disponíveis" value={filters.available} onChange={update('available')} /></Card>}
     {data.map(item => <Card key={item.id}><Photo uri={item.image_url} /><View style={{ flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', columnGap: 10, rowGap: 4 }}>
-        <View style={{ flexShrink: 1 }}><Title>{item.name}</Title></View>
+        <View style={{ flexShrink: 1 }}><Title translate={false}>{item.name}</Title></View>
         {['featured', 'premium'].includes(item.plan) && <View accessibilityLabel="Patrocinado: profissional com destaque por assinatura paga" style={{ flexDirection: 'row', alignItems: 'center', gap: 5, borderWidth: 1, borderColor: colors.line, backgroundColor: colors.peach, borderRadius: 7, paddingHorizontal: 8, paddingVertical: 5 }}>
           <Ionicons name="megaphone-outline" size={12} color={colors.brown} />
           <Text style={{ fontFamily: fonts.body, fontSize: 10, fontWeight: '600', color: colors.brown }}>Patrocinado</Text>
@@ -30,6 +33,7 @@ export default function DirectoryScreen() {
     {!loading && !data.length && <Empty>Não encontramos profissionais com esses filtros.</Empty>}
   </Page>;
 }
+
 
 
 

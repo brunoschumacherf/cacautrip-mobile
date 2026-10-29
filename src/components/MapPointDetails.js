@@ -19,9 +19,9 @@ export default function MapPointDetails({ point, origin = null, choices = [], on
           {Boolean(point.image_url) && <Photo uri={point.image_url} />}
           {Boolean(point.category || point.kind) && <Badge>{point.category || ({ destination: 'Destino', trail: 'Trilha guiada', guide: 'Guia', driver: 'Motorista', collection: 'Ponto de coleta', partner: 'Parceiro', emergency: 'Emergência e apoio' }[point.kind] || 'Local')}</Badge>}
           <Title>{point.name || point.title || 'Detalhes do local'}</Title>
-          {Boolean(point.description) && <Muted>{point.description}</Muted>}
-          {Boolean(point.address) && <><Title>Endereço</Title><Muted>{point.address}</Muted></>}
-          {Boolean(point.city) && point.city !== point.address && <Muted>{point.city}</Muted>}
+          {Boolean(point.description) && <Muted translate={false}>{point.description}</Muted>}
+          {Boolean(point.address) && <><Title>Endereço</Title><Muted translate={false}>{point.address}</Muted></>}
+          {Boolean(point.city) && point.city !== point.address && <Muted translate={false}>{point.city}</Muted>}
           {Boolean(point.opening_hours) && <><Title>Horário informado</Title><Muted>{point.opening_hours}</Muted></>}
           {Boolean(point.materials) && <><Title>Materiais aceitos</Title><Muted>{point.materials}</Muted></>}
           {Boolean(point.phone) && <><Title>Contato</Title><Muted>{point.phone}</Muted></>}

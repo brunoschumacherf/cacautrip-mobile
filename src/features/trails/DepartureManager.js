@@ -1,7 +1,8 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
 import { router } from 'expo-router';
-import { Text } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
 import { Badge, Button, Card, Field, Muted, Notice, Section, Title, money, statusLabel, Toggle } from '../../components/ui';
 import { useAction, useResource } from '../../hooks/useResource';
 import { asArray } from '../../lib/data';
@@ -9,6 +10,7 @@ import { departureDate } from './TrailItinerary';
 import api from '../../services/api';
 import CommissionBreakdown from '../professionals/CommissionBreakdown';
 export default function DepartureManager({ trailId, defaultMeeting }) {
+  useLanguage();
   const { data, error, reload } = useResource(`/trails/${trailId}/edit`, { departures: [] });
   const { run, busy, notice, setNotice } = useAction();
   const [form, setForm] = useState({ starts_at: '', capacity: '12', meeting_point: defaultMeeting || '', notes: '', price_override: '' });
@@ -50,5 +52,6 @@ export default function DepartureManager({ trailId, defaultMeeting }) {
     {roster && <Card><Title>Participantes · {departureDate(roster.departure.starts_at)}</Title>{asArray(roster.participants).map(item => <Card key={item.booking_id}><Title>{item.name} · {item.people} pessoa(s)</Title><Muted>{statusLabel(item.status)} · {statusLabel(item.payment_status)}</Muted><Button secondary title="Abrir reserva" onPress={() => router.push({ pathname: '/reserva/[id]', params: { id: item.booking_id } })} /></Card>)}{!roster.participants.length && <Muted>Nenhuma reserva ativa nesta saída.</Muted>}<Button secondary title="Fechar participantes" onPress={() => setRoster(null)} /></Card>}
   </Section>;
 }
+
 
 

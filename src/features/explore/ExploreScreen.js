@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React, { useDeferredValue, useState } from 'react';
 import { View } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
@@ -9,6 +10,7 @@ import { useSession } from '../../context/SessionContext';
 import { ecoDiscount } from '../sustainability/EcoRewards';
 
 export default function ExploreScreen() {
+  useLanguage();
   const { user } = useSession();
   const params = useLocalSearchParams();
   const [filters, setFilters] = useState({ query: '', category: '', coords: null, page: 1 });
@@ -37,7 +39,7 @@ export default function ExploreScreen() {
       <Muted>Transforme suas entregas nos pontos de coleta em benefícios para aproveitar a Costa do Cacau.</Muted>
       <View style={s.row}><Button title="Conhecer o programa" icon="leaf-outline" onPress={() => router.push('/sustentabilidade')} /><Button secondary title="Já tenho um código" icon="gift-outline" onPress={() => router.push('/sustentabilidade')} /></View>
       {eco.collection_points_count > 0 && <Muted>{eco.collection_points_count} pontos de coleta para começar.</Muted>}
-      {eco.rewards.slice(0, 2).map(reward => <View key={reward.id} style={{ borderTopWidth: 1, borderColor: '#C6DAC9', marginTop: 14, paddingTop: 12 }}><Title>{reward.title}</Title><Muted>{ecoDiscount(reward)} · {reward.points_cost} pontos</Muted></View>)}
+      {eco.rewards.slice(0, 2).map(reward => <View key={reward.id} style={{ borderTopWidth: 1, borderColor: '#C6DAC9', marginTop: 14, paddingTop: 12 }}><Title translate={false}>{reward.title}</Title><Muted>{ecoDiscount(reward)} · {reward.points_cost} pontos</Muted></View>)}
     </Card>
     <Button secondary icon="sparkles-outline" title="Ajude-me a escolher um passeio" onPress={() => router.push('/assistente')} />
     <Section title="Explore a região">
@@ -47,8 +49,8 @@ export default function ExploreScreen() {
       {showMap && <ServiceMap query={stable.query} />}
       {!loading && pagination.total > 0 && <Muted>Mostrando {(pagination.page - 1) * pagination.per_page + 1}–{Math.min(pagination.page * pagination.per_page, pagination.total)} de {pagination.total} lugares</Muted>}
       {data.destinations.map(item => <Card key={item.id}>
-        <Photo uri={item.image_url} /><Badge>{item.category} · {item.city}</Badge><Title>{item.name}</Title>
-        <Muted>{item.description}</Muted><Muted>{Number(item.price) > 0 ? `A partir de ${money(item.price)}` : 'Consulte condições de visita'}{item.distance_km != null ? ` · ${item.distance_km} km` : ''}</Muted>
+        <Photo uri={item.image_url} /><Badge>{item.category} · {item.city}</Badge><Title translate={false}>{item.name}</Title>
+        <Muted translate={false}>{item.description}</Muted><Muted>{Number(item.price) > 0 ? `A partir de ${money(item.price)}` : 'Consulte condições de visita'}{item.distance_km != null ? ` · ${item.distance_km} km` : ''}</Muted>
         <Button title="Conhecer este lugar" onPress={() => router.push({ pathname: '/destinos/[id]', params: { id: item.id, routeId: params.routeId || '' } })} />
       </Card>)}
       {!loading && !error && !data.destinations.length && <Empty>Nenhum destino encontrado. Experimente outra cidade ou categoria.</Empty>}
@@ -58,7 +60,7 @@ export default function ExploreScreen() {
         <Button secondary title="Próxima" disabled={changingPage || !pagination.has_next} onPress={() => setFilters(current => ({ ...current, page: pagination.page + 1 }))} />
       </View>}
     </Section>
-    {data.alerts.length > 0 && <Section title="Antes de sair">{data.alerts.slice(0, 3).map(alert => <Card key={alert.id}><Title>{alert.title}</Title><Muted>{alert.body}</Muted></Card>)}</Section>}
+    {data.alerts.length > 0 && <Section title="Antes de sair">{data.alerts.slice(0, 3).map(alert => <Card key={alert.id}><Title translate={false}>{alert.title}</Title><Muted>{alert.body}</Muted></Card>)}</Section>}
   </Page>;
 }
 

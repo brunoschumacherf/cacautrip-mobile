@@ -1,10 +1,13 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Modal, ScrollView, Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { ActivityIndicator, Modal, ScrollView, View } from 'react-native';
 import { Button, Field, Muted, Notice, Title, money } from '../../components/ui';
 import { useAction } from '../../hooks/useResource';
 import api from '../../services/api';
 export default function PlanCheckout({ order: initial, onClose, onPaid }) {
+  useLanguage();
   const [order, setOrder] = useState(initial);
   const [method, setMethod] = useState('pix');
   const [card, setCard] = useState({ number: '', name: '', expiry: '', cvv: '' });
@@ -32,5 +35,6 @@ export default function PlanCheckout({ order: initial, onClose, onPaid }) {
     <Button secondary title="Fechar" onPress={onClose} disabled={busy} />
   </ScrollView></View></Modal>;
 }
+
 
 

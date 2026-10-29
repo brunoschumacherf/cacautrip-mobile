@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { router } from 'expo-router';
@@ -6,6 +7,7 @@ import { useResource } from '../../hooks/useResource';
 const closed = ['completed', 'cancelled', 'rejected'];
 const categories = { active: 'Em andamento', pending: 'Propostas', payment: 'Pagamento', history: 'Histórico' };
 export default function BookingList({ professional = false }) {
+  useLanguage();
   const { data, loading, error, reload, refreshing } = useResource(professional ? '/bookings/requests' : '/bookings', []);
   const [filter, setFilter] = useState('active');
   const items = data.filter(item => filter === 'history' ? closed.includes(item.status) : filter === 'pending' ? ['pending_approval', 'counteroffer'].includes(item.status) : filter === 'payment' ? item.status === 'approved_waiting_payment' : !closed.includes(item.status));

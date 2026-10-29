@@ -1,3 +1,5 @@
+import { useLanguage } from '../../i18n';
+import { locale } from '../../i18n/core';
 import React, { useDeferredValue } from 'react';
 import { Card, Muted, Title, money } from '../../components/ui';
 import { useResource } from '../../hooks/useResource';
@@ -8,7 +10,7 @@ function Breakdown({ quote, title, unit }) {
     <Title>{title || (quote.estimated ? 'Previsão do seu recebimento' : 'Seu recebimento')}</Title>
     {Boolean(unit) && <Muted>{unit}</Muted>}
     <Muted>Valor cobrado: {money(quote.gross)}</Muted>
-    <Muted>Comissão da plataforma{quote.percent != null ? ` (${Number(quote.percent).toLocaleString('pt-BR', { maximumFractionDigits: 2 })}%)` : ''}: − {money(quote.fee)}</Muted>
+    <Muted>Comissão da plataforma{quote.percent != null ? ` (${Number(quote.percent).toLocaleString(locale(), { maximumFractionDigits: 2 })}%)` : ''}: − {money(quote.fee)}</Muted>
     <Title>Você recebe: {money(quote.net)}</Title>
     <Muted>{quote.estimated ? 'A comissão é descontada do valor contratado. A taxa vigente na aprovação do pagamento define o desconto final.' : 'Valores registrados na aprovação do pagamento.'}</Muted>
   </Card>;
@@ -23,5 +25,6 @@ function LiveQuote({ amount, title, unit }) {
   return <Breakdown quote={data} title={title} unit={unit} />;
 }
 export default function CommissionBreakdown({ amount, quote, title, unit }) {
+  useLanguage();
   return quote ? <Breakdown quote={quote} title={title} unit={unit} /> : <LiveQuote amount={amount} title={title} unit={unit} />;
 }

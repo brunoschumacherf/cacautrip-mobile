@@ -1,6 +1,8 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { ScrollView, View } from 'react-native';
 import { Button, Card, Empty, Field, Muted, Notice, Page, Title, Toggle, money, s } from '../../components/ui';
 import { useSession } from '../../context/SessionContext';
 import { useAction, useResource } from '../../hooks/useResource';
@@ -39,7 +41,9 @@ function AdminPanel() {
     </Card>)}{!data.length && <Empty>Nenhum registro nesta seção.</Empty>}</Page>;
 }
 function TicketReply({ ticket, onSave, busy }) { const [reply, setReply] = useState(ticket.reply || ''); return <><Field label="Resposta ao usuário" value={reply} onChangeText={setReply} multiline /><Button title="Enviar resposta" onPress={() => onSave(reply)} disabled={busy || !reply.trim()} /></>; }
-export default function Admin() { const { user } = useSession(); return user.admin ? <AdminPanel /> : <Page title="Acesso restrito"><Muted>Esta área é destinada à administração.</Muted></Page>; }
+export default function Admin() {
+  useLanguage(); const { user } = useSession(); return user.admin ? <AdminPanel /> : <Page title="Acesso restrito"><Muted>Esta área é destinada à administração.</Muted></Page>; }
+
 
 
 

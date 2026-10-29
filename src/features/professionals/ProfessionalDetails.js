@@ -1,6 +1,7 @@
+import { useLanguage } from '../../i18n';
 import { ct } from '../../theme/tokens';
 import React, { useState } from 'react';
-import { Text } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
 import { router, useLocalSearchParams } from 'expo-router';
 import { Badge, Button, Card, Field, Muted, Notice, Page, Photo, Section, Title, money } from '../../components/ui';
 import BookingForm from '../../components/BookingForm';
@@ -10,6 +11,7 @@ import { useSession } from '../../context/SessionContext';
 import { asArray } from '../../lib/data';
 import api from '../../services/api';
 export default function ProfessionalDetails({ kind }) {
+  useLanguage();
   const { id } = useLocalSearchParams();
   const { user } = useSession();
   const { data: profile, loading, error } = useResource(`/professional_profiles/${kind}/${Number(id)}`, {});
@@ -47,6 +49,7 @@ export default function ProfessionalDetails({ kind }) {
     </>}
   </Page>;
 }
+
 
 
 

@@ -1,6 +1,9 @@
+import { useLanguage } from '../../i18n';
+import { locale } from '../../i18n/core';
 import { ct } from '../../theme/tokens';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Text, View } from 'react-native';
+import { LocalizedText as Text } from '../../i18n';
+import { View } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 import { Badge, Button, Card, Empty, Field, Muted, Notice, Page, Title } from '../../components/ui';
 import { useAction, useResource } from '../../hooks/useResource';
@@ -31,13 +34,14 @@ function Thread({ conversation, user }) {
     return () => { active = false; };
   }, [conversation.id, socketStatus, setNotice]);
   const send = () => run(async () => { const result = await api.post(`/conversations/${conversation.id}/messages`, { content: draft }); receive(result.data); setDraft(''); });
-  return <Card><Title>{conversation.name}</Title><Badge>{socketStatus === 'connected' ? 'Conectado' : 'Reconectando…'}</Badge>{Boolean(conversation.booking_id) && <Muted>Reserva #{conversation.booking_id}</Muted>}<Notice>{notice}</Notice>
-    {messages.map(message => <View key={message.id} style={{ alignSelf: message.sender_id === user.id ? 'flex-end' : 'flex-start', maxWidth: '90%', backgroundColor: message.sender_id === user.id ? '#FFF0DC' : '#FFFCF8', borderRadius: 14, padding: 12, marginVertical: 6 }}><Text selectable style={ct.text}>{message.content}</Text><Muted>{new Date(message.created_at).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}</Muted>{message.sender_id !== user.id && <Button secondary title="Denunciar" disabled={busy} onPress={() => run(async () => { await api.post('/reports', { subject_type: 'Message', subject_id: message.id, reason: 'Solicito análise desta mensagem por comportamento inadequado.' }); setNotice('Denúncia recebida.'); })} />}</View>)}
+  return <Card><Title translate={false}>{conversation.name}</Title><Badge>{socketStatus === 'connected' ? 'Conectado' : 'Reconectando…'}</Badge>{Boolean(conversation.booking_id) && <Muted>Reserva #{conversation.booking_id}</Muted>}<Notice>{notice}</Notice>
+    {messages.map(message => <View key={message.id} style={{ alignSelf: message.sender_id === user.id ? 'flex-end' : 'flex-start', maxWidth: '90%', backgroundColor: message.sender_id === user.id ? '#FFF0DC' : '#FFFCF8', borderRadius: 14, padding: 12, marginVertical: 6 }}><Text translate={false} selectable style={ct.text}>{message.content}</Text><Muted>{new Date(message.created_at).toLocaleTimeString(locale(), { hour: '2-digit', minute: '2-digit' })}</Muted>{message.sender_id !== user.id && <Button secondary title="Denunciar" disabled={busy} onPress={() => run(async () => { await api.post('/reports', { subject_type: 'Message', subject_id: message.id, reason: 'Solicito análise desta mensagem por comportamento inadequado.' }); setNotice('Denúncia recebida.'); })} />}</View>)}
     {!messages.length && <Muted>Converse e combine os detalhes antes de reservar.</Muted>}
     <Field label="Mensagem" value={draft} onChangeText={setDraft} multiline maxLength={4000} /><Muted>Para sua segurança, mantenha o contato e o pagamento dentro do aplicativo.</Muted><Button title="Enviar" onPress={send} disabled={busy || !draft.trim()} />
   </Card>;
 }
 export default function ChatScreen() {
+  useLanguage();
   const { user } = useSession();
   const params = useLocalSearchParams();
   const [selected, setSelected] = useState(null);
@@ -49,6 +53,7 @@ export default function ChatScreen() {
     {conversation && <Thread key={conversation.id} conversation={conversation} user={user} />}
   </Page>;
 }
+
 
 
 

@@ -1,3 +1,4 @@
+import { useLanguage } from '../../i18n';
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
@@ -53,7 +54,7 @@ function Editor({ initial }) {
     </Section>}
     {tab === 'conditions' && <Card><Title>Condições e preparação</Title><Field label="Idade mínima" value={String(form.minimum_age)} onChangeText={update('minimum_age')} keyboardType="number-pad" /><Toggle label="Acessibilidade disponível" value={form.accessible} onChange={update('accessible')} />{[['included', 'O que está incluído'], ['not_included', 'O que não está incluído'], ['what_to_bring', 'O que levar'], ['safety_notes', 'Preparo físico, restrições e orientações de segurança'], ['cancellation_policy', 'Política de cancelamento e condições climáticas']].map(([key, label]) => <Field key={key} label={label} value={form[key] || ''} onChangeText={update(key)} multiline />)}</Card>}
     {tab === 'dates' && (id ? <DepartureManager trailId={id} defaultMeeting={stops.find(stop => stop.kind === 'meeting')?.address || stops[0]?.address} /> : <Card><Muted>Salve a trilha como rascunho primeiro. Depois você poderá adicionar uma ou várias datas, definir vagas e acompanhar participantes.</Muted></Card>)}
-    {tab === 'preview' && <Section title={form.title || 'Prévia do percurso'}><Muted>{form.description}</Muted><TrailItinerary stops={stops.map((stop, index) => ({ ...stop, position: index }))} mode={form.route_mode} /></Section>}
+    {tab === 'preview' && <Section title={form.title || 'Prévia do percurso'}><Muted translate={false}>{form.description}</Muted><TrailItinerary stops={stops.map((stop, index) => ({ ...stop, position: index }))} mode={form.route_mode} /></Section>}
     <Section title="Salvar alterações"><Muted>Alterações no percurso não substituem o roteiro que já foi contratado pelos turistas.</Muted><Button secondary title="Salvar como rascunho" disabled={busy} onPress={() => save('draft')} /><Button title="Salvar e publicar trilha" disabled={busy || form.status === 'hidden'} onPress={() => save('published')} /></Section>
   </Page>;
 }
@@ -62,6 +63,7 @@ function Existing({ id }) {
   return data ? <Editor key={data.id} initial={data} /> : <Page title="Carregando trilha…" loading={loading} error={error} />;
 }
 export default function TrailEditor() {
+  useLanguage();
   const params = useLocalSearchParams();
   return params.id ? <Existing id={params.id} /> : <Editor initial={null} />;
 }
