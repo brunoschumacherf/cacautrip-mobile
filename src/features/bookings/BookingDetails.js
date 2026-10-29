@@ -10,6 +10,7 @@ import PlaceMap from '../../components/PlaceMap';
 import { asArray } from '../../lib/data';
 import api from '../../services/api';
 import TrailItinerary from '../trails/TrailItinerary';
+import CommissionBreakdown from '../professionals/CommissionBreakdown';
 export default function BookingDetails() {
   const { id } = useLocalSearchParams();
   const { user } = useSession();
@@ -36,9 +37,10 @@ export default function BookingDetails() {
       <Badge>{statusLabel(booking.status)}</Badge>
       <Card><Title>{professional ? booking.tourist_name : booking.professional?.name || booking.service_type}</Title><Muted>{booking.service_type}</Muted><Text style={ct.text}>{booking.date} · {booking.people} pessoa(s)</Text><Muted>Encontro: {booking.meeting_point}</Muted>{Boolean(booking.dropoff_point) && <Muted>Desembarque: {booking.dropoff_point}</Muted>}{Boolean(booking.conditions) && <Muted>Condições: {booking.conditions}</Muted>}<Title>{money(booking.total_amount)}</Title><Muted>Pagamento: {statusLabel(booking.payment_status)}</Muted></Card>
       <Section title="Próximo passo">
+        {professional && <CommissionBreakdown quote={booking.commission} amount={booking.total_amount} />}
         {negotiating && <Card><Title>{canRespond ? 'Você recebeu uma proposta' : 'Aguardando a outra parte'}</Title><Title>{money(booking.total_amount)}</Title>
           {canRespond && <><Button title="Aceitar este valor" disabled={busy} onPress={() => run(async () => { await api.patch(`/bookings/${booking.id}/accept_offer`); await reload(); })} />
-            {booking.service_type === 'Motorista' && <><Field label="Sua contraproposta (R$)" value={offer} onChangeText={setOffer} keyboardType="decimal-pad" /><Button secondary title="Enviar contraproposta" disabled={busy || !offer.trim()} onPress={() => run(async () => { await api.post(`/bookings/${booking.id}/counteroffer`, { amount: offer }); setOffer(''); await reload(); })} /></>}
+            {booking.service_type === 'Motorista' && <><Field label="Sua contraproposta (R$)" value={offer} onChangeText={setOffer} keyboardType="decimal-pad" />{professional && Boolean(offer.trim()) && <CommissionBreakdown amount={offer} title="Recebimento com sua contraproposta" />}<Button secondary title="Enviar contraproposta" disabled={busy || !offer.trim()} onPress={() => run(async () => { await api.post(`/bookings/${booking.id}/counteroffer`, { amount: offer }); setOffer(''); await reload(); })} /></>}
             {professional && <Button secondary title="Recusar" disabled={busy} onPress={() => respond('reject')} />}
           </>}
           {!canRespond && <Muted>Você poderá pagar quando o valor for aceito pela outra parte.</Muted>}

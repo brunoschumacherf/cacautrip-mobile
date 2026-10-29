@@ -7,6 +7,7 @@ import { useAction, useResource } from '../../hooks/useResource';
 import { asArray } from '../../lib/data';
 import { departureDate } from './TrailItinerary';
 import api from '../../services/api';
+import CommissionBreakdown from '../professionals/CommissionBreakdown';
 export default function DepartureManager({ trailId, defaultMeeting }) {
   const { data, error, reload } = useResource(`/trails/${trailId}/edit`, { departures: [] });
   const { run, busy, notice, setNotice } = useAction();
@@ -34,6 +35,7 @@ export default function DepartureManager({ trailId, defaultMeeting }) {
       <Field label="Capacidade por saída" value={form.capacity} onChangeText={update('capacity')} keyboardType="number-pad" />
       <Field label="Ponto exato de encontro" value={form.meeting_point} onChangeText={update('meeting_point')} />
       <Field label="Preço especial desta saída (opcional)" hint="Em branco, usa o preço fixo da trilha." value={form.price_override} onChangeText={update('price_override')} keyboardType="decimal-pad" />
+      <CommissionBreakdown amount={form.price_override || data.price} unit={data.price_mode === 'per_person' ? 'Valores por pessoa nesta saída' : 'Valores por grupo nesta saída'} />
       <Field label="Orientações para a saída" value={form.notes} onChangeText={update('notes')} multiline />
       <Button title="Abrir datas e vagas" disabled={busy} onPress={create} />
     </Card>

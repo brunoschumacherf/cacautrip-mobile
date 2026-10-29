@@ -18,6 +18,7 @@ export function normalizeUser(value) {
 }
 export function normalizeResource(path, payload, defaults) {
   const endpoint = path.split('?')[0];
+  if (endpoint === '/professional_profiles/commission') return asObject(payload);
   if (/^\/professional_profiles\/(guide|driver)\/\d+$/.test(endpoint)) return professional(payload);
   if (endpoint.startsWith('/professional_profiles/')) {
     if (!Array.isArray(payload)) throw new Error('A API retornou um formato inesperado para profissionais. Atualize o servidor.');

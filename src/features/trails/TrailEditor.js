@@ -8,6 +8,7 @@ import { asArray } from '../../lib/data';
 import TrailItinerary from './TrailItinerary';
 import DepartureManager from './DepartureManager';
 import api from '../../services/api';
+import CommissionBreakdown from '../professionals/CommissionBreakdown';
 const fresh = region => ({ title: '', description: '', region: region || '', image_url: '', difficulty: 'easy', route_mode: 'ordered', duration_minutes: '180', distance_km: '', price: '150', price_mode: 'per_person', minimum_age: '0', accessible: false, included: '', not_included: '', what_to_bring: '', safety_notes: '', cancellation_policy: '', status: 'draft' });
 const point = () => ({ name: '', address: '', description: '', kind: 'visit', duration_minutes: '15', latitude: '', longitude: '', optional: false });
 function Editor({ initial }) {
@@ -39,6 +40,7 @@ function Editor({ initial }) {
     {tab === 'about' && <Card><Title>Sobre a trilha</Title><Field label="Nome da trilha ou passeio" value={form.title} onChangeText={update('title')} /><Field label="Descrição da experiência" value={form.description} onChangeText={update('description')} multiline /><Field label="Cidade / região" value={form.region} onChangeText={update('region')} /><Field label="URL da imagem de capa" value={form.image_url || ''} onChangeText={update('image_url')} autoCapitalize="none" />
       <Muted>Dificuldade</Muted><View style={s.row}>{[['easy', 'Leve'], ['moderate', 'Moderada'], ['hard', 'Difícil']].map(([key, label]) => <Button key={key} secondary title={`${form.difficulty === key ? '✓ ' : ''}${label}`} onPress={() => update('difficulty')(key)} />)}</View>
       <Field label="Duração total estimada (minutos)" value={String(form.duration_minutes)} onChangeText={update('duration_minutes')} keyboardType="number-pad" /><Field label="Distância aproximada (km, opcional)" value={String(form.distance_km ?? '')} onChangeText={update('distance_km')} keyboardType="decimal-pad" /><Field label="Preço fixo (R$)" value={String(form.price)} onChangeText={update('price')} keyboardType="decimal-pad" /><Button secondary title={`${form.price_mode === 'per_person' ? '✓ ' : ''}Preço por pessoa`} onPress={() => update('price_mode')('per_person')} /><Button secondary title={`${form.price_mode === 'group' ? '✓ ' : ''}Preço fechado por grupo`} onPress={() => update('price_mode')('group')} />
+      <CommissionBreakdown amount={form.price} unit={form.price_mode === 'per_person' ? 'Valores por pessoa' : 'Valores por grupo contratado'} />
     </Card>}
     {tab === 'stops' && <Section title="Onde vamos passar?" subtitle="Cadastre os endereços. As coordenadas são opcionais e permitem mostrar os marcadores no mapa do app.">
       <Button secondary title={`${form.route_mode === 'ordered' ? '✓ ' : ''}Definir a ordem do percurso`} onPress={() => update('route_mode')('ordered')} /><Button secondary title={`${form.route_mode === 'flexible' ? '✓ ' : ''}A ordem pode mudar durante o passeio`} onPress={() => update('route_mode')('flexible')} /><Toggle label="Informar coordenadas dos pontos" value={coordinates} onChange={setCoordinates} />
