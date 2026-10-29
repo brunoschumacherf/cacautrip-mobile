@@ -10,7 +10,9 @@ export default function LoginScreen({ navigation }) {
     try {
       const response = await api.post('/login', { email, password });
       Alert.alert('Sucesso', response.data.message);
-      // Aqui você salvaria o token/sessão e redirecionaria para a Home
+      
+      // Redireciona para a Home passando o objeto do usuário retornado pela API
+      navigation.replace('Home', { user: response.data.user });
     } catch (error) {
       const msg = error.response?.data?.error || 'Erro ao conectar com o servidor';
       Alert.alert('Erro no Login', msg);
