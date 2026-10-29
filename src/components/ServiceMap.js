@@ -6,7 +6,7 @@ import { useResource } from '../hooks/useResource';
 import PlaceMap from './PlaceMap';
 import { mapPointIcon } from './mapHtml';
 
-const types = [['', 'Todos'], ['destination', 'Destinos'], ['trail', 'Trilhas'], ['guide', 'Guias'], ['driver', 'Motoristas'], ['collection', 'Coleta'], ['partner', 'Parceiros'], ['hospital', 'Saúde'], ['police', 'Delegacias'], ['emergency', 'Todo apoio']];
+const types = [['', 'Todos'], ['destination', 'Destinos'], ['trail', 'Trilhas'], ['guide', 'Guias'], ['driver', 'Motoristas'], ['collection', 'Coleta'], ['partner', 'Parceiros'], ['upa', 'UPAs'], ['hospital', 'Saúde'], ['police', 'Delegacias'], ['emergency', 'Todo apoio']];
 export default function ServiceMap({ query = '', kinds = [], filters = true }) {
   const [selected, setSelected] = useState('');
   const path = `/map_points?q=${encodeURIComponent(query)}&kinds=${encodeURIComponent(kinds.join(','))}`;
@@ -17,7 +17,7 @@ export default function ServiceMap({ query = '', kinds = [], filters = true }) {
     const timer = setInterval(() => { if (++attempts <= 6) reload(); else clearInterval(timer); }, 4000);
     return () => clearInterval(timer);
   }, [data.unlocated_count, reload]));
-  const matching = (point, type) => ['hospital', 'police'].includes(type) ? mapPointIcon(point) === type : point.kind === type;
+  const matching = (point, type) => type === 'upa' ? /\bupa\b/i.test(`${point.category || ''} ${point.name || ''}`) : ['hospital', 'police'].includes(type) ? mapPointIcon(point) === type : point.kind === type;
   const points = selected ? data.points.filter(point => matching(point, selected)) : data.points;
   return <View style={{ marginVertical: 12 }}>
     {filters && <View style={s.row}>{types.map(([value, title]) => <Button key={value} secondary title={`${selected === value ? '✓ ' : ''}${title}${value ? ` (${data.points.filter(point => matching(point, value)).length})` : ''}`} onPress={() => setSelected(value)} />)}</View>}
