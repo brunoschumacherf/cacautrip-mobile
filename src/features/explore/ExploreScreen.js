@@ -10,19 +10,21 @@ import { useSession } from '../../context/SessionContext';
 export default function ExploreScreen() {
   const { user } = useSession();
   const params = useLocalSearchParams();
-  const [query, setQuery] = useState('');
-  const search = useDeferredValue(query);
-  const [coords, setCoords] = useState(null);
-  const [category, setCategory] = useState('');
+  const [filters, setFilters] = useState({ query: '', category: '', coords: null, page: 1 });
+  const { query, category } = filters;
+  const stable = useDeferredValue(filters);
+  const updateFilter = (key, value) => setFilters(current => ({ ...current, [key]: value, page: 1 }));
   const [showMap, setShowMap] = useState(false);
   const { run, busy, notice } = useAction();
-  const path = `/catalog?q=${encodeURIComponent(search)}&category=${encodeURIComponent(category)}${user.preferences.accessible ? '&accessible=true' : ''}${coords ? `&latitude=${coords.latitude}&longitude=${coords.longitude}` : ''}`;
-  const { data, error, loading, refreshing, reload } = useResource(path, { destinations: [], alerts: [], emergency_points: [] });
+  const path = `/catalog?page=${stable.page}&per_page=6&q=${encodeURIComponent(stable.query)}&category=${encodeURIComponent(stable.category)}${user.preferences.accessible ? '&accessible=true' : ''}${stable.coords ? `&latitude=${stable.coords.latitude}&longitude=${stable.coords.longitude}` : ''}`;
+  const { data, error, loading, refreshing, reload } = useResource(path, { destinations: [], alerts: [], emergency_points: [], pagination: { page: 1, total_pages: 1, total: 0, per_page: 6 } });
+  const pagination = data.pagination;
+  const changingPage = loading || refreshing || filters !== stable;
   const locate = () => run(async () => {
     const permission = await Location.requestForegroundPermissionsAsync();
     if (permission.status !== 'granted') throw new Error('A localização não foi autorizada. Você pode pesquisar a cidade manualmente.');
     const result = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced });
-    setCoords(result.coords); setShowMap(true);
+    updateFilter('coords', result.coords); setShowMap(true);
   });
   return <Page title={`Olá, ${user.name.split(' ')[0]}.`} subtitle="Descubra seu próximo lugar na Costa do Cacau." loading={loading} refreshing={refreshing} error={error} onRefresh={reload}>
     <Notice>{notice}</Notice>
@@ -30,16 +32,22 @@ export default function ExploreScreen() {
     <View style={s.row}><Shortcut title="Planejar viagem" subtitle="Monte seu roteiro" icon="map-outline" href="/roteiros" /><Shortcut title="Guias e transporte" subtitle="Encontre profissionais locais" icon="people-outline" href="/profissionais" /></View>
     <Button secondary icon="sparkles-outline" title="Ajude-me a escolher um passeio" onPress={() => router.push('/assistente')} />
     <Section title="Explore a região">
-      <Field label="Destino, cidade ou experiência" placeholder="O que deseja conhecer?" value={query} onChangeText={setQuery} />
-      <View style={s.row}>{['', 'praia', 'trilha', 'restaurante', 'pousada', 'atração', 'passeio'].map(item => <Button secondary key={item} title={`${item === category ? '✓ ' : ''}${item || 'Todos'}`} onPress={() => setCategory(item)} />)}</View>
+      <Field label="Destino, cidade ou experiência" placeholder="O que deseja conhecer?" value={query} onChangeText={value => updateFilter('query', value)} />
+      <View style={s.row}>{['', 'praia', 'trilha', 'restaurante', 'pousada', 'atração', 'passeio'].map(item => <Button secondary key={item} title={`${item === category ? '✓ ' : ''}${item || 'Todos'}`} onPress={() => updateFilter('category', item)} />)}</View>
       <View style={s.row}><Button secondary title="Perto de mim" icon="location-outline" onPress={locate} disabled={busy} /><Button secondary title={showMap ? 'Ocultar mapa' : 'Ver mapa'} icon="map-outline" onPress={() => setShowMap(!showMap)} /></View>
       {showMap && <PlaceMap points={data.destinations} />}
+      {!loading && pagination.total > 0 && <Muted>Mostrando {(pagination.page - 1) * pagination.per_page + 1}–{Math.min(pagination.page * pagination.per_page, pagination.total)} de {pagination.total} lugares</Muted>}
       {data.destinations.map(item => <Card key={item.id}>
         <Photo uri={item.image_url} /><Badge>{item.category} · {item.city}</Badge><Title>{item.name}</Title>
         <Muted>{item.description}</Muted><Muted>{Number(item.price) > 0 ? `A partir de ${money(item.price)}` : 'Consulte condições de visita'}{item.distance_km != null ? ` · ${item.distance_km} km` : ''}</Muted>
         <Button title="Conhecer este lugar" onPress={() => router.push({ pathname: '/destinos/[id]', params: { id: item.id, routeId: params.routeId || '' } })} />
       </Card>)}
-      {!data.destinations.length && <Empty>Nenhum destino encontrado. Experimente outra cidade ou categoria.</Empty>}
+      {!loading && !error && !data.destinations.length && <Empty>Nenhum destino encontrado. Experimente outra cidade ou categoria.</Empty>}
+      {pagination.total > 0 && <View style={s.row}>
+        <Button secondary title="Anterior" disabled={changingPage || !pagination.has_previous} onPress={() => setFilters(current => ({ ...current, page: pagination.page - 1 }))} />
+        <Muted>Página {pagination.page} de {pagination.total_pages}</Muted>
+        <Button secondary title="Próxima" disabled={changingPage || !pagination.has_next} onPress={() => setFilters(current => ({ ...current, page: pagination.page + 1 }))} />
+      </View>}
     </Section>
     {data.alerts.length > 0 && <Section title="Antes de sair">{data.alerts.slice(0, 3).map(alert => <Card key={alert.id}><Title>{alert.title}</Title><Muted>{alert.body}</Muted></Card>)}</Section>}
   </Page>;
