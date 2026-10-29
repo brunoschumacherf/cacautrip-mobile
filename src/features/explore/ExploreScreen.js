@@ -42,7 +42,6 @@ export default function ExploreScreen() {
       {!data.destinations.length && <Empty>Nenhum destino encontrado. Experimente outra cidade ou categoria.</Empty>}
     </Section>
     {data.alerts.length > 0 && <Section title="Antes de sair">{data.alerts.slice(0, 3).map(alert => <Card key={alert.id}><Title>{alert.title}</Title><Muted>{alert.body}</Muted></Card>)}</Section>}
-    <Button secondary title="Emergência e pontos de apoio" icon="medical-outline" onPress={() => router.push('/emergencia')} />
   </Page>;
 }
 

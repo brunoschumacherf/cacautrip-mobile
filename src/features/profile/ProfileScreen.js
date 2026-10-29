@@ -8,7 +8,7 @@ import api from '../../services/api';
 
 export default function ProfileScreen() {
   const { user, refreshUser, logout } = useSession();
-  const { run, busy, notice } = useAction();
+  const { run, busy, notice, setNotice } = useAction();
   const changeRole = role => run(async () => {
     await api.patch('/me', { active_role: role }); await refreshUser();
     router.replace(role === 'tourist' ? '/' : '/profissional');
@@ -19,16 +19,17 @@ export default function ProfileScreen() {
       <Card>
         <Title>{user.name}</Title><Muted>{user.email}</Muted>
         <Badge>{user.gov_verified ? 'Gov.br autenticado' : 'Identidade não autenticada'}</Badge>
-        {!user.gov_verified && <Button title="Autenticar com Gov.br" disabled={busy} onPress={() => run(async () => { await api.post('/me/verify_gov'); await refreshUser(); })} />}
+        {!user.gov_verified && <><Button title="Verificar com Gov.br" disabled={busy} onPress={() => run(async () => { const response = await api.post('/me/verify_gov'); await refreshUser(); setNotice(response.data.message); })} /><Muted>Verifique sua conta para liberar o cadastro de guia e motorista.</Muted></>}
         <Button secondary title="Editar dados e preferências" icon="settings-outline" onPress={() => router.push('/preferencias')} />
       </Card>
       <Section title="Como deseja usar o Cacautrip?" subtitle="Troque de perfil sem criar outra conta.">
-        {user.roles.map(role => <Button key={role} secondary title={`${user.active_role === role ? '✓ ' : ''}${{ tourist: 'Viajar como turista', guide: 'Trabalhar como guia', driver: 'Trabalhar como motorista' }[role]}`} disabled={busy} onPress={() => changeRole(role)} />)}
+        {user.roles.map(role => <Button key={role} secondary title={`${user.active_role === role ? '✓ ' : ''}${{ tourist: 'Viajar como turista', guide: 'Trabalhar como guia', driver: 'Trabalhar como motorista' }[role]}`} disabled={busy || (role !== 'tourist' && !user.gov_verified)} onPress={() => changeRole(role)} />)}
       </Section>
       <Section title="Trabalhe na Costa do Cacau">
+        {!user.gov_verified && <Muted>O cadastro de guia ou motorista exige uma conta verificada pelo Gov.br.</Muted>}
         <View style={s.row}>
-          <Shortcut title="Guias" subtitle={user.guide_profile ? 'Gerenciar meu cadastro' : 'Ofereça experiências locais'} icon="trail-sign-outline" href={{ pathname: '/cadastro-profissional', params: { kind: 'guide' } }} />
-          <Shortcut title="Motoristas" subtitle={user.driver_profile ? 'Gerenciar meu cadastro' : 'Transporte para os viajantes'} icon="car-outline" href={{ pathname: '/cadastro-profissional', params: { kind: 'driver' } }} />
+          <Shortcut title="Guias" subtitle={user.guide_profile ? 'Gerenciar meu cadastro' : 'Ofereça experiências locais'} icon="trail-sign-outline" href={{ pathname: '/cadastro-profissional', params: { kind: 'guide' } }} disabled={!user.gov_verified} />
+          <Shortcut title="Motoristas" subtitle={user.driver_profile ? 'Gerenciar meu cadastro' : 'Transporte para os viajantes'} icon="car-outline" href={{ pathname: '/cadastro-profissional', params: { kind: 'driver' } }} disabled={!user.gov_verified} />
         </View>
       </Section>
       <Section title="Conta e atendimento">

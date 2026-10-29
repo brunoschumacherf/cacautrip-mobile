@@ -31,7 +31,7 @@ export default function ProfessionalEditor() {
   });
   return <Page title={kind === 'guide' ? 'Cadastro de guia.' : 'Cadastro de motorista.'} subtitle="Seu perfil pode ser editado a qualquer momento.">
     <Notice>{notice}</Notice>
-    {!user.gov_verified ? <Card><Title>Primeiro, autentique sua identidade</Title><Muted>Autentique sua conta Gov.br para continuar o cadastro profissional.</Muted><Button title="Autenticar Gov.br e continuar" disabled={busy} onPress={() => run(async () => { await api.post('/me/verify_gov'); await refreshUser(); })} /></Card> : <Card>
+    {!user.gov_verified ? <Card><Title>Verificação de identidade necessária</Title><Muted>Verifique sua conta com Gov.br em Minha conta para liberar o cadastro profissional.</Muted><Button title="Ir para Minha conta" onPress={() => router.push('/perfil')} /></Card> : <Card>
       <Badge>Etapa {step} de 3 · {['', 'Apresentação', 'Dados profissionais', 'Agenda e preço'][step]}</Badge>
       {step === 1 && <>
         <Title>Apresente seu trabalho</Title><Field label="Regiões e cidades atendidas" value={form.region || ''} onChangeText={update('region')} />

@@ -44,8 +44,8 @@ export function Empty({ children = 'Nenhum registro por aqui ainda.' }) { return
 export function Photo({ uri }) {
   return uri ? <Image source={{ uri }} style={s.photo} accessibilityLabel="Foto do serviço" /> : <View style={[s.photo, s.placeholder]}><Ionicons name="leaf" size={34} color={colors.orange} /></View>;
 }
-export function Shortcut({ title, subtitle, icon, href }) {
-  return <TouchableOpacity accessibilityRole="button" onPress={() => router.push(href)} style={s.shortcut}><View style={s.shortcutIcon}><Ionicons name={icon} size={24} color={colors.orange} /></View><Text style={[s.title, { fontSize: 17, lineHeight: 23 }]}>{title}</Text>{Boolean(subtitle) && <Muted>{subtitle}</Muted>}<Ionicons name="arrow-forward" size={18} color={colors.orange} /></TouchableOpacity>;
+export function Shortcut({ title, subtitle, icon, href, disabled = false }) {
+  return <TouchableOpacity accessibilityRole="button" accessibilityState={{ disabled }} disabled={disabled} onPress={() => router.push(href)} style={[s.shortcut, disabled && s.disabled]}><View style={s.shortcutIcon}><Ionicons name={icon} size={24} color={colors.orange} /></View><Text style={[s.title, { fontSize: 17, lineHeight: 23 }]}>{title}</Text>{Boolean(subtitle) && <Muted>{subtitle}</Muted>}<Ionicons name="arrow-forward" size={18} color={colors.orange} /></TouchableOpacity>;
 }
 const touristNav = [ ['/', 'Explorar', 'compass-outline'], ['/roteiros', 'Roteiros', 'map-outline'], ['/reservas', 'Reservas', 'calendar-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
 const professionalNav = [ ['/profissional', 'Painel', 'grid-outline'], ['/agenda', 'Agenda', 'calendar-outline'], ['/carteira', 'Carteira', 'wallet-outline'], ['/chat', 'Mensagens', 'chatbubbles-outline'], ['/perfil', 'Conta', 'person-outline'] ];
@@ -64,6 +64,13 @@ export function Page({ title, subtitle, children, loading = false, error, onRefr
           <TouchableOpacity accessibilityLabel="Minha conta" style={s.iconButton} onPress={() => router.push('/perfil')}><Ionicons name="person-circle-outline" size={26} color={colors.orange} /></TouchableOpacity>
         </View>
       </View>
+      {path !== '/emergencia' && (
+        <TouchableOpacity accessibilityRole="button" accessibilityLabel="Abrir Emergência e pontos de apoio" onPress={() => router.push('/emergencia')} style={s.emergencyAccess}>
+          <View style={s.emergencyIcon}><Ionicons name="medical-outline" size={20} color={colors.danger} /></View>
+          <Text style={s.emergencyLabel}>Emergência e pontos de apoio</Text>
+          <Ionicons name="chevron-forward" size={18} color={colors.danger} />
+        </TouchableOpacity>
+      )}
       <ScrollView contentContainerStyle={s.body} keyboardShouldPersistTaps="handled" refreshControl={onRefresh ? <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.orange} /> : undefined}>
         {!isMain && <TouchableOpacity onPress={() => router.canGoBack() ? router.back() : router.replace('/')} style={s.back}><Ionicons name="arrow-back" size={18} color={colors.orange} /><Text style={s.account}>Voltar</Text></TouchableOpacity>}
         <Text style={s.eyebrow}>{user?.active_role === 'tourist' ? 'COSTA DO CACAU · BAHIA' : `ÁREA ${statusLabel(user?.active_role).toUpperCase()}`}</Text>
@@ -84,6 +91,9 @@ export const s = StyleSheet.create({
   brand: { fontFamily: fonts.heading, fontSize: 20, fontWeight: '800', letterSpacing: -.6, color: colors.brown },
   account: { fontFamily: fonts.body, color: colors.muted, fontSize: 13, fontWeight: '700' },
   iconButton: { width: 40, height: 40, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.secondary, borderRadius: 20 },
+  emergencyAccess: { minHeight: 48, flexDirection: 'row', alignItems: 'center', gap: 10, paddingVertical: 7, paddingHorizontal: 20, backgroundColor: colors.dangerSurface, borderBottomWidth: 1, borderBottomColor: colors.line },
+  emergencyIcon: { width: 32, height: 32, borderRadius: 10, backgroundColor: colors.paper, alignItems: 'center', justifyContent: 'center' },
+  emergencyLabel: { flex: 1, fontFamily: fonts.body, fontSize: 13, lineHeight: 19, fontWeight: '800', color: colors.danger },
   body: { padding: 20, paddingTop: 24, paddingBottom: 140, width: '100%', maxWidth: 1040, alignSelf: 'center' },
   back: { flexDirection: 'row', gap: 8, alignItems: 'center', marginBottom: 10, alignSelf: 'flex-start', paddingVertical: 6 },
   eyebrow: { fontFamily: fonts.body, letterSpacing: 1.2, fontSize: 11, color: colors.orange, marginVertical: 10, fontWeight: '800' },
